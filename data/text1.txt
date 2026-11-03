@@ -1,0 +1,23 @@
+LangChain is an open-source software framework designed to help developers build applications powered by large language models (LLMs) like GPT, Claude, and Gemini.
+
+What LangChain Does
+
+Raw LLMs have limitations: they lack long-term memory, cannot read private documents out-of-the-box, and cannot natively execute real-world actions or call external APIs. LangChain acts as the connective "plumbing" between LLMs and external systems.
+It is available in both Python and JavaScript.
+
+Core Components
+
+• Model Wrappers: Standardized interfaces that let you switch or connect to hundreds of different LLMs easily.
+• Prompt Templates: Dynamic structures to format and inject variables (like user names, dates, or specific contexts) into prompts.
+• Chains: Pipelines that link multiple steps together—such as taking user input, running it through a prompt template, sending it to an LLM, and parsing the final output (using syntaxes like LCEL or LangChain Expression Language).
+• Retrieval-Augmented Generation (RAG): Tools to load external documents (PDFs, databases, web pages), split them into chunks, convert them into vector embeddings, and search them to provide accurate context to the LLM.
+• Memory: Modules that store past chat interactions or summaries so conversational assistants can maintain context over time.
+• Agents: Systems that use an LLM as a reasoning engine to dynamically decide which tools to call, and in what order, to solve complex multi-step tasks.
+• LangGraph: An official agent runtime and graph-based orchestration framework built by LangChain for managing stateful, multi-agent workflows.
+
+Common Use Cases
+
+• Smart Chatbots: Virtual assistants with conversation memory and access to internal knowledge bases.
+• Document Question-Answering: Systems that let users query private files, legal contracts, or manuals.
+• Data Analysis & SQL: Converting natural language questions into database queries and business reports.
+• Automated Workflows: Multi-step pipelines for customer support, CRM updates, and code analysi
