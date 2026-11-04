@@ -21,7 +21,7 @@ async def lifespan(app):
 
 
 app = FastAPI(title="RAG Chat", lifespan=lifespan)
-STATIC = Path(__file__).parent / "static"
+FRONTEND = Path(__file__).resolve().parent.parent / "frontend"   # same page Vercel serves
 
 
 class ChatRequest(BaseModel):
@@ -32,7 +32,12 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 def index():
-    return FileResponse(STATIC / "index.html")
+    return FileResponse(FRONTEND / "index.html")
+
+
+@app.get("/api/health")
+def health():
+    return {"ok": engine is not None, "chunks": len(engine.chunks) if engine else 0}
 
 
 @app.get("/api/chats")

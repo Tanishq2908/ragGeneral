@@ -27,7 +27,9 @@ MODES = ["none", "rewrite", "multi_query", "hyde"]
 class RagEngine:
     def __init__(self):
         self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
-        self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+        # USE_RERANKER=false saves ~100 MB RAM (useful on 512 MB hosting plans) at some accuracy cost
+        self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2") \
+            if os.getenv("USE_RERANKER", "true").lower() != "false" else None
         self.llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"), model_name="openai/gpt-oss-20b",
                             temperature=0.1, max_tokens=1024)
         self._build_index()
@@ -73,6 +75,8 @@ class RagEngine:
                 for rank, idx in enumerate(ranked, 1):
                     fused[idx] += 1 / (60 + rank)
         candidates = [i for i, _ in fused.most_common(24)]
+        if self.reranker is None:
+            return [dict(self.chunks[i], score=round(s, 4)) for i, s in fused.most_common(final_k)]
         scores = self.reranker.predict([(question, self.chunks[i]["content"]) for i in candidates],
                                        show_progress_bar=False)
         ranked = sorted(zip(candidates, scores), key=lambda x: float(x[1]), reverse=True)[:final_k]

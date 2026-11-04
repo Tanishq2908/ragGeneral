@@ -1,0 +1,25 @@
+# Render Blueprint: FastAPI backend + Postgres for chat history.
+# Render dashboard -> New -> Blueprint -> pick this repo. You will be asked for GROQ_API_KEY.
+services:
+  - type: web
+    name: raggeneral-api
+    runtime: python
+    plan: free                     # 512 MB RAM; use "starter"/"standard" if it runs out of memory
+    buildCommand: pip install -r requirements-server.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GROQ_API_KEY
+        sync: false
+      - key: USE_RERANKER
+        value: "false"             # set "true" on a plan with >=1 GB RAM for better accuracy
+      - key: DATABASE_URL
+        fromDatabase:
+          name: raggeneral-db
+          property: connectionString
+
+databases:
+  - name: raggeneral-db
+    plan: free
