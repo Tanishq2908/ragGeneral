@@ -3,17 +3,14 @@
 Hybrid RAG over the PDFs in `data/`: MiniLM dense search + BM25, reciprocal rank fusion, cross-encoder reranking, and a Groq LLM to write the answer.
 
 ## Notebook: `notebook/doc.ipynb`
-The last cells evaluate the pipeline on `data/eval_questions.json`, which has 201 labelled questions about `AIcorpus.pdf`:
+The last cells evaluate the pipeline on ~200 labelled questions. The set is chosen from the PDFs you loaded:
 
-| type | count | what it tests |
-|---|---|---|
-| single | 133 | one-section factual lookups (includes the PDF's gold set G01–G14) |
-| multi | 23 | evidence from 2+ sections |
-| conversational | 25 | casual or vague phrasing, where query rewriting should help |
-| distractor | 4 | near-duplicate vocabulary |
-| unanswerable | 16 | the system must abstain |
+| file | corpus | labels | types |
+|---|---|---|---|
+| `data/eval_questions_legal.json` (200) | the legal PDFs in `data/` (Patents Act and Rules, TRIPS, CBD, Nagoya, WIPO GRATK, BD Act and Rules, Drugs & Cosmetics, DMR Act, FSSAI) | source file + exact evidence quote, each one checked against the PDF text | 159 single, 11 multi-document, 15 conversational, 15 unanswerable |
+| `data/eval_questions.json` (201) | `AIcorpus.pdf` | section IDs A01–A48 | 133 single, 23 multi, 25 conversational, 4 distractor, 16 unanswerable |
 
-Metrics: Hit@5, section recall@5, MRR, Precision@5, keyword answer score, abstention accuracy, latency and LLM calls per question.
+Metrics: Hit@5, evidence/section recall@5, MRR, Precision@5, keyword answer score, abstention accuracy, latency and LLM calls per question.
 The final cell compares query rewriting strategies (`none`, `rewrite`, `multi_query`, `hyde`, `adaptive`) on time vs accuracy.
 It saves `data/eval_results/metrics_summary.md` with a table and resume bullets taken from your run.
 

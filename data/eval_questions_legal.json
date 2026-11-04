@@ -1,0 +1,3006 @@
+[
+ {
+  "id": "L001",
+  "type": "single",
+  "question": "What does 'magic remedy' include under the Drugs and Magic Remedies Act, 1954?",
+  "reference": "A talisman, mantra, kavacha and any other charm alleged to possess miraculous powers for diagnosis, cure or prevention of disease.",
+  "keywords": [
+   "talisman",
+   "mantra",
+   "kavacha"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "includes a talisman, mantra, kavacha"
+   }
+  ]
+ },
+ {
+  "id": "L002",
+  "type": "single",
+  "question": "What is the punishment for a first conviction under the Drugs and Magic Remedies Act?",
+  "reference": "Imprisonment up to six months, or fine, or both.",
+  "keywords": [
+   "six months|6 months"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "imprisonment which may extend to six months"
+   }
+  ]
+ },
+ {
+  "id": "L003",
+  "type": "single",
+  "question": "What is the punishment for a subsequent conviction under the Drugs and Magic Remedies Act?",
+  "reference": "Imprisonment up to one year, or fine, or both.",
+  "keywords": [
+   "one year|1 year"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "conviction, with imprisonment which may extend to one year"
+   }
+  ]
+ },
+ {
+  "id": "L004",
+  "type": "single",
+  "question": "For which purposes does section 3 of the Drugs and Magic Remedies Act prohibit drug advertisements?",
+  "reference": "Procuring miscarriage or preventing conception, improving capacity for sexual pleasure, correcting menstrual disorders, and treating diseases in the Schedule or rules.",
+  "keywords": [
+   "miscarriage",
+   "sexual pleasure",
+   "menstrual"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "the procurement of miscarriage in women or prevention of conception"
+   }
+  ]
+ },
+ {
+  "id": "L005",
+  "type": "single",
+  "question": "When is a drug advertisement misleading under section 4 of the Drugs and Magic Remedies Act?",
+  "reference": "When it gives a false impression of the drug's true character, makes a false claim, or is otherwise false or misleading in a material particular.",
+  "keywords": [
+   "false impression|false claim"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "gives a false impression regarding the true character of the drug"
+   }
+  ]
+ },
+ {
+  "id": "L006",
+  "type": "single",
+  "question": "Are offences under the Drugs and Magic Remedies Act cognizable?",
+  "reference": "Yes, section 9A makes them cognizable.",
+  "keywords": [
+   "cognizable"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "an offence punishable under this Act shall be cognizable"
+   }
+  ]
+ },
+ {
+  "id": "L007",
+  "type": "single",
+  "question": "Who may enter, search and seize under section 8 of the Drugs and Magic Remedies Act?",
+  "reference": "A Gazetted Officer authorised by the State Government.",
+  "keywords": [
+   "gazetted officer"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "Gazetted Officer authorised by the State Government"
+   }
+  ]
+ },
+ {
+  "id": "L008",
+  "type": "single",
+  "question": "Does the Drugs and Magic Remedies Act apply to a signboard displayed by a registered medical practitioner?",
+  "reference": "No, section 14 saves such signboards indicating that treatment is undertaken on the premises.",
+  "keywords": [
+   "signboard"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "any signboard or notice displayed by a registered medical practitioner"
+   }
+  ]
+ },
+ {
+  "id": "L009",
+  "type": "single",
+  "question": "How does the Drugs and Magic Remedies Act define 'advertisement'?",
+  "reference": "Any notice, circular, label, wrapper or other document, and any announcement made orally or by light, sound or smoke.",
+  "keywords": [
+   "notice|circular|label",
+   "orally|smoke"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "producing or transmitting light, sound or smoke"
+   }
+  ]
+ },
+ {
+  "id": "L010",
+  "type": "single",
+  "question": "What can a court do with the offending documents after a conviction under the Drugs and Magic Remedies Act?",
+  "reference": "Direct that the document, article or thing be forfeited to the Government (section 10A).",
+  "keywords": [
+   "forfeit"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "shall be forfeited to the Government"
+   }
+  ]
+ },
+ {
+  "id": "L011",
+  "type": "single",
+  "question": "Name some diseases listed in the Schedule to the Drugs and Magic Remedies Act.",
+  "reference": "For example appendicitis, cancer, cataract, diabetes, leprosy, leucoderma, obesity, paralysis.",
+  "keywords": [
+   "cancer|diabetes|leprosy|cataract|leucoderma|obesity|appendicitis"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "Leucoderma"
+   }
+  ]
+ },
+ {
+  "id": "L012",
+  "type": "single",
+  "question": "What are the conditions for patentability under Article 27.1 of TRIPS?",
+  "reference": "Inventions, products or processes in all fields of technology, that are new, involve an inventive step and are capable of industrial application.",
+  "keywords": [
+   "new",
+   "inventive step",
+   "industrial application"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "patents shall be available for any inventions, whether products or processes, in all fields of technology"
+   }
+  ]
+ },
+ {
+  "id": "L013",
+  "type": "single",
+  "question": "What is the minimum term of patent protection under TRIPS?",
+  "reference": "At least twenty years from the filing date (Article 33).",
+  "keywords": [
+   "twenty years|20 years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "a period of twenty years counted from the filing date"
+   }
+  ]
+ },
+ {
+  "id": "L014",
+  "type": "single",
+  "question": "Which biological inventions may members exclude from patentability under Article 27.3(b) of TRIPS?",
+  "reference": "Plants and animals other than micro-organisms, and essentially biological processes for producing them.",
+  "keywords": [
+   "plants",
+   "animals",
+   "micro-organism|microorganism"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "plants and animals other than micro-organisms"
+   }
+  ]
+ },
+ {
+  "id": "L015",
+  "type": "single",
+  "question": "How must TRIPS members protect plant varieties?",
+  "reference": "By patents, an effective sui generis system, or a combination of both.",
+  "keywords": [
+   "sui generis"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "by an effective sui generis system"
+   }
+  ]
+ },
+ {
+  "id": "L016",
+  "type": "single",
+  "question": "Can medical treatment methods be excluded from patentability under TRIPS?",
+  "reference": "Yes, diagnostic, therapeutic and surgical methods for treating humans or animals may be excluded.",
+  "keywords": [
+   "diagnostic",
+   "therapeutic",
+   "surgical"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "diagnostic, therapeutic and surgical methods for the treatment of humans or animals"
+   }
+  ]
+ },
+ {
+  "id": "L017",
+  "type": "single",
+  "question": "On what grounds can inventions be excluded under Article 27.2 of TRIPS?",
+  "reference": "To protect ordre public or morality, including human, animal or plant life or health, or to avoid serious prejudice to the environment.",
+  "keywords": [
+   "ordre public",
+   "morality"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "ordre public or morality"
+   }
+  ]
+ },
+ {
+  "id": "L018",
+  "type": "single",
+  "question": "What exclusive rights does a product patent confer under Article 28 of TRIPS?",
+  "reference": "Preventing third parties from making, using, offering for sale, selling or importing the product.",
+  "keywords": [
+   "making",
+   "using",
+   "selling",
+   "importing"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "using, offering for sale, selling, or importing"
+   }
+  ]
+ },
+ {
+  "id": "L019",
+  "type": "single",
+  "question": "What limits apply to exceptions to patent rights under Article 30 of TRIPS?",
+  "reference": "They must be limited, not unreasonably conflict with normal exploitation, and not unreasonably prejudice the patent owner's legitimate interests.",
+  "keywords": [
+   "normal exploitation"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "do not unreasonably conflict with a normal exploitation of the patent"
+   }
+  ]
+ },
+ {
+  "id": "L020",
+  "type": "single",
+  "question": "Under Article 31 of TRIPS, what must a proposed user normally try before use without authorization?",
+  "reference": "Efforts to obtain authorization from the right holder on reasonable commercial terms within a reasonable period.",
+  "keywords": [
+   "reasonable commercial terms"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "reasonable commercial terms and conditions"
+   }
+  ]
+ },
+ {
+  "id": "L021",
+  "type": "single",
+  "question": "When can the requirement to seek a voluntary licence be waived under Article 31 of TRIPS?",
+  "reference": "In a national emergency, other circumstances of extreme urgency, or public non-commercial use.",
+  "keywords": [
+   "national emergency",
+   "extreme urgency"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "national emergency or other circumstances of extreme urgency"
+   }
+  ]
+ },
+ {
+  "id": "L022",
+  "type": "single",
+  "question": "Under Article 31(f) of TRIPS, what market should compulsory-licence production mainly serve?",
+  "reference": "Predominantly the supply of the domestic market of the authorizing member.",
+  "keywords": [
+   "domestic market"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "predominantly for the supply of the domestic market"
+   }
+  ]
+ },
+ {
+  "id": "L023",
+  "type": "single",
+  "question": "How does TRIPS protect computer programs?",
+  "reference": "As literary works under the Berne Convention, whether in source or object code.",
+  "keywords": [
+   "literary work"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Computer programs, whether in source or object code, shall be protected as literary works"
+   }
+  ]
+ },
+ {
+  "id": "L024",
+  "type": "single",
+  "question": "What is the minimum term of trademark registration under TRIPS?",
+  "reference": "No less than seven years, renewable indefinitely.",
+  "keywords": [
+   "seven years|7 years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "no less than seven years"
+   }
+  ]
+ },
+ {
+  "id": "L025",
+  "type": "single",
+  "question": "After how long a period of non-use can a trademark registration be cancelled under TRIPS?",
+  "reference": "An uninterrupted period of at least three years of non-use.",
+  "keywords": [
+   "three years|3 years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "uninterrupted period of at least three years of non-use"
+   }
+  ]
+ },
+ {
+  "id": "L026",
+  "type": "single",
+  "question": "How does TRIPS define geographical indications?",
+  "reference": "Indications identifying a good as originating in a territory where a given quality, reputation or other characteristic is essentially attributable to its geographical origin.",
+  "keywords": [
+   "quality|reputation|characteristic",
+   "origin"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Geographical indications are, for the purposes of this Agreement, indications which identify a good"
+   }
+  ]
+ },
+ {
+  "id": "L027",
+  "type": "single",
+  "question": "Which products receive additional protection for geographical indications under TRIPS?",
+  "reference": "Wines and spirits (Article 23).",
+  "keywords": [
+   "wine",
+   "spirit"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Additional Protection for Geographical Indications for Wines and Spirits"
+   }
+  ]
+ },
+ {
+  "id": "L028",
+  "type": "single",
+  "question": "What is the minimum protection period for industrial designs under TRIPS?",
+  "reference": "At least 10 years.",
+  "keywords": [
+   "10 years|ten years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "The duration of protection available shall amount to at least 10 years"
+   }
+  ]
+ },
+ {
+  "id": "L029",
+  "type": "single",
+  "question": "What does national treatment mean under TRIPS?",
+  "reference": "Each member gives other members' nationals treatment no less favourable than its own nationals.",
+  "keywords": [
+   "no less favourable"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "treatment no less favourable than that it accords to its own nationals"
+   }
+  ]
+ },
+ {
+  "id": "L030",
+  "type": "single",
+  "question": "What are the objectives of TRIPS stated in Article 7?",
+  "reference": "IP protection should contribute to technological innovation and to transfer and dissemination of technology, to mutual advantage and social and economic welfare.",
+  "keywords": [
+   "innovation",
+   "transfer|dissemination"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "the promotion of technological innovation and to the transfer and dissemination of technology"
+   }
+  ]
+ },
+ {
+  "id": "L031",
+  "type": "single",
+  "question": "What may members adopt measures to protect under the principles in Article 8 of TRIPS?",
+  "reference": "Public health and nutrition, and the public interest in sectors vital to socio-economic and technological development.",
+  "keywords": [
+   "public health",
+   "nutrition"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "public health and nutrition"
+   }
+  ]
+ },
+ {
+  "id": "L032",
+  "type": "single",
+  "question": "For which infringements must TRIPS members provide criminal procedures?",
+  "reference": "Wilful trademark counterfeiting or copyright piracy on a commercial scale.",
+  "keywords": [
+   "counterfeit",
+   "piracy"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "wilful trademark counterfeiting or copyright piracy on a commercial scale"
+   }
+  ]
+ },
+ {
+  "id": "L033",
+  "type": "single",
+  "question": "Does TRIPS settle the issue of exhaustion of IP rights?",
+  "reference": "No, Article 6 says nothing in the Agreement shall be used to address exhaustion in dispute settlement.",
+  "keywords": [
+   "exhaustion"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "address the issue of the exhaustion"
+   }
+  ]
+ },
+ {
+  "id": "L034",
+  "type": "single",
+  "question": "How much extra transition time did developing countries get under Article 65 of TRIPS?",
+  "reference": "A further four years beyond the general one-year period.",
+  "keywords": [
+   "four years|4 years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "a further period of four years"
+   }
+  ]
+ },
+ {
+  "id": "L035",
+  "type": "single",
+  "question": "What transition period did least-developed countries get under Article 66 of TRIPS?",
+  "reference": "Ten years from the general date of application, extendable on request.",
+  "keywords": [
+   "10 years|ten years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Least-Developed Country Members"
+   }
+  ]
+ },
+ {
+  "id": "L036",
+  "type": "single",
+  "question": "What are the objectives of the WIPO Treaty on Genetic Resources and Associated Traditional Knowledge?",
+  "reference": "Enhance efficacy, transparency and quality of the patent system for GR and associated TK, and prevent erroneous grants for non-novel or obvious inventions.",
+  "keywords": [
+   "efficacy",
+   "transparency",
+   "quality"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "enhance the efficacy, transparency and quality of the patent system"
+   }
+  ]
+ },
+ {
+  "id": "L037",
+  "type": "single",
+  "question": "What must patent applicants disclose when an invention is based on genetic resources under the WIPO GRATK Treaty?",
+  "reference": "The country of origin of the genetic resources, or the source if the origin is not known.",
+  "keywords": [
+   "country of origin"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "the country of origin of the genetic resources"
+   }
+  ]
+ },
+ {
+  "id": "L038",
+  "type": "single",
+  "question": "What must be disclosed when an invention is based on traditional knowledge under the WIPO GRATK Treaty?",
+  "reference": "The Indigenous Peoples or local community who provided the TK, or the source if not known.",
+  "keywords": [
+   "indigenous",
+   "local communit"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "the Indigenous Peoples or local community, as applicable"
+   }
+  ]
+ },
+ {
+  "id": "L039",
+  "type": "single",
+  "question": "Under the WIPO GRATK Treaty, what must happen before sanctions for non-disclosure are imposed?",
+  "reference": "The applicant must be given an opportunity to rectify the failure, except in cases of fraudulent conduct or intent.",
+  "keywords": [
+   "rectify"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "opportunity to rectify a failure to disclose"
+   }
+  ]
+ },
+ {
+  "id": "L040",
+  "type": "single",
+  "question": "Can a patent be revoked solely for failing to disclose origin under the WIPO GRATK Treaty?",
+  "reference": "No, a patent cannot be revoked solely for non-disclosure; post-grant sanctions may apply only where there was fraudulent intent.",
+  "keywords": [
+   "revoke|revoked|revocation|invalidat|unenforceable|cancel"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "no Contracting Party shall revoke, invalidate, or render unenforceable"
+   }
+  ]
+ },
+ {
+  "id": "L041",
+  "type": "single",
+  "question": "When does the WIPO GRATK Treaty enter into force?",
+  "reference": "Three months after 15 eligible parties deposit their instruments of ratification or accession.",
+  "keywords": [
+   "three months|3 months",
+   "15|fifteen"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "three months after 15 eligible parties"
+   }
+  ]
+ },
+ {
+  "id": "L042",
+  "type": "single",
+  "question": "When will the scope of the WIPO GRATK Treaty be reviewed?",
+  "reference": "Four years after its entry into force.",
+  "keywords": [
+   "four years|4 years"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "four years after the entry into force of this Treaty"
+   }
+  ]
+ },
+ {
+  "id": "L043",
+  "type": "single",
+  "question": "What information systems does the WIPO GRATK Treaty encourage?",
+  "reference": "Databases of genetic resources and associated traditional knowledge, in consultation with Indigenous Peoples and local communities.",
+  "keywords": [
+   "database"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "may establish information systems (such as databases)"
+   }
+  ]
+ },
+ {
+  "id": "L044",
+  "type": "single",
+  "question": "What is 'Ayurveda Aahara' under the FSSAI regulations of 2022?",
+  "reference": "Food prepared per recipes, ingredients or processes in the authoritative Ayurveda books listed in Schedule A.",
+  "keywords": [
+   "authoritative books|schedule a"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "described in the authoritative books of Ayurveda listed under"
+   }
+  ]
+ },
+ {
+  "id": "L045",
+  "type": "single",
+  "question": "Do Ayurvedic drugs count as Ayurveda Aahara?",
+  "reference": "No, Ayurvedic drugs and proprietary Ayurvedic medicines are excluded.",
+  "keywords": [
+   "drug|medicine"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "does not include Ayurvedic drugs or proprietary Ayurvedic medicines"
+   }
+  ]
+ },
+ {
+  "id": "L046",
+  "type": "single",
+  "question": "Can Ayurveda Aahara be made for infants?",
+  "reference": "No, it cannot be manufactured or sold for infants up to twenty-four months of age.",
+  "keywords": [
+   "twenty-four months|24 months"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "infants up to the age of twenty-four months"
+   }
+  ]
+ },
+ {
+  "id": "L047",
+  "type": "single",
+  "question": "Can vitamins and minerals be added to Ayurveda Aahara?",
+  "reference": "No, vitamins, minerals and amino acids may not be added; naturally present ones are allowed.",
+  "keywords": [
+   "vitamin",
+   "mineral"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "No person shall add vitamins, minerals and amino acids"
+   }
+  ]
+ },
+ {
+  "id": "L048",
+  "type": "single",
+  "question": "Can Ayurveda Aahara labels claim to cure disease?",
+  "reference": "No, labelling, presentation and advertisement may not claim it prevents, treats or cures a human disease.",
+  "keywords": [
+   "prevent|treat|cur"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "has the property of preventing, treating or curing a human disease"
+   }
+  ]
+ },
+ {
+  "id": "L049",
+  "type": "single",
+  "question": "What advisory warning must Ayurveda Aahara labels carry?",
+  "reference": "'ONLY FOR DIETARY USE'.",
+  "keywords": [
+   "dietary use"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "ONLY FOR DIETARY USE"
+   }
+  ]
+ },
+ {
+  "id": "L050",
+  "type": "single",
+  "question": "Where is the Ayurveda Aahara logo specified?",
+  "reference": "Schedule E; it goes on the front of the pack near the product name.",
+  "keywords": [
+   "schedule e"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "the logo as specified in the Schedule E"
+   }
+  ]
+ },
+ {
+  "id": "L051",
+  "type": "single",
+  "question": "What must every Ayurveda Aahara label specify?",
+  "reference": "The intended purpose, target consumer group and recommended duration of use, among other items.",
+  "keywords": [
+   "purpose",
+   "consumer",
+   "duration"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "the intended purpose, the target consumer group, recommended duration of use"
+   }
+  ]
+ },
+ {
+  "id": "L052",
+  "type": "single",
+  "question": "Which regulation governs prior approval of Ayurveda Aahara?",
+  "reference": "The FSS (Approval for Non-Specific Food and Food Ingredients) Regulations, 2017.",
+  "keywords": [
+   "non-specific"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "Approval for Non-Specific Food and Food Ingredients"
+   }
+  ]
+ },
+ {
+  "id": "L053",
+  "type": "single",
+  "question": "How does the Biological Diversity Act define biological diversity?",
+  "reference": "The variability among living organisms from all sources and the ecological complexes they are part of.",
+  "keywords": [
+   "variability"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "variability among living organisms from all sources"
+   }
+  ]
+ },
+ {
+  "id": "L054",
+  "type": "single",
+  "question": "Which body does each local body constitute under the Biological Diversity Act?",
+  "reference": "A Biodiversity Management Committee.",
+  "keywords": [
+   "biodiversity management committee"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "Every local body shall constitute a Biodiversity Management Committee"
+   }
+  ]
+ },
+ {
+  "id": "L055",
+  "type": "single",
+  "question": "For what purposes are Biodiversity Management Committees constituted?",
+  "reference": "To promote conservation, sustainable use and documentation of biological diversity.",
+  "keywords": [
+   "conservation",
+   "documentation"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "documentation of biological diversity"
+   }
+  ]
+ },
+ {
+  "id": "L056",
+  "type": "single",
+  "question": "What areas can State Governments notify under section 37 of the Biological Diversity Act?",
+  "reference": "Biodiversity heritage sites.",
+  "keywords": [
+   "heritage site"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "biodiversity heritage sites"
+   }
+  ]
+ },
+ {
+  "id": "L057",
+  "type": "single",
+  "question": "Which fund is constituted under the Biological Diversity Act?",
+  "reference": "The National Biodiversity Fund.",
+  "keywords": [
+   "fund"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "National Biodiversity Fund"
+   }
+  ]
+ },
+ {
+  "id": "L058",
+  "type": "single",
+  "question": "What does 'commercial utilization' mean under the Biological Diversity Act?",
+  "reference": "End uses of biological resources for commercial purposes such as drugs, industrial enzymes, food flavours, fragrances, cosmetics and similar products.",
+  "keywords": [
+   "drug|enzyme|cosmetic|fragrance"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "“commercial utilization” means end uses of biological resources"
+   }
+  ]
+ },
+ {
+  "id": "L059",
+  "type": "single",
+  "question": "What is 'codified traditional knowledge' under the Biological Diversity (Amendment) Act, 2023?",
+  "reference": "Knowledge derived from the authoritative books in the First Schedule to the Drugs and Cosmetics Act, 1940.",
+  "keywords": [
+   "first schedule",
+   "drugs and cosmetics"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "the knowledge derived from authoritative books specified in the First Schedule to the Drugs and Cosmetics Act, 1940"
+   }
+  ]
+ },
+ {
+  "id": "L060",
+  "type": "single",
+  "question": "Who is exempted from prior intimation under section 7 after the 2023 amendment?",
+  "reference": "Codified TK, cultivated medicinal plants, local people and communities, growers, and vaids, hakims and registered AYUSH practitioners.",
+  "keywords": [
+   "vaid|hakim|ayush"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "vaids, hakims and registered AYUSH practitioners"
+   }
+  ]
+ },
+ {
+  "id": "L061",
+  "type": "single",
+  "question": "What penalty does the 2023 amendment to the Biological Diversity Act set for contraventions?",
+  "reference": "Not less than one lakh rupees, extendable to fifty lakh rupees, or commensurate with the damage.",
+  "keywords": [
+   "one lakh|1 lakh",
+   "fifty lakh|50 lakh"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "not be less than one lakh rupees, but which may extend to fifty lakh rupees"
+   }
+  ]
+ },
+ {
+  "id": "L062",
+  "type": "single",
+  "question": "Where do appeals against adjudicating officer orders go under the amended Biological Diversity Act?",
+  "reference": "To the National Green Tribunal.",
+  "keywords": [
+   "national green tribunal"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "may prefer an appeal to the National Green Tribunal"
+   }
+  ]
+ },
+ {
+  "id": "L063",
+  "type": "single",
+  "question": "How does the Biological Diversity (Amendment) Act, 2023 define 'derivative'?",
+  "reference": "A naturally occurring biochemical compound from the genetic expression or metabolism of biological resources.",
+  "keywords": [
+   "biochemical"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "means a naturally occurring biochemical compound"
+   }
+  ]
+ },
+ {
+  "id": "L064",
+  "type": "single",
+  "question": "What does the 2023 amendment do to section 58 of the Biological Diversity Act?",
+  "reference": "It omits section 58.",
+  "keywords": [
+   "omit"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "Section 58 of the principal Act shall be omitted"
+   }
+  ]
+ },
+ {
+  "id": "L065",
+  "type": "single",
+  "question": "Which rule covers certificates of origin for cultivated medicinal plants in the Biological Diversity Rules, 2024?",
+  "reference": "Rule 19 sets the procedure for a certificate of origin for cultivated medicinal plants.",
+  "keywords": [
+   "certificate of origin"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "Procedure for obtaining a certificate of origin for cultivated medicinal"
+   }
+  ]
+ },
+ {
+  "id": "L066",
+  "type": "single",
+  "question": "Which rule of the Biological Diversity Rules, 2024 lists factors for deciding the quantum of penalty?",
+  "reference": "Rule 25.",
+  "keywords": [
+   "25|penalty"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "Factors to be considered while determining quantum of penalty"
+   }
+  ]
+ },
+ {
+  "id": "L067",
+  "type": "single",
+  "question": "Can the National Biodiversity Authority revoke an access approval under the 2024 Rules?",
+  "reference": "Yes, rule 17 lets the Authority revoke access or approval on its own or on a complaint.",
+  "keywords": [
+   "revok"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "Revocation of access or approval"
+   }
+  ]
+ },
+ {
+  "id": "L068",
+  "type": "single",
+  "question": "Which rule deals with the National Biodiversity Fund in the 2024 Rules?",
+  "reference": "Rule 21.",
+  "keywords": [
+   "21|fund"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "Management and utilisation of National Biodiversity Fund"
+   }
+  ]
+ },
+ {
+  "id": "L069",
+  "type": "single",
+  "question": "Which rule covers non-commercial research or research for emergencies in the 2024 Rules?",
+  "reference": "Rule 20.",
+  "keywords": [
+   "20|research"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "Procedure for conducting non-commercial research or research for emerge"
+   }
+  ]
+ },
+ {
+  "id": "L070",
+  "type": "single",
+  "question": "What are the three objectives of the Convention on Biological Diversity?",
+  "reference": "Conservation of biological diversity, sustainable use of its components, and fair and equitable sharing of benefits from genetic resources.",
+  "keywords": [
+   "conservation",
+   "sustainable use",
+   "fair and equitable"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "the fair and equitable sharing of the benefits arising out of the utilization of genetic resources"
+   }
+  ]
+ },
+ {
+  "id": "L071",
+  "type": "single",
+  "question": "What principle does Article 3 of the CBD state?",
+  "reference": "States have the sovereign right to exploit their own resources, and the responsibility not to damage other states' environments.",
+  "keywords": [
+   "sovereign"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "sovereign right to exploit their own resources"
+   }
+  ]
+ },
+ {
+  "id": "L072",
+  "type": "single",
+  "question": "What does Article 8(j) of the CBD require regarding indigenous knowledge?",
+  "reference": "Respect, preserve and maintain the knowledge, innovations and practices of indigenous and local communities, and encourage equitable benefit sharing.",
+  "keywords": [
+   "indigenous",
+   "local communit"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "knowledge, innovations and practices of indigenous and local communities"
+   }
+  ]
+ },
+ {
+  "id": "L073",
+  "type": "single",
+  "question": "Who has authority to determine access to genetic resources under the CBD?",
+  "reference": "National governments, subject to national legislation (Article 15.1).",
+  "keywords": [
+   "national government"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "rests with the national governments"
+   }
+  ]
+ },
+ {
+  "id": "L074",
+  "type": "single",
+  "question": "What consent is required for access to genetic resources under Article 15 of the CBD?",
+  "reference": "The prior informed consent of the Contracting Party providing the resources, unless it decides otherwise.",
+  "keywords": [
+   "prior informed consent"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "prior informed consent of the Contracting Party providing such resources"
+   }
+  ]
+ },
+ {
+  "id": "L075",
+  "type": "single",
+  "question": "Which procedure does Article 14 of the CBD require for projects likely to harm biodiversity?",
+  "reference": "Environmental impact assessment.",
+  "keywords": [
+   "environmental impact assessment"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "environmental impact assessment"
+   }
+  ]
+ },
+ {
+  "id": "L076",
+  "type": "single",
+  "question": "What does Article 19 of the CBD ask parties to consider a protocol on?",
+  "reference": "Safe transfer, handling and use of living modified organisms from biotechnology (biosafety).",
+  "keywords": [
+   "living modified organism"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "living modified organism"
+   }
+  ]
+ },
+ {
+  "id": "L077",
+  "type": "single",
+  "question": "Which institution operates the CBD's financial mechanism on an interim basis?",
+  "reference": "The Global Environment Facility.",
+  "keywords": [
+   "global environment facility"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "Global Environment Facility"
+   }
+  ]
+ },
+ {
+  "id": "L078",
+  "type": "single",
+  "question": "Can reservations be made to the CBD?",
+  "reference": "No reservations may be made to the Convention.",
+  "keywords": [
+   "no reservation|not permit|not allowed|cannot"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "No reservations may be made to this Convention"
+   }
+  ]
+ },
+ {
+  "id": "L079",
+  "type": "single",
+  "question": "In which languages is the CBD authentic?",
+  "reference": "Arabic, Chinese, English, French, Russian and Spanish.",
+  "keywords": [
+   "arabic",
+   "chinese",
+   "russian"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "Arabic, Chinese, English, French, Russian and Spanish"
+   }
+  ]
+ },
+ {
+  "id": "L080",
+  "type": "single",
+  "question": "Where should ex-situ conservation measures preferably be located under Article 9 of the CBD?",
+  "reference": "Preferably in the country of origin of the components.",
+  "keywords": [
+   "country of origin"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "preferably in the country of origin"
+   }
+  ]
+ },
+ {
+  "id": "L081",
+  "type": "single",
+  "question": "What does 'utilization of genetic resources' mean in the Nagoya Protocol?",
+  "reference": "Conducting research and development on the genetic and/or biochemical composition of genetic resources, including through biotechnology.",
+  "keywords": [
+   "research and development"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "to conduct research and development on the genetic and/or biochemical composition"
+   }
+  ]
+ },
+ {
+  "id": "L082",
+  "type": "single",
+  "question": "How does the Nagoya Protocol define 'derivative'?",
+  "reference": "A naturally occurring biochemical compound resulting from the genetic expression or metabolism of biological or genetic resources.",
+  "keywords": [
+   "biochemical"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "resulting from the genetic expression or metabolism"
+   }
+  ]
+ },
+ {
+  "id": "L083",
+  "type": "single",
+  "question": "What kinds of benefits can be shared under the Nagoya Protocol?",
+  "reference": "Monetary and non-monetary benefits, as listed in the Annex.",
+  "keywords": [
+   "monetary",
+   "non-monetary"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "monetary and non-monetary benefits"
+   }
+  ]
+ },
+ {
+  "id": "L084",
+  "type": "single",
+  "question": "What special considerations does Article 8 of the Nagoya Protocol require?",
+  "reference": "Attention to emergencies threatening human, animal or plant health, expeditious access, and non-commercial research.",
+  "keywords": [
+   "emergenc"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "present or imminent emergencies that threaten or damage human, animal or plant health"
+   }
+  ]
+ },
+ {
+  "id": "L085",
+  "type": "single",
+  "question": "What mechanism does Article 10 of the Nagoya Protocol consider?",
+  "reference": "A global multilateral benefit-sharing mechanism for transboundary cases or where PIC cannot be obtained.",
+  "keywords": [
+   "global multilateral"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "global multilateral benefit-sharing mechanism"
+   }
+  ]
+ },
+ {
+  "id": "L086",
+  "type": "single",
+  "question": "Which information-sharing platform does the Nagoya Protocol establish?",
+  "reference": "The Access and Benefit-sharing Clearing-House.",
+  "keywords": [
+   "clearing-house|clearing house"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "An Access and Benefit-sharing Clearing-House is hereby established"
+   }
+  ]
+ },
+ {
+  "id": "L087",
+  "type": "single",
+  "question": "What document serves as evidence of legal access under the Nagoya Protocol?",
+  "reference": "An internationally recognized certificate of compliance.",
+  "keywords": [
+   "certificate of compliance"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "internationally recognized certificate of compliance"
+   }
+  ]
+ },
+ {
+  "id": "L088",
+  "type": "single",
+  "question": "What must parties designate to monitor the use of genetic resources under Article 17 of the Nagoya Protocol?",
+  "reference": "One or more checkpoints.",
+  "keywords": [
+   "checkpoint"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "checkpoints"
+   }
+  ]
+ },
+ {
+  "id": "L089",
+  "type": "single",
+  "question": "What must parties consider regarding indigenous communities under Article 12 of the Nagoya Protocol?",
+  "reference": "Their customary laws, community protocols and procedures for associated traditional knowledge.",
+  "keywords": [
+   "customary law",
+   "community protocol"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "customary laws, community protocols and procedures"
+   }
+  ]
+ },
+ {
+  "id": "L090",
+  "type": "single",
+  "question": "What contact points must each party designate under the Nagoya Protocol?",
+  "reference": "A national focal point and one or more competent national authorities.",
+  "keywords": [
+   "focal point"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "national focal point"
+   }
+  ]
+ },
+ {
+  "id": "L091",
+  "type": "single",
+  "question": "How does the Patents Act, 1970 define 'invention'?",
+  "reference": "A new product or process involving an inventive step and capable of industrial application.",
+  "keywords": [
+   "inventive step",
+   "industrial application"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "a new product or process involving an inventive step and capable of industrial application"
+   }
+  ]
+ },
+ {
+  "id": "L092",
+  "type": "single",
+  "question": "What is an 'inventive step' under the Patents Act?",
+  "reference": "A feature involving technical advance or economic significance, or both, that makes the invention not obvious to a person skilled in the art.",
+  "keywords": [
+   "technical advance",
+   "economic significance",
+   "obvious"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "economic significance or both"
+   }
+  ]
+ },
+ {
+  "id": "L093",
+  "type": "single",
+  "question": "What does section 3(d) of the Patents Act exclude?",
+  "reference": "A mere discovery of a new form of a known substance that does not enhance its known efficacy.",
+  "keywords": [
+   "new form",
+   "efficacy"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "the enhancement of the known efficacy"
+   }
+  ]
+ },
+ {
+  "id": "L094",
+  "type": "single",
+  "question": "Are computer programs patentable in India?",
+  "reference": "No, section 3(k) excludes mathematical or business methods, computer programmes per se and algorithms.",
+  "keywords": [
+   "computer programme|computer program",
+   "per se"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "a mathematical or business method or a computer programme per se or algorithms"
+   }
+  ]
+ },
+ {
+  "id": "L095",
+  "type": "single",
+  "question": "Is traditional knowledge patentable in India?",
+  "reference": "No, section 3(p) excludes inventions that are in effect traditional knowledge or aggregations of known TK properties.",
+  "keywords": [
+   "traditional knowledge"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "aggregation or duplication of known properties of traditionally known component"
+   }
+  ]
+ },
+ {
+  "id": "L096",
+  "type": "single",
+  "question": "Are methods of agriculture patentable in India?",
+  "reference": "No, section 3(h) excludes methods of agriculture or horticulture.",
+  "keywords": [
+   "agriculture",
+   "horticulture"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "a method of agriculture or horticulture"
+   }
+  ]
+ },
+ {
+  "id": "L097",
+  "type": "single",
+  "question": "What does section 3(e) of the Patents Act exclude?",
+  "reference": "A substance from mere admixture that only aggregates the properties of its components.",
+  "keywords": [
+   "admixture",
+   "aggregat"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "mere admixture resulting only in the aggregation of the properties"
+   }
+  ]
+ },
+ {
+  "id": "L098",
+  "type": "single",
+  "question": "Which inventions are excluded under section 4 of the Patents Act?",
+  "reference": "Inventions relating to atomic energy.",
+  "keywords": [
+   "atomic energy"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "No patent shall be granted in respect of an invention relating to atomic energy"
+   }
+  ]
+ },
+ {
+  "id": "L099",
+  "type": "single",
+  "question": "What is the term of a patent in India?",
+  "reference": "Twenty years from the date of filing of the application.",
+  "keywords": [
+   "twenty years|20 years"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "twenty years from the date of filing of the application"
+   }
+  ]
+ },
+ {
+  "id": "L100",
+  "type": "single",
+  "question": "What must an Indian patent specification disclose when it uses biological material?",
+  "reference": "The source and geographical origin of the biological material.",
+  "keywords": [
+   "source",
+   "geographical origin"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "source and geographical origin of the biological material"
+   }
+  ]
+ },
+ {
+  "id": "L101",
+  "type": "single",
+  "question": "What is the Bolar exemption in section 107A of the Patents Act?",
+  "reference": "Using a patented invention solely for uses reasonably related to developing and submitting information required by law is not infringement.",
+  "keywords": [
+   "develop",
+   "submi"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "reasonably related to the development and submission of information"
+   }
+  ]
+ },
+ {
+  "id": "L102",
+  "type": "single",
+  "question": "On what grounds can a compulsory licence be sought under section 84 of the Patents Act?",
+  "reference": "Reasonable requirements of the public not satisfied, not available at a reasonably affordable price, or not worked in India.",
+  "keywords": [
+   "reasonable requirements",
+   "affordable",
+   "worked"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "reasonable requirements of the public"
+   }
+  ]
+ },
+ {
+  "id": "L103",
+  "type": "single",
+  "question": "What must patentees periodically state under section 146 of the Patents Act?",
+  "reference": "The extent to which the patented invention has been worked on a commercial scale in India.",
+  "keywords": [
+   "commercial scale"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "worked on a commercial scale in India"
+   }
+  ]
+ },
+ {
+  "id": "L104",
+  "type": "single",
+  "question": "What is the deadline for requesting examination after the Patents (Amendment) Rules, 2024?",
+  "reference": "Thirty-one months (reduced from forty-eight months).",
+  "keywords": [
+   "thirty-one months|31 months"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "‘thirty-one months’ shall be substituted"
+   }
+  ]
+ },
+ {
+  "id": "L105",
+  "type": "single",
+  "question": "What new certificate did the Patents (Amendment) Rules, 2024 introduce?",
+  "reference": "A certificate of inventorship issued to an inventor on request in Form-8A.",
+  "keywords": [
+   "inventorship"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "70A. Certificate of inventorship"
+   }
+  ]
+ },
+ {
+  "id": "L106",
+  "type": "single",
+  "question": "Which form claims the grace period under section 31 after the 2024 rules?",
+  "reference": "Form 31, with the prescribed fee.",
+  "keywords": [
+   "form 31|form-31"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "An application to avail the period specified under section 31 shall be filed in Form 31"
+   }
+  ]
+ },
+ {
+  "id": "L107",
+  "type": "single",
+  "question": "How often must working statements (Form 27) be filed under the 2024 rules?",
+  "reference": "Once for every period of three financial years, within six months of the end of each period.",
+  "keywords": [
+   "three financial year"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "once in respect of every period of three financial year"
+   }
+  ]
+ },
+ {
+  "id": "L108",
+  "type": "single",
+  "question": "By how long can the Controller extend time or condone delay under rule 138 as amended in 2024?",
+  "reference": "Up to six months, on a request in Form 4.",
+  "keywords": [
+   "six months|6 months"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "for a period of up to six months, upon a request made in Form 4"
+   }
+  ]
+ },
+ {
+  "id": "L109",
+  "type": "single",
+  "question": "What discount applies for paying patent renewal fees in advance electronically?",
+  "reference": "A ten per cent reduction if paid in advance electronically for at least 4 years.",
+  "keywords": [
+   "ten per cent|10 per cent|10%"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "a ten per cent reduction in fee"
+   }
+  ]
+ },
+ {
+  "id": "L110",
+  "type": "single",
+  "question": "How long does an applicant have to file a fresh Form 3 statement when the Controller asks for it?",
+  "reference": "Within two months of the Controller's communication.",
+  "keywords": [
+   "two months|2 months"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "within two months from the date of such communication"
+   }
+  ]
+ },
+ {
+  "id": "L111",
+  "type": "single",
+  "question": "Which board advises governments on technical matters under the Drugs and Cosmetics Act?",
+  "reference": "The Drugs Technical Advisory Board.",
+  "keywords": [
+   "drugs technical advisory board"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "constitute a Board (to be called the Drugs Technical Advisory Board)"
+   }
+  ]
+ },
+ {
+  "id": "L112",
+  "type": "single",
+  "question": "Which board advises on Ayurvedic, Siddha and Unani drugs under the Drugs and Cosmetics Act?",
+  "reference": "The Ayurvedic, Siddha and Unani Drugs Technical Advisory Board.",
+  "keywords": [
+   "ayurvedic, siddha and unani drugs technical advisory board|asu"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "Ayurvedic, Siddha and Unani Drugs Technical Advisory Board"
+   }
+  ]
+ },
+ {
+  "id": "L113",
+  "type": "single",
+  "question": "Where is the Central Drugs Laboratory whose Director sits on the Drugs Technical Advisory Board?",
+  "reference": "Calcutta (Kolkata); its Director is an ex officio member.",
+  "keywords": [
+   "calcutta|kolkata"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "Director of the Central Drugs Laboratory, Calcutta"
+   }
+  ]
+ },
+ {
+  "id": "L114",
+  "type": "single",
+  "question": "When is a drug adulterated under the Drugs and Cosmetics Act?",
+  "reference": "For example if it contains any filthy, putrid or decomposed substance.",
+  "keywords": [
+   "filthy|putrid|decomposed"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "filthy, putrid or decomposed substance"
+   }
+  ]
+ },
+ {
+  "id": "L115",
+  "type": "single",
+  "question": "How does the Drugs and Cosmetics Act define 'cosmetic'?",
+  "reference": "Any article meant to be rubbed, poured, sprinkled or sprayed on the body to cleanse, beautify or alter the appearance.",
+  "keywords": [
+   "rubbed|poured|sprinkled|sprayed"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "rubbed, poured, sprinkled or sprayed on"
+   }
+  ]
+ },
+ {
+  "id": "L116",
+  "type": "single",
+  "question": "Does the Biological Diversity Act apply to biological resources normally traded as commodities?",
+  "reference": "The Central Government can exempt biological resources normally traded as commodities (section 40).",
+  "keywords": [
+   "commodit"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "normally traded as commodities"
+   }
+  ]
+ },
+ {
+  "id": "L117",
+  "type": "single",
+  "question": "Do 'biological resources' under the Biological Diversity Act include human genetic material?",
+  "reference": "No, human genetic material is excluded.",
+  "keywords": [
+   "human genetic"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "does not include human genetic material"
+   }
+  ]
+ },
+ {
+  "id": "L118",
+  "type": "single",
+  "question": "What can the Central Government do about species near extinction under the Biological Diversity Act?",
+  "reference": "Notify them as threatened species and prohibit or regulate their collection (section 38).",
+  "keywords": [
+   "threatened"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "on the verge of extinction or likely to become extinct"
+   }
+  ]
+ },
+ {
+  "id": "L119",
+  "type": "single",
+  "question": "What forms of benefit sharing does section 21 of the Biological Diversity Act list?",
+  "reference": "Joint ownership of IPRs, transfer of technology, product development locations, research collaboration, venture capital funds, and monetary compensation.",
+  "keywords": [
+   "joint ownership",
+   "technology"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "joint ownership of intellectual property rights"
+   }
+  ]
+ },
+ {
+  "id": "L120",
+  "type": "single",
+  "question": "Is NBA approval needed to apply for intellectual property rights on inventions based on Indian biological resources?",
+  "reference": "Yes, section 6 requires the National Biodiversity Authority's approval.",
+  "keywords": [
+   "national biodiversity authority|nba|approval"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "apply for any intellectual property right"
+   }
+  ]
+ },
+ {
+  "id": "L121",
+  "type": "single",
+  "question": "What notice must a person give before a court takes cognizance of a complaint under the Biological Diversity Act?",
+  "reference": "Not less than thirty days' notice of the alleged offence and intention to complain.",
+  "keywords": [
+   "thirty days|30 days"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Act, 2002 (as amended).pdf",
+    "quote": "notice of not less than thirty days"
+   }
+  ]
+ },
+ {
+  "id": "L122",
+  "type": "single",
+  "question": "What is the punishment for a drug deemed spurious under section 17B (section 27(c) of the Drugs and Cosmetics Act)?",
+  "reference": "Imprisonment of not less than seven years, extendable to life, plus a fine of at least three lakh rupees or three times the value of the drugs, whichever is more.",
+  "keywords": [
+   "seven years|7 years",
+   "life"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "not be less than seven years but which may extend to imprisonment for life"
+   }
+  ]
+ },
+ {
+  "id": "L123",
+  "type": "single",
+  "question": "Which committee secures uniformity in administering the Act for ASU drugs?",
+  "reference": "The Ayurvedic, Siddha and Unani Drugs Consultative Committee.",
+  "keywords": [
+   "consultative committee"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "Ayurvedic, Siddha and Unani Drugs Consultative Committee"
+   }
+  ]
+ },
+ {
+  "id": "L124",
+  "type": "single",
+  "question": "How long after a provisional specification must the complete specification be filed in India?",
+  "reference": "Within twelve months from the filing date of the application.",
+  "keywords": [
+   "twelve months|12 months"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "within twelve months from the date of filing"
+   }
+  ]
+ },
+ {
+  "id": "L125",
+  "type": "single",
+  "question": "When can a compulsory licence be applied for under section 84 of the Patents Act?",
+  "reference": "At any time after three years from the date of grant of the patent.",
+  "keywords": [
+   "three years|3 years"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "expiration of three years from the date of the"
+   }
+  ]
+ },
+ {
+  "id": "L126",
+  "type": "single",
+  "question": "What is the time limit for post-grant opposition in India?",
+  "reference": "Before the expiry of one year from the date of publication of grant.",
+  "keywords": [
+   "one year|1 year"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "one year from the date of publication of grant of a patent"
+   }
+  ]
+ },
+ {
+  "id": "L127",
+  "type": "single",
+  "question": "Can an Indian resident file a patent application abroad first without permission?",
+  "reference": "No, section 39 requires a written permit from the Controller (subject to exceptions).",
+  "keywords": [
+   "permi"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "No person resident in India shall, except under the authority of a written permit"
+   }
+  ]
+ },
+ {
+  "id": "L128",
+  "type": "single",
+  "question": "How is 'pharmaceutical substance' defined in the Patents Act?",
+  "reference": "Any new entity involving one or more inventive steps.",
+  "keywords": [
+   "new entity"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "any new entity involving one or more inventive steps"
+   }
+  ]
+ },
+ {
+  "id": "L129",
+  "type": "single",
+  "question": "Which court can hear a patent infringement suit in India?",
+  "reference": "No court inferior to a District Court.",
+  "keywords": [
+   "district court"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "inferior to a District Court"
+   }
+  ]
+ },
+ {
+  "id": "L130",
+  "type": "single",
+  "question": "Are methods of medical treatment patentable in India?",
+  "reference": "No, section 3(i) excludes medicinal, surgical, curative, prophylactic, diagnostic and therapeutic treatment processes.",
+  "keywords": [
+   "surgical|medicinal|curative"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "any process for the medicinal, surgical, curative, prophylactic"
+   }
+  ]
+ },
+ {
+  "id": "L131",
+  "type": "single",
+  "question": "Are plants and animals patentable in India?",
+  "reference": "No, section 3(j) excludes plants and animals other than micro-organisms, seeds, varieties and species, and essentially biological processes.",
+  "keywords": [
+   "plants",
+   "animals"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "plants and animals in whole or any part thereof other than micro-organisms"
+   }
+  ]
+ },
+ {
+  "id": "L132",
+  "type": "single",
+  "question": "What exclusive right does a patent give under section 48 of the Patents Act?",
+  "reference": "To prevent third parties from making, using, offering for sale, selling or importing the patented product or process without consent.",
+  "keywords": [
+   "prevent|exclusive",
+   "making|using|selling"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "to the exclusion of all other persons"
+   }
+  ]
+ },
+ {
+  "id": "L133",
+  "type": "single",
+  "question": "What does Article 6 of the CBD require each party to develop?",
+  "reference": "National strategies, plans or programmes for conservation and sustainable use of biological diversity.",
+  "keywords": [
+   "national strateg"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "national strategies, plans or programmes"
+   }
+  ]
+ },
+ {
+  "id": "L134",
+  "type": "single",
+  "question": "What are 'in-situ conditions' under the CBD?",
+  "reference": "Conditions where genetic resources exist within ecosystems and natural habitats.",
+  "keywords": [
+   "ecosystem|natural habitat"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "“In-situ conditions” means"
+   }
+  ]
+ },
+ {
+  "id": "L135",
+  "type": "single",
+  "question": "When must the first meeting of the CBD Conference of the Parties be held?",
+  "reference": "Not later than one year after the Convention enters into force.",
+  "keywords": [
+   "one year|1 year"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "not later than one year after the entry into force"
+   }
+  ]
+ },
+ {
+  "id": "L136",
+  "type": "single",
+  "question": "When did the CBD enter into force?",
+  "reference": "On the ninetieth day after deposit of the thirtieth instrument of ratification, acceptance, approval or accession.",
+  "keywords": [
+   "ninetieth|90th|90",
+   "thirtieth|30th|30"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "ninetieth day after the date of deposit of the thirtieth instrument"
+   }
+  ]
+ },
+ {
+  "id": "L137",
+  "type": "single",
+  "question": "When can a party withdraw from the CBD?",
+  "reference": "Any time after two years from its entry into force for that party, by written notification.",
+  "keywords": [
+   "two years|2 years"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "after two years from the date on which this Convention has entered into force"
+   }
+  ]
+ },
+ {
+  "id": "L138",
+  "type": "single",
+  "question": "How are disputes under the CBD first to be resolved?",
+  "reference": "By negotiation; then good offices or mediation, arbitration, or the International Court of Justice.",
+  "keywords": [
+   "negotiation"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "seek solution by negotiation"
+   }
+  ]
+ },
+ {
+  "id": "L139",
+  "type": "single",
+  "question": "On what terms should technology be transferred to developing countries under Article 16 of the CBD?",
+  "reference": "Fair and most favourable terms, including concessional and preferential terms where mutually agreed.",
+  "keywords": [
+   "concessional|preferential|favourable"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "concessional and preferential terms"
+   }
+  ]
+ },
+ {
+  "id": "L140",
+  "type": "single",
+  "question": "When does the Nagoya Protocol enter into force?",
+  "reference": "On the ninetieth day after deposit of the fiftieth instrument.",
+  "keywords": [
+   "ninetieth|90th|90",
+   "fiftieth|50th|50"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "ninetieth day after the date of deposit of the fiftieth instrument"
+   }
+  ]
+ },
+ {
+  "id": "L141",
+  "type": "single",
+  "question": "Can reservations be made to the Nagoya Protocol?",
+  "reference": "No reservations may be made to the Protocol.",
+  "keywords": [
+   "no reservation|not permit|not allowed|cannot"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "No reservations may be made to this Protocol"
+   }
+  ]
+ },
+ {
+  "id": "L142",
+  "type": "single",
+  "question": "How does the Nagoya Protocol relate to specialized ABS instruments?",
+  "reference": "Where a specialized international ABS instrument applies and is consistent with the CBD and Protocol, the Protocol does not apply for that party for those resources.",
+  "keywords": [
+   "specialized|specialised"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "specialized international access and benefit-sharing instrument"
+   }
+  ]
+ },
+ {
+  "id": "L143",
+  "type": "single",
+  "question": "Under the Nagoya Protocol, what is needed to access traditional knowledge held by indigenous communities?",
+  "reference": "The prior and informed consent or approval and involvement of the indigenous and local communities, with mutually agreed terms.",
+  "keywords": [
+   "consent|approval",
+   "indigenous"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "prior and informed consent or approval and involvement of these indigenous and local communities"
+   }
+  ]
+ },
+ {
+  "id": "L144",
+  "type": "single",
+  "question": "How often must the National Biodiversity Authority meet under the 2024 Rules?",
+  "reference": "At least once in three months.",
+  "keywords": [
+   "three months|3 months"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "shall meet at least once in three months"
+   }
+  ]
+ },
+ {
+  "id": "L145",
+  "type": "single",
+  "question": "What is the term of office of the NBA Chairperson under the 2024 Rules?",
+  "reference": "Three years from the date of appointment, eligible for re-appointment.",
+  "keywords": [
+   "three years|3 years"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "shall hold office for a term of three years"
+   }
+  ]
+ },
+ {
+  "id": "L146",
+  "type": "single",
+  "question": "What notice must a benefit claimer give before complaining under section 61(b) of the Biological Diversity Act?",
+  "reference": "A notice of thirty days.",
+  "keywords": [
+   "thirty days|30 days"
+  ],
+  "evidence": [
+   {
+    "file": "Biological Diversity Rules, 2024.pdf",
+    "quote": "thirty days under section 61(b)"
+   }
+  ]
+ },
+ {
+  "id": "L147",
+  "type": "single",
+  "question": "Within how long must a PCT international application enter the Indian national phase?",
+  "reference": "Thirty-one months from the priority date.",
+  "keywords": [
+   "thirty-one|thirty one|31"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2003.pdf",
+    "quote": "thirty one months from the said priority date"
+   }
+  ]
+ },
+ {
+  "id": "L148",
+  "type": "single",
+  "question": "How are TRIPS disputes settled?",
+  "reference": "Under Articles XXII and XXIII of GATT 1994 as elaborated by the Dispute Settlement Understanding.",
+  "keywords": [
+   "xxii",
+   "xxiii"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Articles XXII and XXIII of GATT 1994"
+   }
+  ]
+ },
+ {
+  "id": "L149",
+  "type": "single",
+  "question": "How long do broadcasting organisations' rights last under TRIPS?",
+  "reference": "At least 20 years from the end of the calendar year of the broadcast.",
+  "keywords": [
+   "20 years|twenty years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "in which the broadcast took place"
+   }
+  ]
+ },
+ {
+  "id": "L150",
+  "type": "single",
+  "question": "What is the term of protection for layout-designs of integrated circuits under TRIPS?",
+  "reference": "At least 10 years from filing or first commercial exploitation.",
+  "keywords": [
+   "10 years|ten years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "10 years counted from the date of filing an application for registration"
+   }
+  ]
+ },
+ {
+  "id": "L151",
+  "type": "single",
+  "question": "What does most-favoured-nation treatment require under TRIPS?",
+  "reference": "Any advantage granted to nationals of one country must be accorded immediately and unconditionally to nationals of all other members.",
+  "keywords": [
+   "immediately|unconditionally|all other members"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Most-Favoured-Nation Treatment"
+   }
+  ]
+ },
+ {
+  "id": "L152",
+  "type": "single",
+  "question": "What is the minimum copyright term under TRIPS when not based on a person's life?",
+  "reference": "No less than 50 years from the end of the calendar year of authorized publication.",
+  "keywords": [
+   "50 years|fifty years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "from the end of the calendar year of authorized publication"
+   }
+  ]
+ },
+ {
+  "id": "L153",
+  "type": "single",
+  "question": "Does the WIPO GRATK Treaty cover human genetic resources?",
+  "reference": "No, the definition of genetic resources does not include human genetic resources.",
+  "keywords": [
+   "human genetic"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "not intended to include “human genetic resources”"
+   }
+  ]
+ },
+ {
+  "id": "L154",
+  "type": "single",
+  "question": "How does the WIPO GRATK Treaty relate to other international agreements?",
+  "reference": "It is implemented in a mutually supportive manner with other relevant international agreements.",
+  "keywords": [
+   "mutually supportive"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "implemented in a mutually supportive manner with other international agreements"
+   }
+  ]
+ },
+ {
+  "id": "L155",
+  "type": "single",
+  "question": "Does the Ayurveda Aahara regulation provide for an expert committee?",
+  "reference": "Yes, regulation 11 provides for the Food Authority to constitute an expert committee.",
+  "keywords": [
+   "expert committee"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "Constitution of Expert committee"
+   }
+  ]
+ },
+ {
+  "id": "L156",
+  "type": "single",
+  "question": "Which packaging rules apply to Ayurveda Aahara?",
+  "reference": "The Food Safety and Standards (Packaging) Regulations, 2018.",
+  "keywords": [
+   "packaging"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "Food Safety and Standards (Packaging) Regulations, 2018"
+   }
+  ]
+ },
+ {
+  "id": "L157",
+  "type": "single",
+  "question": "For how long must rules under the Drugs and Magic Remedies Act be laid before Parliament?",
+  "reference": "A total period of thirty days.",
+  "keywords": [
+   "thirty days|30 days"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "total period of thirty days"
+   }
+  ]
+ },
+ {
+  "id": "L158",
+  "type": "single",
+  "question": "What territorial extent does the Drugs and Magic Remedies Act, 1954 state?",
+  "reference": "The whole of India except the State of Jammu and Kashmir, including persons domiciled in India who are outside it.",
+  "keywords": [
+   "jammu and kashmir"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "except the State of Jammu and Kashmir"
+   }
+  ]
+ },
+ {
+  "id": "L159",
+  "type": "single",
+  "question": "Are cultivated medicinal plants exempt from prior intimation after the 2023 amendment?",
+  "reference": "Yes, section 7 does not apply to cultivated medicinal plants and their products.",
+  "keywords": [
+   "cultivated medicinal"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "cultivated medicinal plants and its products"
+   }
+  ]
+ },
+ {
+  "id": "LM001",
+  "type": "multi",
+  "question": "Is the Indian patent term consistent with the TRIPS minimum term?",
+  "reference": "Yes, both set twenty years from the filing date.",
+  "keywords": [
+   "twenty years|20 years"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "a period of twenty years counted from the filing date"
+   },
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "twenty years from the date of filing of the application"
+   }
+  ]
+ },
+ {
+  "id": "LM002",
+  "type": "multi",
+  "question": "How does India's exclusion of plants and animals from patents relate to TRIPS Article 27.3(b)?",
+  "reference": "Both exclude plants and animals other than micro-organisms; TRIPS permits what section 3(j) does.",
+  "keywords": [
+   "plants",
+   "animals",
+   "micro-organism|microorganism"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "plants and animals other than micro-organisms"
+   },
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "plants and animals in whole or any part thereof other than micro-organisms"
+   }
+  ]
+ },
+ {
+  "id": "LM003",
+  "type": "multi",
+  "question": "How do the CBD and the Nagoya Protocol each treat prior informed consent for access to genetic resources?",
+  "reference": "CBD Article 15 makes access subject to prior informed consent (PIC); the Nagoya Protocol operationalises PIC with domestic measures and permits.",
+  "keywords": [
+   "prior informed consent"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "prior informed consent of the Contracting Party providing such resources"
+   },
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "shall be subject to the prior informed consent of the Party providing such resources that is the country of origin"
+   }
+  ]
+ },
+ {
+  "id": "LM004",
+  "type": "multi",
+  "question": "Compare the disclosure requirement in the WIPO GRATK Treaty with the Indian Patents Act.",
+  "reference": "Both require disclosure of the origin: WIPO the country of origin or source of GR/TK; India the source and geographical origin of biological material.",
+  "keywords": [
+   "origin",
+   "source"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "the country of origin of the genetic resources"
+   },
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "source and geographical origin of the biological material"
+   }
+  ]
+ },
+ {
+  "id": "LM005",
+  "type": "multi",
+  "question": "Which list of books defines codified traditional knowledge in the 2023 biodiversity amendment, and which Act contains it?",
+  "reference": "The authoritative books in the First Schedule to the Drugs and Cosmetics Act, 1940.",
+  "keywords": [
+   "first schedule",
+   "drugs and cosmetics"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "First Schedule to the Drugs and Cosmetics Act, 1940"
+   },
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "Name of book Ayurveda 1. Arogya Kalpadruma"
+   }
+  ]
+ },
+ {
+  "id": "LM006",
+  "type": "multi",
+  "question": "Which board must be consulted before diseases are added under the Drugs and Magic Remedies Act, and under which Act is it constituted?",
+  "reference": "The Drugs Technical Advisory Board, constituted under the Drugs and Cosmetics Act, 1940.",
+  "keywords": [
+   "drugs technical advisory board",
+   "drugs and cosmetics"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "Drugs Technical Advisory Board"
+   },
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "constitute a Board (to be called the Drugs Technical Advisory Board)"
+   }
+  ]
+ },
+ {
+  "id": "LM007",
+  "type": "multi",
+  "question": "How do the CBD and the Nagoya Protocol protect the traditional knowledge of indigenous and local communities?",
+  "reference": "CBD 8(j) requires respecting and preserving the knowledge of indigenous and local communities with equitable benefit sharing; Nagoya adds consent/approval and consideration of customary laws and community protocols.",
+  "keywords": [
+   "indigenous",
+   "customary|consent|approval"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "knowledge, innovations and practices of indigenous and local communities"
+   },
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "customary laws, community protocols and procedures"
+   }
+  ]
+ },
+ {
+  "id": "LM008",
+  "type": "multi",
+  "question": "How do TRIPS and the Indian Patents Act handle compulsory licensing in a national emergency?",
+  "reference": "TRIPS Article 31(b) waives prior negotiation in a national emergency; India's section 92 allows compulsory licences by notification in a national emergency.",
+  "keywords": [
+   "national emergency"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "national emergency or other circumstances of extreme urgency"
+   },
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "national emergency"
+   }
+  ]
+ },
+ {
+  "id": "LM009",
+  "type": "multi",
+  "question": "How did the 2024 rules change the time limit to request examination of a patent application?",
+  "reference": "From forty-eight months to thirty-one months.",
+  "keywords": [
+   "forty-eight|48",
+   "thirty-one|31"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "‘thirty-one months’ shall be substituted"
+   },
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "forty-eight months"
+   }
+  ]
+ },
+ {
+  "id": "LM010",
+  "type": "multi",
+  "question": "Can Ayurvedic products be marketed as curing diseases, as food or as drugs?",
+  "reference": "As food (Ayurveda Aahara) no disease-cure claims are allowed; as drugs, misleading claims and claims for scheduled diseases are prohibited by the DMR Act.",
+  "keywords": [
+   "cur|treat",
+   "mislead|false"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "has the property of preventing, treating or curing a human disease"
+   },
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "gives a false impression regarding the true character of the drug"
+   }
+  ]
+ },
+ {
+  "id": "LM011",
+  "type": "multi",
+  "question": "How is the Nagoya Protocol financed in relation to the CBD?",
+  "reference": "The CBD's financial mechanism, operated by the Global Environment Facility, serves as the Protocol's financial mechanism.",
+  "keywords": [
+   "financial mechanism|global environment facility"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "Global Environment Facility"
+   },
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "financial mechanism"
+   }
+  ]
+ },
+ {
+  "id": "LC001",
+  "type": "conversational",
+  "question": "can i advertise a herbal cure for diabetes in india?",
+  "reference": "No, advertising drugs for diseases in the DMR Act Schedule, such as diabetes, is prohibited.",
+  "keywords": [
+   "prohibit|not allowed|cannot|no"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "the procurement of miscarriage in women or prevention of conception"
+   }
+  ]
+ },
+ {
+  "id": "LC002",
+  "type": "conversational",
+  "question": "how long does a patent last in india",
+  "reference": "Twenty years from the filing date.",
+  "keywords": [
+   "twenty|20"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "twenty years from the date of filing of the application"
+   }
+  ]
+ },
+ {
+  "id": "LC003",
+  "type": "conversational",
+  "question": "is software patentable in india??",
+  "reference": "Computer programmes per se are not patentable under section 3(k).",
+  "keywords": [
+   "per se|not patentable"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "a mathematical or business method or a computer programme per se or algorithms"
+   }
+  ]
+ },
+ {
+  "id": "LC004",
+  "type": "conversational",
+  "question": "can i sell ayurveda food for babies",
+  "reference": "No, Ayurveda Aahara cannot be sold for infants up to 24 months.",
+  "keywords": [
+   "24|twenty-four"
+  ],
+  "evidence": [
+   {
+    "file": "FSSAI Ayurveda Aahara Regulations, 2022.pdf",
+    "quote": "infants up to the age of twenty-four months"
+   }
+  ]
+ },
+ {
+  "id": "LC005",
+  "type": "conversational",
+  "question": "evergreening drug patents - does india allow it",
+  "reference": "Section 3(d) blocks patents on new forms of known substances without enhanced efficacy.",
+  "keywords": [
+   "efficacy"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "the enhancement of the known efficacy"
+   }
+  ]
+ },
+ {
+  "id": "LC006",
+  "type": "conversational",
+  "question": "under the new wipo treaty can my patent get cancelled if i forgot to say where the plant came from",
+  "reference": "Not solely for that; revocation is barred unless there was fraudulent intent.",
+  "keywords": [
+   "fraud|not|cannot"
+  ],
+  "evidence": [
+   {
+    "file": "WIPO GRATK Treaty, 2024 (official text).pdf",
+    "quote": "no Contracting Party shall revoke, invalidate, or render unenforceable"
+   }
+  ]
+ },
+ {
+  "id": "LC007",
+  "type": "conversational",
+  "question": "how long do trademarks last under trips",
+  "reference": "At least seven years per registration, renewable indefinitely.",
+  "keywords": [
+   "seven|7"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "no less than seven years"
+   }
+  ]
+ },
+ {
+  "id": "LC008",
+  "type": "conversational",
+  "question": "how many months do i have now to ask for patent exam in india",
+  "reference": "Thirty-one months.",
+  "keywords": [
+   "31|thirty-one"
+  ],
+  "evidence": [
+   {
+    "file": "patent-rules-2024.pdf",
+    "quote": "‘thirty-one months’ shall be substituted"
+   }
+  ]
+ },
+ {
+  "id": "LC009",
+  "type": "conversational",
+  "question": "nagoya protocol in simple words?",
+  "reference": "An agreement under the CBD on access to genetic resources and fair, equitable sharing of benefits from their use.",
+  "keywords": [
+   "benefit"
+  ],
+  "evidence": [
+   {
+    "file": "nagoya-protocol-en.pdf",
+    "quote": "monetary and non-monetary benefits"
+   }
+  ]
+ },
+ {
+  "id": "LC010",
+  "type": "conversational",
+  "question": "can the govt override drug patents in a pandemic",
+  "reference": "Yes, compulsory licences can be issued in a national emergency or extreme urgency (section 92).",
+  "keywords": [
+   "national emergency|extreme urgency"
+  ],
+  "evidence": [
+   {
+    "file": "patents-act-1970.pdf",
+    "quote": "national emergency"
+   }
+  ]
+ },
+ {
+  "id": "LC011",
+  "type": "conversational",
+  "question": "is it legal to sell a talisman claiming it cures disease",
+  "reference": "No, advertising magic remedies for those purposes is prohibited by section 5 of the DMR Act.",
+  "keywords": [
+   "talisman|magic remed"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Magic Remedies (Objectionable Advertisements) Act, 1954.pdf",
+    "quote": "includes a talisman, mantra, kavacha"
+   }
+  ]
+ },
+ {
+  "id": "LC012",
+  "type": "conversational",
+  "question": "do ayurveda doctors need biodiversity board permission now",
+  "reference": "Vaids, hakims and registered AYUSH practitioners are exempt from prior intimation after the 2023 amendment.",
+  "keywords": [
+   "vaid|hakim|ayush"
+  ],
+  "evidence": [
+   {
+    "file": "BD (Amendment) Act, 2023_e-Gazette_of_India.pdf",
+    "quote": "vaids, hakims and registered AYUSH practitioners"
+   }
+  ]
+ },
+ {
+  "id": "LC013",
+  "type": "conversational",
+  "question": "is code protected by copyright under trips",
+  "reference": "Yes, computer programs are protected as literary works.",
+  "keywords": [
+   "literary"
+  ],
+  "evidence": [
+   {
+    "file": "TRIPS Agreement.pdf",
+    "quote": "Computer programs, whether in source or object code, shall be protected as literary works"
+   }
+  ]
+ },
+ {
+  "id": "LC014",
+  "type": "conversational",
+  "question": "who pays for biodiversity convention stuff",
+  "reference": "Developed countries provide new and additional financial resources; the financial mechanism is operated by the GEF on an interim basis.",
+  "keywords": [
+   "financial|gef|global environment facility"
+  ],
+  "evidence": [
+   {
+    "file": "Convention on_Biological_Diversity_(CBD).pdf",
+    "quote": "Global Environment Facility"
+   }
+  ]
+ },
+ {
+  "id": "LC015",
+  "type": "conversational",
+  "question": "what makes a medicine 'adulterated' legally",
+  "reference": "For example, containing filthy, putrid or decomposed substance, or being prepared in insanitary conditions.",
+  "keywords": [
+   "filthy|putrid|decomposed|insanitary"
+  ],
+  "evidence": [
+   {
+    "file": "Drugs and Cosmetics Act, 1940 (as amended).pdf",
+    "quote": "filthy, putrid or decomposed substance"
+   }
+  ]
+ },
+ {
+  "id": "LU001",
+  "type": "unanswerable",
+  "question": "What is the patent filing fee at the United States Patent and Trademark Office?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU002",
+  "type": "unanswerable",
+  "question": "How many patents did the Indian Patent Office grant in 2023?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU003",
+  "type": "unanswerable",
+  "question": "Which country was the first to ratify the WIPO GRATK Treaty?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU004",
+  "type": "unanswerable",
+  "question": "Who is the current chairperson of the National Biodiversity Authority?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU005",
+  "type": "unanswerable",
+  "question": "What is the GST rate on Ayurvedic medicines in India?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU006",
+  "type": "unanswerable",
+  "question": "How many parties had ratified the Nagoya Protocol by 2024?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU007",
+  "type": "unanswerable",
+  "question": "What is the term of a utility model in China?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU008",
+  "type": "unanswerable",
+  "question": "What did the Supreme Court decide in Novartis v. Union of India?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU009",
+  "type": "unanswerable",
+  "question": "What is the court fee for filing a patent infringement suit in Delhi?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU010",
+  "type": "unanswerable",
+  "question": "How much ABS benefit-sharing money did India collect in 2022?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU011",
+  "type": "unanswerable",
+  "question": "When does the WTO's COVID-19 vaccine TRIPS waiver expire?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU012",
+  "type": "unanswerable",
+  "question": "How many member states does the WTO have?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU013",
+  "type": "unanswerable",
+  "question": "Which company holds the most patents in India?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU014",
+  "type": "unanswerable",
+  "question": "What is the shelf life of Ayurveda Aahara products after opening?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ },
+ {
+  "id": "LU015",
+  "type": "unanswerable",
+  "question": "What is the maximum fine for misleading food advertisements under the Consumer Protection Act, 2019?",
+  "reference": "Not stated in the documents; the system should abstain.",
+  "keywords": [],
+  "evidence": []
+ }
+]
