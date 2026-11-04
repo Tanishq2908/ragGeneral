@@ -1,0 +1,2496 @@
+[
+ {
+  "id": "G01",
+  "type": "single",
+  "question": "In what year and in which journal did Alan Turing publish the paper proposing the imitation game?",
+  "gold_sections": [
+   "A03"
+  ],
+  "reference": "1950, in the journal Mind (\"Computing Machinery and Intelligence\").",
+  "keywords": [
+   "1950",
+   "mind"
+  ]
+ },
+ {
+  "id": "G02",
+  "type": "single",
+  "question": "Who wrote the 1973 report that triggered the first AI winter in the United Kingdom?",
+  "gold_sections": [
+   "A05"
+  ],
+  "reference": "James Lighthill (the Lighthill Report).",
+  "keywords": [
+   "lighthill"
+  ]
+ },
+ {
+  "id": "G03",
+  "type": "single",
+  "question": "How many rules did the MYCIN expert system use?",
+  "gold_sections": [
+   "A06"
+  ],
+  "reference": "Roughly 600 rules.",
+  "keywords": [
+   "600"
+  ]
+ },
+ {
+  "id": "G04",
+  "type": "single",
+  "question": "What was Deep Blue's winning margin against Garry Kasparov, and in what month and year?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "3½ to 2½, in May 1997.",
+  "keywords": [
+   "may",
+   "1997",
+   "3½|3.5|3 1/2"
+  ]
+ },
+ {
+  "id": "G05",
+  "type": "single",
+  "question": "What is the formula for the F1 score, and why is the harmonic mean used instead of the arithmetic mean?",
+  "gold_sections": [
+   "A15"
+  ],
+  "reference": "F1 = 2 × (precision × recall) / (precision + recall); the harmonic mean punishes a large imbalance between precision and recall.",
+  "keywords": [
+   "harmonic",
+   "imbalance"
+  ]
+ },
+ {
+  "id": "G06",
+  "type": "single",
+  "question": "Which function did Minsky and Papert show a single-layer perceptron cannot represent?",
+  "gold_sections": [
+   "A16"
+  ],
+  "reference": "Exclusive-or (XOR), because it is not linearly separable.",
+  "keywords": [
+   "xor|exclusive-or|exclusive or"
+  ]
+ },
+ {
+  "id": "G07",
+  "type": "single",
+  "question": "In which 1986 Nature paper was backpropagation popularised, and who were its three authors?",
+  "gold_sections": [
+   "A17"
+  ],
+  "reference": "\"Learning representations by back-propagating errors\" by Rumelhart, Hinton and Williams.",
+  "keywords": [
+   "rumelhart",
+   "hinton",
+   "williams"
+  ]
+ },
+ {
+  "id": "G08",
+  "type": "single",
+  "question": "What is the dying ReLU problem?",
+  "gold_sections": [
+   "A18"
+  ],
+  "reference": "A ReLU unit stuck in the negative region stops receiving gradient permanently.",
+  "keywords": [
+   "negative",
+   "gradient"
+  ]
+ },
+ {
+  "id": "G09",
+  "type": "single",
+  "question": "How many encoder layers did the original Transformer use, and how many attention heads?",
+  "gold_sections": [
+   "A21",
+   "A22"
+  ],
+  "reference": "Six layers in each stack and eight attention heads.",
+  "keywords": [
+   "six|6",
+   "eight|8"
+  ]
+ },
+ {
+  "id": "G10",
+  "type": "single",
+  "question": "Why is the dot product divided by the square root of dk in scaled dot-product attention?",
+  "gold_sections": [
+   "A22"
+  ],
+  "reference": "Without it dot products grow large with dimension, pushing softmax into saturated regions with vanishing gradients.",
+  "keywords": [
+   "softmax",
+   "gradient"
+  ]
+ },
+ {
+  "id": "G11",
+  "type": "single",
+  "question": "What does LoRA freeze, and what does it train instead?",
+  "gold_sections": [
+   "A26"
+  ],
+  "reference": "It freezes the base weights and trains small low-rank update matrices.",
+  "keywords": [
+   "freez",
+   "low-rank|low rank"
+  ]
+ },
+ {
+  "id": "G12",
+  "type": "single",
+  "question": "What is the difference between intrinsic and extrinsic hallucination?",
+  "gold_sections": [
+   "A28"
+  ],
+  "reference": "Intrinsic contradicts the supplied source; extrinsic introduces claims that cannot be verified from the source.",
+  "keywords": [
+   "contradict",
+   "verif"
+  ]
+ },
+ {
+  "id": "G13",
+  "type": "single",
+  "question": "What does HNSW stand for and how does it work?",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "Hierarchical navigable small world; it builds a multi-layer proximity graph.",
+  "keywords": [
+   "hierarchical navigable small world",
+   "graph"
+  ]
+ },
+ {
+  "id": "G14",
+  "type": "single",
+  "question": "On what date did the EU AI Act enter into force, and what are its four risk tiers?",
+  "gold_sections": [
+   "A44"
+  ],
+  "reference": "1 August 2024; unacceptable, high, limited and minimal risk.",
+  "keywords": [
+   "august",
+   "2024",
+   "unacceptable",
+   "high",
+   "limited",
+   "minimal"
+  ]
+ },
+ {
+  "id": "G15",
+  "type": "multi",
+  "question": "What structural limitation of recurrent networks did the Transformer remove, and why did removing it matter for training scale?",
+  "gold_sections": [
+   "A20",
+   "A21"
+  ],
+  "reference": "Sequential computation; removing it allowed parallel training across positions on large GPU/TPU clusters, making much larger corpora economical.",
+  "keywords": [
+   "sequential",
+   "parallel"
+  ]
+ },
+ {
+  "id": "G16",
+  "type": "multi",
+  "question": "How does the vanishing gradient problem affect both deep feedforward networks and recurrent networks, and what distinct solution was adopted in each case?",
+  "gold_sections": [
+   "A18",
+   "A20"
+  ],
+  "reference": "Multiplying small derivatives drives gradients to zero; ReLU-style activations for deep feedforward nets, LSTM/GRU gating with an additive cell state for RNNs.",
+  "keywords": [
+   "relu",
+   "lstm"
+  ]
+ },
+ {
+  "id": "G17",
+  "type": "multi",
+  "question": "Compare GANs and diffusion models on training stability, sample quality and sampling speed.",
+  "gold_sections": [
+   "A33",
+   "A34"
+  ],
+  "reference": "GANs are unstable (mode collapse) but sample fast; diffusion trains stably, covers the distribution better and has displaced GANs for high-fidelity images, but samples slowly because it is iterative.",
+  "keywords": [
+   "mode collapse|unstable",
+   "stabl",
+   "slow|iterative"
+  ]
+ },
+ {
+  "id": "G18",
+  "type": "multi",
+  "question": "The Kaplan scaling laws and the Chinchilla paper reached different conclusions about how to allocate a compute budget. What changed, and what was the practical consequence?",
+  "gold_sections": [
+   "A38"
+  ],
+  "reference": "Kaplan favoured larger models on less data; Chinchilla found models undertrained and that parameters and tokens should scale equally, leading to smaller models trained on more data with cheaper inference.",
+  "keywords": [
+   "undertrained|equal",
+   "smaller",
+   "inference"
+  ]
+ },
+ {
+  "id": "G19",
+  "type": "multi",
+  "question": "Why is prompt injection a specific risk for RAG systems rather than a generic language-model risk?",
+  "gold_sections": [
+   "A29",
+   "A42"
+  ],
+  "reference": "Retrieved passages are untrusted input entering the same context window as trusted instructions; malicious text can be planted in the corpus (indirect prompt injection).",
+  "keywords": [
+   "untrusted",
+   "context"
+  ]
+ },
+ {
+  "id": "G20",
+  "type": "multi",
+  "question": "A retrieval system returns relevant chunks but the final answer is still wrong. Which evaluation metrics would distinguish a retrieval failure from a generation failure?",
+  "gold_sections": [
+   "A32",
+   "A28"
+  ],
+  "reference": "Retrieval metrics (Recall@k, Precision@k, MRR, NDCG) vs generation metrics such as faithfulness and answer relevance (RAGAS).",
+  "keywords": [
+   "faithfulness",
+   "recall"
+  ]
+ },
+ {
+  "id": "G21",
+  "type": "multi",
+  "question": "Self-supervised learning is described as removing a bottleneck. Which bottleneck, and which earlier section describes the cost it removes?",
+  "gold_sections": [
+   "A09",
+   "A10"
+  ],
+  "reference": "The labelling bottleneck; supervised learning (A09) describes labelling as its defining practical cost.",
+  "keywords": [
+   "label"
+  ]
+ },
+ {
+  "id": "G22",
+  "type": "multi",
+  "question": "Why can fairness criteria not generally be satisfied simultaneously, and how does this connect to the choice of explanation method for an affected individual?",
+  "gold_sections": [
+   "A39",
+   "A40"
+  ],
+  "reference": "The impossibility result: criteria conflict unless base rates are equal, so an explicit normative choice is needed; counterfactual explanations are the most actionable for an affected individual.",
+  "keywords": [
+   "base rate",
+   "counterfactual"
+  ]
+ },
+ {
+  "id": "G23",
+  "type": "distractor",
+  "question": "What is the difference between L1 and L2 regularisation?",
+  "gold_sections": [
+   "A13"
+  ],
+  "reference": "L2 (ridge/weight decay) adds squared weights and shrinks smoothly; L1 (lasso) adds absolute weights and drives some to exactly zero (feature selection).",
+  "keywords": [
+   "squared",
+   "absolute",
+   "zero"
+  ]
+ },
+ {
+  "id": "G24",
+  "type": "distractor",
+  "question": "What is the context window?",
+  "gold_sections": [
+   "A25",
+   "A48"
+  ],
+  "reference": "The maximum number of tokens a model can attend to/process in one forward pass.",
+  "keywords": [
+   "maximum",
+   "token"
+  ]
+ },
+ {
+  "id": "G25",
+  "type": "distractor",
+  "question": "Which chunking strategy places boundaries where consecutive sentence embeddings diverge?",
+  "gold_sections": [
+   "A31"
+  ],
+  "reference": "Semantic chunking.",
+  "keywords": [
+   "semantic"
+  ]
+ },
+ {
+  "id": "G26",
+  "type": "distractor",
+  "question": "What does recall mean?",
+  "gold_sections": [
+   "A15",
+   "A32"
+  ],
+  "reference": "Ambiguous: classification recall TP/(TP+FN), or retrieval Recall@k (share of queries with a relevant chunk in the top k).",
+  "keywords": [
+   "tp/(tp+fn)|sensitivity|true positive rate|recall@k"
+  ]
+ },
+ {
+  "id": "G27",
+  "type": "unanswerable",
+  "question": "What was the total training cost in US dollars of the Chinchilla model?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus.",
+  "keywords": []
+ },
+ {
+  "id": "G28",
+  "type": "unanswerable",
+  "question": "Which company currently holds the largest share of the AI accelerator market, and what percentage?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus.",
+  "keywords": []
+ },
+ {
+  "id": "G29",
+  "type": "unanswerable",
+  "question": "What accuracy did AlexNet achieve on the CIFAR-10 dataset?",
+  "gold_sections": [],
+  "reference": "Not stated; only the ImageNet result is given.",
+  "keywords": []
+ },
+ {
+  "id": "G30",
+  "type": "unanswerable",
+  "question": "According to section A12, what is the recommended dropout probability for convolutional layers?",
+  "gold_sections": [],
+  "reference": "A12 states no probability; 0.5 in A13 applies to fully connected layers.",
+  "keywords": []
+ },
+ {
+  "id": "S001",
+  "type": "single",
+  "question": "Who coined the term artificial intelligence, and in what year?",
+  "gold_sections": [
+   "A01"
+  ],
+  "reference": "John McCarthy, 1955.",
+  "keywords": [
+   "mccarthy",
+   "1955"
+  ]
+ },
+ {
+  "id": "S002",
+  "type": "single",
+  "question": "Along which two axes do Russell and Norvig organise definitions of AI?",
+  "gold_sections": [
+   "A01"
+  ],
+  "reference": "Thinking versus acting, and human-like versus rational.",
+  "keywords": [
+   "thinking",
+   "acting",
+   "rational"
+  ]
+ },
+ {
+  "id": "S003",
+  "type": "single",
+  "question": "Why do Russell and Norvig consider acting rationally the most useful engineering target?",
+  "gold_sections": [
+   "A01"
+  ],
+  "reference": "It is measurable and does not require imitating human cognition.",
+  "keywords": [
+   "measurable"
+  ]
+ },
+ {
+  "id": "S004",
+  "type": "single",
+  "question": "What is another name for artificial narrow intelligence?",
+  "gold_sections": [
+   "A02"
+  ],
+  "reference": "Weak AI.",
+  "keywords": [
+   "weak"
+  ]
+ },
+ {
+  "id": "S005",
+  "type": "single",
+  "question": "What are the four categories of the reactive-machines taxonomy of AI systems?",
+  "gold_sections": [
+   "A02"
+  ],
+  "reference": "Reactive machines, limited-memory, theory-of-mind and self-aware systems.",
+  "keywords": [
+   "reactive",
+   "limited",
+   "theory",
+   "self-aware|self aware"
+  ]
+ },
+ {
+  "id": "S006",
+  "type": "single",
+  "question": "What is John Searle's critique of the Turing Test called, and when was it published?",
+  "gold_sections": [
+   "A03"
+  ],
+  "reference": "The Chinese Room argument, 1980.",
+  "keywords": [
+   "chinese room",
+   "1980"
+  ]
+ },
+ {
+  "id": "S007",
+  "type": "single",
+  "question": "When and where was the Dartmouth workshop held?",
+  "gold_sections": [
+   "A04"
+  ],
+  "reference": "Summer 1956, Dartmouth College in Hanover, New Hampshire.",
+  "keywords": [
+   "1956",
+   "hanover|new hampshire"
+  ]
+ },
+ {
+  "id": "S008",
+  "type": "single",
+  "question": "Who wrote the 1955 Dartmouth funding proposal?",
+  "gold_sections": [
+   "A04"
+  ],
+  "reference": "McCarthy, Minsky, Rochester and Shannon.",
+  "keywords": [
+   "mccarthy",
+   "minsky",
+   "rochester",
+   "shannon"
+  ]
+ },
+ {
+  "id": "S009",
+  "type": "single",
+  "question": "Which program is often called the first AI program, and who presented it?",
+  "gold_sections": [
+   "A04"
+  ],
+  "reference": "The Logic Theorist, by Allen Newell and Herbert Simon.",
+  "keywords": [
+   "logic theorist",
+   "newell",
+   "simon"
+  ]
+ },
+ {
+  "id": "S010",
+  "type": "single",
+  "question": "When did the second AI winter begin, and which hardware market collapsed?",
+  "gold_sections": [
+   "A05"
+  ],
+  "reference": "Around 1987; the LISP machine market.",
+  "keywords": [
+   "1987",
+   "lisp"
+  ]
+ },
+ {
+  "id": "S011",
+  "type": "single",
+  "question": "Which US agency reduced undirected AI funding during the first AI winter?",
+  "gold_sections": [
+   "A05"
+  ],
+  "reference": "DARPA.",
+  "keywords": [
+   "darpa"
+  ]
+ },
+ {
+  "id": "S012",
+  "type": "single",
+  "question": "Which two components does an expert system architecture separate?",
+  "gold_sections": [
+   "A06"
+  ],
+  "reference": "The knowledge base and the inference engine.",
+  "keywords": [
+   "knowledge base",
+   "inference engine"
+  ]
+ },
+ {
+  "id": "S013",
+  "type": "single",
+  "question": "What limitation ended the expert systems era?",
+  "gold_sections": [
+   "A06"
+  ],
+  "reference": "The knowledge acquisition bottleneck.",
+  "keywords": [
+   "knowledge acquisition"
+  ]
+ },
+ {
+  "id": "S014",
+  "type": "single",
+  "question": "Why was MYCIN never deployed clinically?",
+  "gold_sections": [
+   "A06"
+  ],
+  "reference": "Partly due to liability and integration concerns.",
+  "keywords": [
+   "liability"
+  ]
+ },
+ {
+  "id": "S015",
+  "type": "single",
+  "question": "Who formalised Bayesian networks, and in which book?",
+  "gold_sections": [
+   "A07"
+  ],
+  "reference": "Judea Pearl, \"Probabilistic Reasoning in Intelligent Systems\" (1988).",
+  "keywords": [
+   "pearl",
+   "1988"
+  ]
+ },
+ {
+  "id": "S016",
+  "type": "single",
+  "question": "Which essay restated that general learning methods plus compute beat hand-crafted knowledge?",
+  "gold_sections": [
+   "A07"
+  ],
+  "reference": "\"The Bitter Lesson\" by Richard Sutton, 2019.",
+  "keywords": [
+   "bitter lesson",
+   "sutton"
+  ]
+ },
+ {
+  "id": "S017",
+  "type": "single",
+  "question": "How many positions per second could Deep Blue evaluate?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "Roughly 200 million.",
+  "keywords": [
+   "200 million|200,000,000"
+  ]
+ },
+ {
+  "id": "S018",
+  "type": "single",
+  "question": "Whom did IBM Watson defeat on Jeopardy!, and when?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "Ken Jennings and Brad Rutter, February 2011.",
+  "keywords": [
+   "jennings",
+   "rutter",
+   "2011"
+  ]
+ },
+ {
+  "id": "S019",
+  "type": "single",
+  "question": "How did AlphaGo Zero differ from the original AlphaGo?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "It learned from self-play alone with no human game records.",
+  "keywords": [
+   "self-play|self play"
+  ]
+ },
+ {
+  "id": "S020",
+  "type": "single",
+  "question": "What accuracy did AlphaFold 2 achieve at CASP14?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "Median backbone accuracy around 0.96 ångström RMSD.",
+  "keywords": [
+   "0.96"
+  ]
+ },
+ {
+  "id": "S021",
+  "type": "single",
+  "question": "Which loss functions are typical for classification and for regression?",
+  "gold_sections": [
+   "A09"
+  ],
+  "reference": "Cross-entropy and mean squared error.",
+  "keywords": [
+   "cross-entropy|cross entropy",
+   "mean squared error|mse"
+  ]
+ },
+ {
+  "id": "S022",
+  "type": "single",
+  "question": "What are the three main task families of unsupervised learning?",
+  "gold_sections": [
+   "A10"
+  ],
+  "reference": "Clustering, dimensionality reduction and density estimation.",
+  "keywords": [
+   "clustering",
+   "dimensionality",
+   "density"
+  ]
+ },
+ {
+  "id": "S023",
+  "type": "single",
+  "question": "Which pretext task does BERT use, and which does the GPT family use?",
+  "gold_sections": [
+   "A10"
+  ],
+  "reference": "Masked-token prediction for BERT; next-token prediction for GPT.",
+  "keywords": [
+   "mask",
+   "next"
+  ]
+ },
+ {
+  "id": "S024",
+  "type": "single",
+  "question": "Name two contrastive self-supervised methods used in vision.",
+  "gold_sections": [
+   "A10"
+  ],
+  "reference": "SimCLR and MoCo.",
+  "keywords": [
+   "simclr",
+   "moco"
+  ]
+ },
+ {
+  "id": "S025",
+  "type": "single",
+  "question": "Give two examples of policy-gradient reinforcement learning methods.",
+  "gold_sections": [
+   "A11"
+  ],
+  "reference": "REINFORCE and Proximal Policy Optimization (PPO).",
+  "keywords": [
+   "reinforce",
+   "ppo|proximal"
+  ]
+ },
+ {
+  "id": "S026",
+  "type": "single",
+  "question": "What is the exploration-exploitation trade-off?",
+  "gold_sections": [
+   "A11"
+  ],
+  "reference": "Balancing actions known to yield reward against trying actions whose value is uncertain.",
+  "keywords": [
+   "uncertain|unknown|new"
+  ]
+ },
+ {
+  "id": "S027",
+  "type": "single",
+  "question": "Which three terms make up generalisation error?",
+  "gold_sections": [
+   "A12"
+  ],
+  "reference": "Bias, variance and irreducible noise.",
+  "keywords": [
+   "bias",
+   "variance",
+   "noise"
+  ]
+ },
+ {
+  "id": "S028",
+  "type": "single",
+  "question": "Is underfitting a high-bias or a high-variance regime?",
+  "gold_sections": [
+   "A12"
+  ],
+  "reference": "High bias.",
+  "keywords": [
+   "bias"
+  ]
+ },
+ {
+  "id": "S029",
+  "type": "single",
+  "question": "Who introduced dropout, and in what year?",
+  "gold_sections": [
+   "A13"
+  ],
+  "reference": "Nitish Srivastava and colleagues, 2014.",
+  "keywords": [
+   "srivastava",
+   "2014"
+  ]
+ },
+ {
+  "id": "S030",
+  "type": "single",
+  "question": "Who introduced batch normalisation, and in what year?",
+  "gold_sections": [
+   "A13"
+  ],
+  "reference": "Sergey Ioffe and Christian Szegedy, 2015.",
+  "keywords": [
+   "ioffe",
+   "2015"
+  ]
+ },
+ {
+  "id": "S031",
+  "type": "single",
+  "question": "What is test-set leakage, also called adaptive overfitting?",
+  "gold_sections": [
+   "A14"
+  ],
+  "reference": "Reusing the test set for model selection, turning it into a validation set and inflating the score.",
+  "keywords": [
+   "validation|inflat"
+  ]
+ },
+ {
+  "id": "S032",
+  "type": "single",
+  "question": "Which values of k are typical in k-fold cross-validation?",
+  "gold_sections": [
+   "A14"
+  ],
+  "reference": "k = 5 and k = 10.",
+  "keywords": [
+   "5",
+   "10"
+  ]
+ },
+ {
+  "id": "S033",
+  "type": "single",
+  "question": "How should time-series data be split for validation?",
+  "gold_sections": [
+   "A14"
+  ],
+  "reference": "With forward-chaining splits, not random splits.",
+  "keywords": [
+   "forward"
+  ]
+ },
+ {
+  "id": "S034",
+  "type": "single",
+  "question": "Why is accuracy misleading under class imbalance?",
+  "gold_sections": [
+   "A15"
+  ],
+  "reference": "An always-negative detector at 1 percent prevalence gets 99 percent accuracy while detecting nothing.",
+  "keywords": [
+   "99"
+  ]
+ },
+ {
+  "id": "S035",
+  "type": "single",
+  "question": "What is the formula for precision?",
+  "gold_sections": [
+   "A15"
+  ],
+  "reference": "TP / (TP + FP).",
+  "keywords": [
+   "tp/(tp+fp)"
+  ]
+ },
+ {
+  "id": "S036",
+  "type": "single",
+  "question": "What does a ROC-AUC of 0.5 indicate?",
+  "gold_sections": [
+   "A15"
+  ],
+  "reference": "Random ranking.",
+  "keywords": [
+   "random"
+  ]
+ },
+ {
+  "id": "S037",
+  "type": "single",
+  "question": "Who introduced the perceptron, and in what year?",
+  "gold_sections": [
+   "A16"
+  ],
+  "reference": "Frank Rosenblatt, 1958, at the Cornell Aeronautical Laboratory.",
+  "keywords": [
+   "rosenblatt",
+   "1958"
+  ]
+ },
+ {
+  "id": "S038",
+  "type": "single",
+  "question": "What does the perceptron convergence theorem state?",
+  "gold_sections": [
+   "A16"
+  ],
+  "reference": "If the data are linearly separable, the rule converges to a separating solution in a finite number of updates.",
+  "keywords": [
+   "linearly separable",
+   "finite"
+  ]
+ },
+ {
+  "id": "S039",
+  "type": "single",
+  "question": "In what year was the book \"Perceptrons\" published?",
+  "gold_sections": [
+   "A16"
+  ],
+  "reference": "1969.",
+  "keywords": [
+   "1969"
+  ]
+ },
+ {
+  "id": "S040",
+  "type": "single",
+  "question": "Who published the Adam optimiser, and in what year?",
+  "gold_sections": [
+   "A17"
+  ],
+  "reference": "Diederik Kingma and Jimmy Ba, 2015.",
+  "keywords": [
+   "kingma",
+   "2015"
+  ]
+ },
+ {
+  "id": "S041",
+  "type": "single",
+  "question": "What batch sizes are typical for mini-batch gradient descent?",
+  "gold_sections": [
+   "A17"
+  ],
+  "reference": "Between 32 and 8,192 examples.",
+  "keywords": [
+   "32",
+   "8,192|8192"
+  ]
+ },
+ {
+  "id": "S042",
+  "type": "single",
+  "question": "What does momentum do in gradient descent?",
+  "gold_sections": [
+   "A17"
+  ],
+  "reference": "Accumulates a moving average of past gradients to damp oscillation.",
+  "keywords": [
+   "oscillat"
+  ]
+ },
+ {
+  "id": "S043",
+  "type": "single",
+  "question": "What negative slope does leaky ReLU typically use?",
+  "gold_sections": [
+   "A18"
+  ],
+  "reference": "0.01.",
+  "keywords": [
+   "0.01"
+  ]
+ },
+ {
+  "id": "S044",
+  "type": "single",
+  "question": "Which activation function is used in BERT and the GPT family?",
+  "gold_sections": [
+   "A18"
+  ],
+  "reference": "GELU.",
+  "keywords": [
+   "gelu"
+  ]
+ },
+ {
+  "id": "S045",
+  "type": "single",
+  "question": "Why does a neural network need non-linear activation functions?",
+  "gold_sections": [
+   "A18"
+  ],
+  "reference": "Without them a stack of linear layers collapses into a single linear layer.",
+  "keywords": [
+   "linear"
+  ]
+ },
+ {
+  "id": "S046",
+  "type": "single",
+  "question": "What top-5 error did AlexNet achieve in the 2012 ImageNet challenge?",
+  "gold_sections": [
+   "A19"
+  ],
+  "reference": "About 15.3 percent, versus roughly 26 percent for the runner-up.",
+  "keywords": [
+   "15.3"
+  ]
+ },
+ {
+  "id": "S047",
+  "type": "single",
+  "question": "What did ResNet introduce, and how deep did it allow networks to become?",
+  "gold_sections": [
+   "A19"
+  ],
+  "reference": "Residual (skip) connections, enabling 152 layers and beyond.",
+  "keywords": [
+   "residual|skip",
+   "152"
+  ]
+ },
+ {
+  "id": "S048",
+  "type": "single",
+  "question": "What was LeNet-5 applied to?",
+  "gold_sections": [
+   "A19"
+  ],
+  "reference": "Handwritten digit recognition for cheque processing, 1998.",
+  "keywords": [
+   "digit"
+  ]
+ },
+ {
+  "id": "S049",
+  "type": "single",
+  "question": "What are the three gates of an LSTM?",
+  "gold_sections": [
+   "A20"
+  ],
+  "reference": "Input, forget and output.",
+  "keywords": [
+   "input",
+   "forget",
+   "output"
+  ]
+ },
+ {
+  "id": "S050",
+  "type": "single",
+  "question": "What are the two gates of a GRU?",
+  "gold_sections": [
+   "A20"
+  ],
+  "reference": "Reset and update.",
+  "keywords": [
+   "reset",
+   "update"
+  ]
+ },
+ {
+  "id": "S051",
+  "type": "single",
+  "question": "Which training procedure is used for recurrent networks?",
+  "gold_sections": [
+   "A20"
+  ],
+  "reference": "Backpropagation through time.",
+  "keywords": [
+   "through time"
+  ]
+ },
+ {
+  "id": "S052",
+  "type": "single",
+  "question": "What kind of positional encoding did the original Transformer use?",
+  "gold_sections": [
+   "A21"
+  ],
+  "reference": "Fixed sinusoidal positional encodings.",
+  "keywords": [
+   "sinusoid"
+  ]
+ },
+ {
+  "id": "S053",
+  "type": "single",
+  "question": "What are the three architectural families that descend from the Transformer?",
+  "gold_sections": [
+   "A21"
+  ],
+  "reference": "Encoder-only (BERT), decoder-only (GPT), encoder-decoder (T5, BART).",
+  "keywords": [
+   "encoder-only|encoder only",
+   "decoder-only|decoder only",
+   "t5|bart"
+  ]
+ },
+ {
+  "id": "S054",
+  "type": "single",
+  "question": "What is the formula for scaled dot-product attention?",
+  "gold_sections": [
+   "A22"
+  ],
+  "reference": "softmax(QKᵀ / √dk) V.",
+  "keywords": [
+   "softmax"
+  ]
+ },
+ {
+  "id": "S055",
+  "type": "single",
+  "question": "How does the cost of self-attention scale with sequence length?",
+  "gold_sections": [
+   "A22"
+  ],
+  "reference": "Quadratically.",
+  "keywords": [
+   "quadratic"
+  ]
+ },
+ {
+  "id": "S056",
+  "type": "single",
+  "question": "What does FlashAttention reduce?",
+  "gold_sections": [
+   "A22"
+  ],
+  "reference": "Memory traffic, rather than asymptotic cost.",
+  "keywords": [
+   "memory"
+  ]
+ },
+ {
+  "id": "S057",
+  "type": "single",
+  "question": "Who stated the distributional hypothesis, and when?",
+  "gold_sections": [
+   "A23"
+  ],
+  "reference": "J. R. Firth, 1957.",
+  "keywords": [
+   "firth",
+   "1957"
+  ]
+ },
+ {
+  "id": "S058",
+  "type": "single",
+  "question": "How does GloVe learn word vectors?",
+  "gold_sections": [
+   "A23"
+  ],
+  "reference": "By factorising a global word-word co-occurrence matrix.",
+  "keywords": [
+   "co-occurrence|cooccurrence"
+  ]
+ },
+ {
+  "id": "S059",
+  "type": "single",
+  "question": "Why can't static word embeddings distinguish the senses of \"bank\"?",
+  "gold_sections": [
+   "A23"
+  ],
+  "reference": "Each word type gets exactly one vector regardless of context.",
+  "keywords": [
+   "one vector|single|same vector|regardless"
+  ]
+ },
+ {
+  "id": "S060",
+  "type": "single",
+  "question": "How does byte-pair encoding build its vocabulary, and who adapted it to machine translation?",
+  "gold_sections": [
+   "A24"
+  ],
+  "reference": "It iteratively merges the most frequent adjacent pair; Rico Sennrich and colleagues, 2016.",
+  "keywords": [
+   "merg",
+   "sennrich"
+  ]
+ },
+ {
+  "id": "S061",
+  "type": "single",
+  "question": "Roughly how many characters does one English token average?",
+  "gold_sections": [
+   "A24"
+  ],
+  "reference": "About four characters, or about 0.75 words.",
+  "keywords": [
+   "four|4"
+  ]
+ },
+ {
+  "id": "S062",
+  "type": "single",
+  "question": "What vocabulary sizes are typical for subword tokenisers?",
+  "gold_sections": [
+   "A24"
+  ],
+  "reference": "About 30,000 to 256,000 tokens.",
+  "keywords": [
+   "30,000|30000|30k",
+   "256,000|256000|256k"
+  ]
+ },
+ {
+  "id": "S063",
+  "type": "single",
+  "question": "What is the pretraining objective of a large language model?",
+  "gold_sections": [
+   "A25"
+  ],
+  "reference": "Minimise cross-entropy of the next token given all preceding tokens.",
+  "keywords": [
+   "next"
+  ]
+ },
+ {
+  "id": "S064",
+  "type": "single",
+  "question": "What is Direct Preference Optimization, and when was it published?",
+  "gold_sections": [
+   "A26"
+  ],
+  "reference": "2023; it optimises a closed-form objective directly on preference pairs without a separate reward model.",
+  "keywords": [
+   "2023",
+   "reward model"
+  ]
+ },
+ {
+  "id": "S065",
+  "type": "single",
+  "question": "What penalty prevents the RLHF model drifting too far from the SFT model?",
+  "gold_sections": [
+   "A26"
+  ],
+  "reference": "A KL-divergence penalty.",
+  "keywords": [
+   "kl"
+  ]
+ },
+ {
+  "id": "S066",
+  "type": "single",
+  "question": "Who wrote the InstructGPT paper, and in what year?",
+  "gold_sections": [
+   "A26"
+  ],
+  "reference": "Long Ouyang and colleagues, 2022.",
+  "keywords": [
+   "ouyang",
+   "2022"
+  ]
+ },
+ {
+  "id": "S067",
+  "type": "single",
+  "question": "What is self-consistency prompting?",
+  "gold_sections": [
+   "A27"
+  ],
+  "reference": "Sampling several reasoning paths at non-zero temperature and taking a majority vote.",
+  "keywords": [
+   "majority"
+  ]
+ },
+ {
+  "id": "S068",
+  "type": "single",
+  "question": "What is ReAct?",
+  "gold_sections": [
+   "A27"
+  ],
+  "reference": "A 2022 method interleaving reasoning traces with tool calls.",
+  "keywords": [
+   "tool|act"
+  ]
+ },
+ {
+  "id": "S069",
+  "type": "single",
+  "question": "Which paper documented in-context learning at scale?",
+  "gold_sections": [
+   "A27"
+  ],
+  "reference": "The GPT-3 paper by Tom Brown and colleagues, 2020.",
+  "keywords": [
+   "gpt-3|gpt3",
+   "2020"
+  ]
+ },
+ {
+  "id": "S070",
+  "type": "single",
+  "question": "What are the three groups of hallucination mitigations?",
+  "gold_sections": [
+   "A28"
+  ],
+  "reference": "Grounding, training-time methods and verification methods.",
+  "keywords": [
+   "ground",
+   "training",
+   "verif"
+  ]
+ },
+ {
+  "id": "S071",
+  "type": "single",
+  "question": "Where does the term retrieval-augmented generation come from?",
+  "gold_sections": [
+   "A29"
+  ],
+  "reference": "A 2020 paper by Patrick Lewis and colleagues at Facebook AI Research.",
+  "keywords": [
+   "lewis",
+   "2020"
+  ]
+ },
+ {
+  "id": "S072",
+  "type": "single",
+  "question": "What are the characteristic failure modes of RAG?",
+  "gold_sections": [
+   "A29"
+  ],
+  "reference": "Retrieval misses, context dilution, chunk fragmentation and stale indexes.",
+  "keywords": [
+   "miss",
+   "dilution",
+   "fragment",
+   "stale"
+  ]
+ },
+ {
+  "id": "S073",
+  "type": "single",
+  "question": "Which embedding dimensions are common for text embedding models?",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "384, 768, 1,024 or 1,536.",
+  "keywords": [
+   "384",
+   "768"
+  ]
+ },
+ {
+  "id": "S074",
+  "type": "single",
+  "question": "When is dot product equivalent to cosine similarity?",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "When vectors are L2-normalised.",
+  "keywords": [
+   "normali"
+  ]
+ },
+ {
+  "id": "S075",
+  "type": "single",
+  "question": "What is an IVF index?",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "Inverted file index: partitions vectors into clusters and searches only the nearest few.",
+  "keywords": [
+   "inverted file",
+   "cluster"
+  ]
+ },
+ {
+  "id": "S076",
+  "type": "single",
+  "question": "What signals does dense retrieval miss, and what handles them well?",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "Exact-match signals like part numbers, rare names, error codes; sparse lexical retrieval (BM25).",
+  "keywords": [
+   "bm25"
+  ]
+ },
+ {
+  "id": "S077",
+  "type": "single",
+  "question": "What overlap is common in fixed-size chunking?",
+  "gold_sections": [
+   "A31"
+  ],
+  "reference": "10 to 20 percent.",
+  "keywords": [
+   "10",
+   "20"
+  ]
+ },
+ {
+  "id": "S078",
+  "type": "single",
+  "question": "What is small-to-big retrieval?",
+  "gold_sections": [
+   "A31"
+  ],
+  "reference": "Index small precise chunks but return their larger parent sections to the model.",
+  "keywords": [
+   "parent|larger"
+  ]
+ },
+ {
+  "id": "S079",
+  "type": "single",
+  "question": "What does mean reciprocal rank measure?",
+  "gold_sections": [
+   "A32"
+  ],
+  "reference": "The average reciprocal of the rank of the first relevant result.",
+  "keywords": [
+   "reciprocal",
+   "first"
+  ]
+ },
+ {
+  "id": "S080",
+  "type": "single",
+  "question": "Which generation metrics does the RAGAS framework include?",
+  "gold_sections": [
+   "A32"
+  ],
+  "reference": "Faithfulness, answer relevance, context precision and context recall.",
+  "keywords": [
+   "faithfulness",
+   "answer relevance"
+  ]
+ },
+ {
+  "id": "S081",
+  "type": "single",
+  "question": "Why is a negative set of unanswerable questions essential in RAG evaluation?",
+  "gold_sections": [
+   "A32"
+  ],
+  "reference": "It measures whether the system abstains rather than fabricating.",
+  "keywords": [
+   "abstain|abstention"
+  ]
+ },
+ {
+  "id": "S082",
+  "type": "single",
+  "question": "What is mode collapse in GANs?",
+  "gold_sections": [
+   "A33"
+  ],
+  "reference": "The generator finds a small set of outputs that fool the discriminator and stops covering the rest of the distribution.",
+  "keywords": [
+   "small set|few|limited|narrow"
+  ]
+ },
+ {
+  "id": "S083",
+  "type": "single",
+  "question": "What did Wasserstein GAN change?",
+  "gold_sections": [
+   "A33"
+  ],
+  "reference": "Replaced the loss with an approximation of earth-mover distance to improve stability.",
+  "keywords": [
+   "earth-mover|earth mover|wasserstein distance"
+  ]
+ },
+ {
+  "id": "S084",
+  "type": "single",
+  "question": "What does the discriminator output at the theoretical optimum of GAN training?",
+  "gold_sections": [
+   "A33"
+  ],
+  "reference": "0.5 everywhere.",
+  "keywords": [
+   "0.5"
+  ]
+ },
+ {
+  "id": "S085",
+  "type": "single",
+  "question": "What is latent diffusion, and roughly how much compute does it save?",
+  "gold_sections": [
+   "A34"
+  ],
+  "reference": "Diffusion in an autoencoder's latent space (Rombach et al., 2022, basis of Stable Diffusion); roughly an order of magnitude.",
+  "keywords": [
+   "latent",
+   "order of magnitude"
+  ]
+ },
+ {
+  "id": "S086",
+  "type": "single",
+  "question": "What is classifier-free guidance?",
+  "gold_sections": [
+   "A34"
+  ],
+  "reference": "Steering toward a text prompt by interpolating between conditional and unconditional predictions with a guidance scale.",
+  "keywords": [
+   "conditional",
+   "unconditional"
+  ]
+ },
+ {
+  "id": "S087",
+  "type": "single",
+  "question": "How many images and categories does ImageNet contain?",
+  "gold_sections": [
+   "A35"
+  ],
+  "reference": "Over 14 million images across more than 20,000 categories.",
+  "keywords": [
+   "14 million",
+   "20,000|20000"
+  ]
+ },
+ {
+  "id": "S088",
+  "type": "single",
+  "question": "Who introduced YOLO, and in what year?",
+  "gold_sections": [
+   "A35"
+  ],
+  "reference": "Joseph Redmon, 2016.",
+  "keywords": [
+   "redmon",
+   "2016"
+  ]
+ },
+ {
+  "id": "S089",
+  "type": "single",
+  "question": "What patch size do Vision Transformers typically use?",
+  "gold_sections": [
+   "A35"
+  ],
+  "reference": "16×16 pixels.",
+  "keywords": [
+   "16"
+  ]
+ },
+ {
+  "id": "S090",
+  "type": "single",
+  "question": "On how many image-caption pairs was CLIP trained?",
+  "gold_sections": [
+   "A36"
+  ],
+  "reference": "Roughly 400 million.",
+  "keywords": [
+   "400 million"
+  ]
+ },
+ {
+  "id": "S091",
+  "type": "single",
+  "question": "How does CLIP enable zero-shot classification?",
+  "gold_sections": [
+   "A36"
+  ],
+  "reference": "Class names become text embeddings compared against the image embedding, with no task-specific training.",
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "id": "S092",
+  "type": "single",
+  "question": "When was NVIDIA's CUDA platform released?",
+  "gold_sections": [
+   "A37"
+  ],
+  "reference": "2007.",
+  "keywords": [
+   "2007"
+  ]
+ },
+ {
+  "id": "S093",
+  "type": "single",
+  "question": "What are TPUs built around?",
+  "gold_sections": [
+   "A37"
+  ],
+  "reference": "Systolic arrays for matrix multiplication.",
+  "keywords": [
+   "systolic"
+  ]
+ },
+ {
+  "id": "S094",
+  "type": "single",
+  "question": "How many parameters and training tokens did Chinchilla have?",
+  "gold_sections": [
+   "A38"
+  ],
+  "reference": "70 billion parameters, 1.4 trillion tokens.",
+  "keywords": [
+   "70",
+   "1.4"
+  ]
+ },
+ {
+  "id": "S095",
+  "type": "single",
+  "question": "Which model did Chinchilla outperform, and how large was it?",
+  "gold_sections": [
+   "A38"
+  ],
+  "reference": "Gopher, 280 billion parameters.",
+  "keywords": [
+   "gopher",
+   "280"
+  ]
+ },
+ {
+  "id": "S096",
+  "type": "single",
+  "question": "Who wrote \"Scaling Laws for Neural Language Models\"?",
+  "gold_sections": [
+   "A38"
+  ],
+  "reference": "Jared Kaplan and colleagues, 2020.",
+  "keywords": [
+   "kaplan"
+  ]
+ },
+ {
+  "id": "S097",
+  "type": "single",
+  "question": "What did the Gender Shades study find?",
+  "gold_sections": [
+   "A39"
+  ],
+  "reference": "Error under 1 percent for lighter-skinned men and above 20 percent for darker-skinned women.",
+  "keywords": [
+   "20"
+  ]
+ },
+ {
+  "id": "S098",
+  "type": "single",
+  "question": "What is measurement bias?",
+  "gold_sections": [
+   "A39"
+  ],
+  "reference": "When a proxy variable systematically misrepresents the target for some groups.",
+  "keywords": [
+   "proxy"
+  ]
+ },
+ {
+  "id": "S099",
+  "type": "single",
+  "question": "Name three formal fairness criteria.",
+  "gold_sections": [
+   "A39"
+  ],
+  "reference": "Demographic parity, equalised odds and predictive parity.",
+  "keywords": [
+   "demographic parity",
+   "equalised odds|equalized odds",
+   "predictive parity"
+  ]
+ },
+ {
+  "id": "S100",
+  "type": "single",
+  "question": "How does LIME explain a prediction?",
+  "gold_sections": [
+   "A40"
+  ],
+  "reference": "Fits a simple local surrogate model around a single prediction.",
+  "keywords": [
+   "surrogate|local"
+  ]
+ },
+ {
+  "id": "S101",
+  "type": "single",
+  "question": "What are counterfactual explanations?",
+  "gold_sections": [
+   "A40"
+  ],
+  "reference": "The minimal input change that would flip the outcome.",
+  "keywords": [
+   "minimal|smallest",
+   "flip|change"
+  ]
+ },
+ {
+  "id": "S102",
+  "type": "single",
+  "question": "What is specification gaming?",
+  "gold_sections": [
+   "A41"
+  ],
+  "reference": "Satisfying a stated objective while violating its intent (reward hacking).",
+  "keywords": [
+   "intent|reward hacking"
+  ]
+ },
+ {
+  "id": "S103",
+  "type": "single",
+  "question": "Who developed the instrumental convergence argument?",
+  "gold_sections": [
+   "A41"
+  ],
+  "reference": "Steve Omohundro and Nick Bostrom.",
+  "keywords": [
+   "omohundro|bostrom"
+  ]
+ },
+ {
+  "id": "S104",
+  "type": "single",
+  "question": "Who documented adversarial examples, and in what year?",
+  "gold_sections": [
+   "A42"
+  ],
+  "reference": "Christian Szegedy and colleagues, 2013.",
+  "keywords": [
+   "szegedy",
+   "2013"
+  ]
+ },
+ {
+  "id": "S105",
+  "type": "single",
+  "question": "What is a backdoor attack?",
+  "gold_sections": [
+   "A42"
+  ],
+  "reference": "A data-poisoning attack inserting a trigger pattern that causes a specific misclassification only when present.",
+  "keywords": [
+   "trigger"
+  ]
+ },
+ {
+  "id": "S106",
+  "type": "single",
+  "question": "What does epsilon control in differential privacy?",
+  "gold_sections": [
+   "A43"
+  ],
+  "reference": "The privacy budget: lower epsilon means stronger privacy and typically lower utility.",
+  "keywords": [
+   "privacy budget|budget"
+  ]
+ },
+ {
+  "id": "S107",
+  "type": "single",
+  "question": "How does DP-SGD implement differential privacy?",
+  "gold_sections": [
+   "A43"
+  ],
+  "reference": "By clipping per-example gradients and adding calibrated noise.",
+  "keywords": [
+   "clip",
+   "noise"
+  ]
+ },
+ {
+  "id": "S108",
+  "type": "single",
+  "question": "Where was federated learning deployed at scale?",
+  "gold_sections": [
+   "A43"
+  ],
+  "reference": "Mobile keyboard prediction.",
+  "keywords": [
+   "keyboard"
+  ]
+ },
+ {
+  "id": "S109",
+  "type": "single",
+  "question": "Around which four functions is the NIST AI Risk Management Framework organised?",
+  "gold_sections": [
+   "A44"
+  ],
+  "reference": "Govern, map, measure and manage.",
+  "keywords": [
+   "govern",
+   "map",
+   "measure",
+   "manage"
+  ]
+ },
+ {
+  "id": "S110",
+  "type": "single",
+  "question": "What is India's national AI strategy, and under what banner was it published?",
+  "gold_sections": [
+   "A44"
+  ],
+  "reference": "NITI Aayog's National Strategy for Artificial Intelligence (2018), \"AI for All\".",
+  "keywords": [
+   "niti aayog",
+   "ai for all"
+  ]
+ },
+ {
+  "id": "S111",
+  "type": "single",
+  "question": "When were the OECD AI Principles and UNESCO's AI ethics Recommendation adopted?",
+  "gold_sections": [
+   "A44"
+  ],
+  "reference": "2019 and 2021 respectively.",
+  "keywords": [
+   "2019",
+   "2021"
+  ]
+ },
+ {
+  "id": "S112",
+  "type": "single",
+  "question": "What did a 2021 external validation find about a widely used sepsis-prediction model?",
+  "gold_sections": [
+   "A45"
+  ],
+  "reference": "It performed far worse than vendor-reported figures.",
+  "keywords": [
+   "worse"
+  ]
+ },
+ {
+  "id": "S113",
+  "type": "single",
+  "question": "Why have administrative clinical AI applications been adopted faster than diagnostic ones?",
+  "gold_sections": [
+   "A45"
+  ],
+  "reference": "Their risk profile is lower.",
+  "keywords": [
+   "risk"
+  ]
+ },
+ {
+  "id": "S114",
+  "type": "single",
+  "question": "How many levels of driving automation does SAE define?",
+  "gold_sections": [
+   "A46"
+  ],
+  "reference": "Six, Level 0 to Level 5.",
+  "keywords": [
+   "six|6"
+  ]
+ },
+ {
+  "id": "S115",
+  "type": "single",
+  "question": "Why do lending regulations effectively rule out unexplainable models?",
+  "gold_sections": [
+   "A46"
+  ],
+  "reference": "They require a statement of specific reasons for adverse action.",
+  "keywords": [
+   "adverse action|reason"
+  ]
+ },
+ {
+  "id": "S116",
+  "type": "single",
+  "question": "What is evaluation contamination?",
+  "gold_sections": [
+   "A47"
+  ],
+  "reference": "Benchmark test sets leaking into web-scale training corpora, inflating scores.",
+  "keywords": [
+   "leak|contamin"
+  ]
+ },
+ {
+  "id": "S117",
+  "type": "single",
+  "question": "Why is fluency a false signal in language models?",
+  "gold_sections": [
+   "A47"
+  ],
+  "reference": "Models produce confident, well-formed text regardless of correctness, miscalibrating human trust.",
+  "keywords": [
+   "confident|trust"
+  ]
+ },
+ {
+  "id": "S118",
+  "type": "single",
+  "question": "Who proposed the term foundation model, and when?",
+  "gold_sections": [
+   "A48"
+  ],
+  "reference": "Stanford's Center for Research on Foundation Models, 2021.",
+  "keywords": [
+   "stanford",
+   "2021"
+  ]
+ },
+ {
+  "id": "S119",
+  "type": "single",
+  "question": "What does the temperature sampling parameter do?",
+  "gold_sections": [
+   "A48"
+  ],
+  "reference": "Scales output logits; near zero is near-deterministic, higher increases diversity.",
+  "keywords": [
+   "logit|deterministic|divers"
+  ]
+ },
+ {
+  "id": "C001",
+  "type": "conversational",
+  "question": "why did the uk stop funding ai research back in the 70s??",
+  "gold_sections": [
+   "A05"
+  ],
+  "reference": "The 1973 Lighthill Report concluded AI failed its promises (combinatorial explosion), so funding was cut.",
+  "keywords": [
+   "lighthill"
+  ]
+ },
+ {
+  "id": "C002",
+  "type": "conversational",
+  "question": "that chess computer that beat kasparov - did it actually learn anything?",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "No: Deep Blue used specialised hardware, alpha-beta search and a hand-tuned evaluation function, not learning.",
+  "keywords": [
+   "search|hand-tuned|hand tuned"
+  ]
+ },
+ {
+  "id": "C003",
+  "type": "conversational",
+  "question": "whats the deal with relu units dying",
+  "gold_sections": [
+   "A18"
+  ],
+  "reference": "A ReLU unit stuck in the negative region stops receiving gradient permanently.",
+  "keywords": [
+   "negative",
+   "gradient"
+  ]
+ },
+ {
+  "id": "C004",
+  "type": "conversational",
+  "question": "transformers vs rnns, why r transformers faster to train",
+  "gold_sections": [
+   "A20",
+   "A21"
+  ],
+  "reference": "RNNs compute sequentially; Transformers process all positions in parallel.",
+  "keywords": [
+   "parallel"
+  ]
+ },
+ {
+  "id": "C005",
+  "type": "conversational",
+  "question": "how do i stop my model memorising the training data",
+  "gold_sections": [
+   "A12",
+   "A13"
+  ],
+  "reference": "Regularisation, early stopping, dropout, data augmentation, ensembling.",
+  "keywords": [
+   "regulari|dropout|early stopping"
+  ]
+ },
+ {
+  "id": "C006",
+  "type": "conversational",
+  "question": "the go AI from deepmind, how many games did it win vs the korean champ",
+  "gold_sections": [
+   "A08"
+  ],
+  "reference": "AlphaGo beat Lee Sedol four games to one (March 2016).",
+  "keywords": [
+   "4|four"
+  ]
+ },
+ {
+  "id": "C007",
+  "type": "conversational",
+  "question": "whats that trick where u only train small matrices instead of the whole llm",
+  "gold_sections": [
+   "A26"
+  ],
+  "reference": "LoRA (low-rank adaptation): freezes base weights and trains small low-rank matrices.",
+  "keywords": [
+   "lora|low-rank|low rank"
+  ]
+ },
+ {
+  "id": "C008",
+  "type": "conversational",
+  "question": "how do vector dbs search fast when there are millions of vectors",
+  "gold_sections": [
+   "A30"
+  ],
+  "reference": "Approximate nearest-neighbour indexes such as HNSW, IVF and product quantisation.",
+  "keywords": [
+   "approximate|ann|hnsw"
+  ]
+ },
+ {
+  "id": "C009",
+  "type": "conversational",
+  "question": "my rag bot makes stuff up, what metric shows that",
+  "gold_sections": [
+   "A32"
+  ],
+  "reference": "Faithfulness: whether claims in the answer are supported by the retrieved context.",
+  "keywords": [
+   "faithfulness"
+  ]
+ },
+ {
+  "id": "C010",
+  "type": "conversational",
+  "question": "who's the guy behind the chinese room thing",
+  "gold_sections": [
+   "A03"
+  ],
+  "reference": "John Searle (1980).",
+  "keywords": [
+   "searle"
+  ]
+ },
+ {
+  "id": "C011",
+  "type": "conversational",
+  "question": "does europe have an AI law? since when",
+  "gold_sections": [
+   "A44"
+  ],
+  "reference": "Yes, the EU AI Act, in force since 1 August 2024.",
+  "keywords": [
+   "2024",
+   "august"
+  ]
+ },
+ {
+  "id": "C012",
+  "type": "conversational",
+  "question": "stable diffusion - why cheaper than doing diffusion on pixels",
+  "gold_sections": [
+   "A34"
+  ],
+  "reference": "It diffuses in a compressed autoencoder latent space, cutting compute about an order of magnitude.",
+  "keywords": [
+   "latent"
+  ]
+ },
+ {
+  "id": "C013",
+  "type": "conversational",
+  "question": "the nvidia gan that makes fake faces",
+  "gold_sections": [
+   "A33"
+  ],
+  "reference": "StyleGAN (from 2018).",
+  "keywords": [
+   "stylegan"
+  ]
+ },
+ {
+  "id": "C014",
+  "type": "conversational",
+  "question": "how much audio did openai's speech model train on",
+  "gold_sections": [
+   "A36"
+  ],
+  "reference": "Whisper: roughly 680,000 hours of multilingual audio.",
+  "keywords": [
+   "680,000|680000"
+  ]
+ },
+ {
+  "id": "C015",
+  "type": "conversational",
+  "question": "self driving car levels explained",
+  "gold_sections": [
+   "A46"
+  ],
+  "reference": "SAE levels 0-5: L0 none, L2 partial with supervision, L4 geofenced full automation, L5 full automation everywhere.",
+  "keywords": [
+   "level 0|level0|0",
+   "level 5|level5|5"
+  ]
+ },
+ {
+  "id": "C016",
+  "type": "conversational",
+  "question": "how does a hiring model end up biased",
+  "gold_sections": [
+   "A39"
+  ],
+  "reference": "Historical bias: trained on past discriminatory hiring decisions it reproduces them.",
+  "keywords": [
+   "historical"
+  ]
+ },
+ {
+  "id": "C017",
+  "type": "conversational",
+  "question": "explain bpe tokens pls",
+  "gold_sections": [
+   "A24"
+  ],
+  "reference": "Byte-pair encoding starts from characters and merges the most frequent adjacent pair until a target vocabulary size.",
+  "keywords": [
+   "merg"
+  ]
+ },
+ {
+  "id": "C018",
+  "type": "conversational",
+  "question": "what's k fold cv",
+  "gold_sections": [
+   "A14"
+  ],
+  "reference": "Split into k folds, train k times on k-1 folds, evaluate on the held-out fold, average.",
+  "keywords": [
+   "fold"
+  ]
+ },
+ {
+  "id": "C019",
+  "type": "conversational",
+  "question": "what is the bitter lesson thing",
+  "gold_sections": [
+   "A07"
+  ],
+  "reference": "Sutton's 2019 essay: general learning methods plus data and compute outperform hand-crafted knowledge.",
+  "keywords": [
+   "sutton"
+  ]
+ },
+ {
+  "id": "C020",
+  "type": "conversational",
+  "question": "does chain of thought actually show how the model reasoned?",
+  "gold_sections": [
+   "A40"
+  ],
+  "reference": "No: it is generated text, not a faithful trace, possibly post-hoc rationalisation.",
+  "keywords": [
+   "faithful|rationali"
+  ]
+ },
+ {
+  "id": "C021",
+  "type": "conversational",
+  "question": "why do ai benchmarks scores look too good",
+  "gold_sections": [
+   "A47"
+  ],
+  "reference": "Evaluation contamination: test sets leak into web-scale training data.",
+  "keywords": [
+   "contamin|leak"
+  ]
+ },
+ {
+  "id": "C022",
+  "type": "conversational",
+  "question": "rl agent - how does it know which old move got it the reward",
+  "gold_sections": [
+   "A11"
+  ],
+  "reference": "The credit assignment problem.",
+  "keywords": [
+   "credit assignment"
+  ]
+ },
+ {
+  "id": "C023",
+  "type": "conversational",
+  "question": "train on phones without sending data to server?",
+  "gold_sections": [
+   "A43"
+  ],
+  "reference": "Federated learning: only model updates are shared and aggregated.",
+  "keywords": [
+   "federated"
+  ]
+ },
+ {
+  "id": "C024",
+  "type": "conversational",
+  "question": "why gpus for deep learning and not cpus",
+  "gold_sections": [
+   "A37"
+  ],
+  "reference": "Training is dominated by dense matrix multiplication, which maps onto thousands of parallel cores.",
+  "keywords": [
+   "matrix"
+  ]
+ },
+ {
+  "id": "C025",
+  "type": "conversational",
+  "question": "yolo vs rcnn which is faster",
+  "gold_sections": [
+   "A35"
+  ],
+  "reference": "One-stage YOLO is faster; two-stage R-CNN favours accuracy.",
+  "keywords": [
+   "yolo"
+  ]
+ },
+ {
+  "id": "M001",
+  "type": "multi",
+  "question": "Which person was both an author of the 1955 Dartmouth proposal and a co-author of the book that criticised perceptrons?",
+  "gold_sections": [
+   "A04",
+   "A16"
+  ],
+  "reference": "Marvin Minsky.",
+  "keywords": [
+   "minsky"
+  ]
+ },
+ {
+  "id": "M002",
+  "type": "multi",
+  "question": "Ian Goodfellow is credited with two 2014 contributions in this corpus. What are they?",
+  "gold_sections": [
+   "A33",
+   "A42"
+  ],
+  "reference": "Generative adversarial networks and the fast gradient sign method.",
+  "keywords": [
+   "generative adversarial|gan",
+   "fast gradient sign|fgsm"
+  ]
+ },
+ {
+  "id": "M003",
+  "type": "multi",
+  "question": "Nick Bostrom appears in two different contexts in the corpus. What are they?",
+  "gold_sections": [
+   "A02",
+   "A41"
+  ],
+  "reference": "Popularising superintelligence (2014 book) and the instrumental convergence argument.",
+  "keywords": [
+   "superintelligence",
+   "instrumental"
+  ]
+ },
+ {
+  "id": "M004",
+  "type": "multi",
+  "question": "Which optimisation algorithm appears both as a policy-gradient RL method and as the usual optimiser in RLHF?",
+  "gold_sections": [
+   "A11",
+   "A26"
+  ],
+  "reference": "Proximal Policy Optimization (PPO).",
+  "keywords": [
+   "proximal|ppo"
+  ]
+ },
+ {
+  "id": "M005",
+  "type": "multi",
+  "question": "Which activation function was central to AlexNet's success, and what top-5 error did AlexNet reach?",
+  "gold_sections": [
+   "A18",
+   "A19"
+  ],
+  "reference": "ReLU; about 15.3 percent.",
+  "keywords": [
+   "relu",
+   "15.3"
+  ]
+ },
+ {
+  "id": "M006",
+  "type": "multi",
+  "question": "Christian Szegedy appears in two contexts. What are they?",
+  "gold_sections": [
+   "A13",
+   "A42"
+  ],
+  "reference": "Batch normalisation (2015, with Ioffe) and documenting adversarial examples (2013).",
+  "keywords": [
+   "batch normali",
+   "adversarial"
+  ]
+ },
+ {
+  "id": "M007",
+  "type": "multi",
+  "question": "How do BERT and GPT differ both in pretext task and in Transformer architecture family?",
+  "gold_sections": [
+   "A10",
+   "A21"
+  ],
+  "reference": "BERT: masked-token prediction, encoder-only. GPT: next-token prediction, decoder-only.",
+  "keywords": [
+   "mask",
+   "next",
+   "encoder",
+   "decoder"
+  ]
+ },
+ {
+  "id": "M008",
+  "type": "multi",
+  "question": "Why does the context window limit RAG, and what makes long context windows expensive?",
+  "gold_sections": [
+   "A22",
+   "A25"
+  ],
+  "reference": "It bounds how much retrieved material fits; self-attention cost is quadratic in sequence length.",
+  "keywords": [
+   "quadratic"
+  ]
+ },
+ {
+  "id": "M009",
+  "type": "multi",
+  "question": "What limitation of expert systems did the statistical turn overcome?",
+  "gold_sections": [
+   "A06",
+   "A07"
+  ],
+  "reference": "The knowledge acquisition bottleneck: hand-written rules don't scale; statistical methods learn from data.",
+  "keywords": [
+   "knowledge acquisition|by hand|hand",
+   "data"
+  ]
+ },
+ {
+  "id": "M010",
+  "type": "multi",
+  "question": "How do hybrid retrieval and structure-aware chunking each improve a naive RAG pipeline?",
+  "gold_sections": [
+   "A30",
+   "A31"
+  ],
+  "reference": "Hybrid retrieval adds BM25 for exact-match signals; structure-aware chunking keeps semantic units intact.",
+  "keywords": [
+   "bm25|sparse|lexical",
+   "heading|structure"
+  ]
+ },
+ {
+  "id": "M011",
+  "type": "multi",
+  "question": "Why is character-level tokenisation costly for Transformers?",
+  "gold_sections": [
+   "A24",
+   "A22"
+  ],
+  "reference": "It produces very long sequences, and attention cost is quadratic in sequence length.",
+  "keywords": [
+   "long",
+   "quadratic"
+  ]
+ },
+ {
+  "id": "M012",
+  "type": "multi",
+  "question": "Why does test-set accuracy overstate the real-world performance of clinical AI?",
+  "gold_sections": [
+   "A09",
+   "A45",
+   "A47"
+  ],
+  "reference": "Distribution shift between training and deployment (different hospitals, equipment, populations).",
+  "keywords": [
+   "distribution shift|shift"
+  ]
+ },
+ {
+  "id": "M013",
+  "type": "multi",
+  "question": "How does RAG reduce hallucination, and what new failure mode does it introduce?",
+  "gold_sections": [
+   "A28",
+   "A29"
+  ],
+  "reference": "Grounding in retrieved sources reduces extrinsic hallucination, but irrelevant/contradictory passages can make the model ground itself in wrong material.",
+  "keywords": [
+   "ground",
+   "irrelevant|wrong|contradictory"
+  ]
+ },
+ {
+  "id": "M014",
+  "type": "multi",
+  "question": "How do the word embedding dimensions in A23 compare to the text embedding dimensions in A30?",
+  "gold_sections": [
+   "A23",
+   "A30"
+  ],
+  "reference": "Word embeddings typically 100 to 1,024; text embeddings commonly 384, 768, 1,024 or 1,536.",
+  "keywords": [
+   "100",
+   "1,536|1536"
+  ]
+ },
+ {
+  "id": "M015",
+  "type": "multi",
+  "question": "Why might a RAG system need multimodal embeddings rather than plain text embeddings?",
+  "gold_sections": [
+   "A36",
+   "A30"
+  ],
+  "reference": "Critical information in diagrams, charts and scanned pages is lost by text extraction; multimodal embeddings index it.",
+  "keywords": [
+   "diagram|chart|scanned|image"
+  ]
+ },
+ {
+  "id": "U001",
+  "type": "unanswerable",
+  "question": "How much did IBM spend building Deep Blue?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U002",
+  "type": "unanswerable",
+  "question": "How many parameters does GPT-4 have?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U003",
+  "type": "unanswerable",
+  "question": "Who won the 2024 Turing Award?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U004",
+  "type": "unanswerable",
+  "question": "What BLEU score did the original Transformer achieve on English-German translation?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U005",
+  "type": "unanswerable",
+  "question": "How many GPUs were used to train Chinchilla?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U006",
+  "type": "unanswerable",
+  "question": "What default learning rate does the Adam paper recommend?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U007",
+  "type": "unanswerable",
+  "question": "What is the maximum fine under the EU AI Act for prohibited AI practices?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U008",
+  "type": "unanswerable",
+  "question": "What mAP does YOLO achieve on the COCO dataset?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U009",
+  "type": "unanswerable",
+  "question": "How many layers does BERT-base have?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U010",
+  "type": "unanswerable",
+  "question": "In which year did Lee Sedol retire from professional Go?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U011",
+  "type": "unanswerable",
+  "question": "Which hospital deployed the sepsis model that failed external validation?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ },
+ {
+  "id": "U012",
+  "type": "unanswerable",
+  "question": "What chunk size does LangChain's RecursiveCharacterTextSplitter use by default?",
+  "gold_sections": [],
+  "reference": "Not stated in the corpus; the system should abstain.",
+  "keywords": []
+ }
+]

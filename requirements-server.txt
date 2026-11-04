@@ -1,0 +1,12 @@
+# Slim dependencies for the deployed API (Render). CPU-only torch keeps the image small.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+sentence-transformers
+langchain-community
+langchain-groq
+langchain-text-splitters
+pymupdf
+python-dotenv
+fastapi
+uvicorn
+psycopg[binary]

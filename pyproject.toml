@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "chromadb>=1.5.9",
     "faiss-cpu>=1.15.1",
+    "fastapi>=0.115",
     "ipykernel>=7.4.0",
     "langchain>=1.4.7",
     "langchain-community>=0.4.2",
@@ -16,4 +17,5 @@ dependencies = [
     "pypdf>=6.21.2",
     "python-dotenv>=1.2.4",
     "sentence-transformers>=6.2.0",
+    "uvicorn>=0.30",
 ]
