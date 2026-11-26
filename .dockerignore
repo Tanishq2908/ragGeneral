@@ -1,0 +1,11 @@
+.git
+.env
+.venv
+**/__pycache__
+notebook
+uv.lock
+data/*.json
+data/*.txt
+data/eval_results
+data/chat_history.db
+data/.index_cache*.npz

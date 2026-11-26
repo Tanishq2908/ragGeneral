@@ -3,11 +3,11 @@
 Hybrid RAG over the PDFs in `data/`: MiniLM dense search + BM25, reciprocal rank fusion, cross-encoder reranking, and a Groq LLM to write the answer.
 
 ## Notebook: `notebook/doc.ipynb`
-The last cells evaluate the pipeline on ~200 labelled questions. The set is chosen from the PDFs you loaded:
+The last cells evaluate the pipeline on labelled questions. The set is chosen from the PDFs you loaded:
 
 | file | corpus | labels | types |
 |---|---|---|---|
-| `data/eval_questions_legal.json` (200) | the legal PDFs in `data/` (Patents Act and Rules, TRIPS, CBD, Nagoya, WIPO GRATK, BD Act and Rules, Drugs & Cosmetics, DMR Act, FSSAI) | source file + exact evidence quote, each one checked against the PDF text | 159 single, 11 multi-document, 15 conversational, 15 unanswerable |
+| `data/eval_questions_legal.json` (114) | the Indian legal PDFs in `data/` (Patents Act and Rules, BD Act and Rules, Drugs & Cosmetics, DMR Act, FSSAI) | source file + exact evidence quote, each one checked against the PDF text | 88 single, 4 multi-document, 10 conversational, 12 unanswerable |
 | `data/eval_questions.json` (201) | `AIcorpus.pdf` | section IDs A01–A48 | 133 single, 23 multi, 25 conversational, 4 distractor, 16 unanswerable |
 
 Metrics: Hit@5, evidence/section recall@5, MRR, Precision@5, keyword answer score, abstention accuracy, latency and LLM calls per question.
@@ -23,9 +23,64 @@ uvicorn app.main:app --reload
 Then open http://127.0.0.1:8000 (the page lives in `frontend/index.html`). Chats and messages are stored in SQLite (`data/chat_history.db`, tables `chats` and `messages`).
 To store them somewhere else, set `CHAT_DB_PATH`. To index a different folder of PDFs, set `RAG_DATA_DIR`.
 
-API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
+API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/library` (indexed PDFs + modes), `GET /api/suggestions` (starter questions the LLM writes from your PDFs, cached), `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
 
-## Deploy: backend on Render, frontend on Vercel
+## Deploy on Google Cloud Run (recommended)
+Cloud Run runs the `Dockerfile`: the image already contains the models and the PDF index (built at build time), so it starts in seconds.
+Everything below runs in **Cloud Shell** (the `>_` button at the top of console.cloud.google.com), so you don't need to install anything.
+
+**1. Get the code and pick a project/region** (asia-south1 = Mumbai):
+```bash
+git clone https://github.com/Tanishq2908/ragGeneral.git && cd ragGeneral
+```
+```bash
+gcloud config set project YOUR_PROJECT_ID
+```
+```bash
+export REGION=asia-south1
+```
+
+**2. Turn on the services and give the build enough time** (installing torch + indexing the PDFs takes ~10-15 min):
+```bash
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com sqladmin.googleapis.com
+```
+```bash
+gcloud config set builds/timeout 3600
+```
+
+**3. Store your Groq key as a secret** (replace `YOUR_GROQ_KEY`; `printf` avoids a trailing newline that would break the key):
+```bash
+printf '%s' 'YOUR_GROQ_KEY' | gcloud secrets create groq-api-key --data-file=-
+```
+```bash
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) --member="serviceAccount:$(gcloud projects describe $(gcloud config get-value project) --format='value(projectNumber)')-compute@developer.gserviceaccount.com" --role=roles/secretmanager.secretAccessor
+```
+
+**4. Deploy:**
+```bash
+gcloud run deploy raggeneral --source . --region $REGION --allow-unauthenticated --memory 2Gi --cpu 2 --cpu-boost --timeout 300 --set-env-vars USE_RERANKER=true --set-secrets GROQ_API_KEY=groq-api-key:latest
+```
+It prints a `https://raggeneral-....run.app` URL: that serves the chat UI and the API.
+
+**5. (Optional but recommended) Keep chat history in Cloud SQL.** Without this, chats are stored in SQLite inside the container and disappear when Cloud Run restarts it. Use a password with only letters and numbers, since it goes into a URL.
+```bash
+gcloud sql instances create raggeneral-db --database-version=POSTGRES_16 --edition=ENTERPRISE --tier=db-f1-micro --region=$REGION --root-password=CHOOSE_A_PASSWORD
+```
+```bash
+gcloud sql databases create chats --instance=raggeneral-db
+```
+```bash
+printf 'postgresql://postgres:CHOOSE_A_PASSWORD@/chats?host=/cloudsql/%s' "$(gcloud sql instances describe raggeneral-db --format='value(connectionName)')" | gcloud secrets create database-url --data-file=-
+```
+```bash
+gcloud run services update raggeneral --region $REGION --add-cloudsql-instances $(gcloud sql instances describe raggeneral-db --format='value(connectionName)') --update-secrets DATABASE_URL=database-url:latest
+```
+
+**Updating:** after changing code or PDFs, run step 4 again from an up-to-date clone (`git pull`).
+**Costs:** Cloud Run scales to zero when idle (add `--min-instances 1` to avoid the ~10 s cold start, at extra cost). The `db-f1-micro` Cloud SQL instance costs roughly $8-10/month.
+**Vercel frontend (optional):** set the Cloud Run URL in `frontend/vercel.json` and deploy the `frontend` folder as described below.
+
+## Alternative: backend on Render, frontend on Vercel
 Vercel's serverless functions can't hold torch and the models (250 MB limit), and their disk doesn't keep a database.
 So Render runs the API and Postgres, and Vercel serves the page and proxies `/api/*` to Render.
 

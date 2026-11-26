@@ -40,6 +40,22 @@ def health():
     return {"ok": engine is not None, "chunks": len(engine.chunks) if engine else 0}
 
 
+@app.get("/api/library")
+def library():
+    """The indexed PDFs and the available query modes, so the UI doesn't hardcode them."""
+    from .rag_engine import MODES
+    return {"documents": engine.documents if engine else [], "modes": MODES}
+
+
+@app.get("/api/suggestions")
+def suggestions():
+    """Starter questions generated from the indexed PDFs (one LLM call, then cached)."""
+    try:
+        return engine.suggestions() if engine else []
+    except Exception:
+        return []
+
+
 @app.get("/api/chats")
 def chats():
     return db.list_chats()
