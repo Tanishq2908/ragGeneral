@@ -5,6 +5,8 @@ PDFs in data/ -> chunks -> MiniLM embeddings + BM25 -> reciprocal rank fusion
 """
 import math
 import os
+import random
+import threading
 import re
 import time
 from collections import Counter
@@ -32,21 +34,28 @@ class RagEngine:
             if os.getenv("USE_RERANKER", "true").lower() != "false" else None
         self.llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"), model_name="openai/gpt-oss-20b",
                             temperature=0.1, max_tokens=1024)
+        self._suggestions = None
+        self._suggest_lock = threading.Lock()
         self._build_index()
 
     # ---------- indexing ----------
     def _build_index(self):
-        pages = []
+        pages, self.documents = [], []
         for pdf in sorted(DATA_DIR.glob("**/*.pdf")):
-            for doc in PyMuPDFLoader(str(pdf)).load():
+            loaded = PyMuPDFLoader(str(pdf)).load()
+            for doc in loaded:
                 doc.metadata["source_file"] = pdf.name
                 pages.append(doc)
+            self.documents.append({"name": pdf.name, "pages": len(loaded)})
         splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200,
                                                   separators=["\n\n", "\n", " ", ""])
         self.chunks = [{"content": c.page_content, "source": c.metadata["source_file"],
                         "page": c.metadata.get("page", 0)} for c in splitter.split_documents(pages)]
         if not self.chunks:
             raise RuntimeError(f"No PDFs found in {DATA_DIR}")
+        per_file = Counter(c["source"] for c in self.chunks)
+        for d in self.documents:
+            d["chunks"] = per_file[d["name"]]
         texts = [c["content"] for c in self.chunks]
         self.emb = self.embedder.encode(texts, normalize_embeddings=True, show_progress_bar=False)
         self.tokens = [re.findall(r"\b\w+\b", t.lower()) for t in texts]
@@ -81,6 +90,31 @@ class RagEngine:
                                        show_progress_bar=False)
         ranked = sorted(zip(candidates, scores), key=lambda x: float(x[1]), reverse=True)[:final_k]
         return [dict(self.chunks[i], score=round(float(s), 3)) for i, s in ranked]
+
+    # ---------- starter questions, written by the LLM from the indexed PDFs ----------
+    def suggestions(self, n=4):
+        """n example questions, each answerable from a passage of a different PDF. Cached after first success."""
+        with self._suggest_lock:
+            if self._suggestions is None:
+                rng = random.Random()
+                files = [d["name"] for d in self.documents if d["chunks"]]
+                picked = rng.sample(files, min(n, len(files)))
+                while len(picked) < n and files:            # fewer PDFs than n: reuse some
+                    picked.append(rng.choice(files))
+                passages = []
+                for name in picked:
+                    idx = [i for i, c in enumerate(self.chunks) if c["source"] == name]
+                    middle = idx[len(idx) // 5: max(len(idx) // 5 + 1, 4 * len(idx) // 5)]   # skip cover pages/indexes
+                    passages.append(self.chunks[rng.choice(middle)]["content"][:900])
+                out = self._llm("For each passage below, write one short, natural question a reader might ask that "
+                                "the passage answers. Don't mention 'the passage'. One question per line, "
+                                "no numbering, nothing else.\n\n"
+                                + "\n\n".join(f"Passage {i + 1}:\n{p}" for i, p in enumerate(passages)))
+                qs = [re.sub(r"^\s*(?:\d+[.)]|[-*•]|Passage \d+:)\s*", "", l).strip() for l in out.splitlines()]
+                qs = [q for q in qs if q.endswith("?")][:n]
+                if qs:
+                    self._suggestions = qs
+            return self._suggestions or []
 
     # ---------- query rewriting ----------
     def _llm(self, prompt):

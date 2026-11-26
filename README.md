@@ -23,7 +23,7 @@ uvicorn app.main:app --reload
 Then open http://127.0.0.1:8000 (the page lives in `frontend/index.html`). Chats and messages are stored in SQLite (`data/chat_history.db`, tables `chats` and `messages`).
 To store them somewhere else, set `CHAT_DB_PATH`. To index a different folder of PDFs, set `RAG_DATA_DIR`.
 
-API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
+API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/library` (indexed PDFs + modes), `GET /api/suggestions` (starter questions the LLM writes from your PDFs, cached), `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
 
 ## Deploy: backend on Render, frontend on Vercel
 Vercel's serverless functions can't hold torch and the models (250 MB limit), and their disk doesn't keep a database.
