@@ -25,6 +25,29 @@ To store them somewhere else, set `CHAT_DB_PATH`. To index a different folder of
 
 API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/library` (indexed PDFs + modes), `GET /api/suggestions` (starter questions the LLM writes from your PDFs, cached), `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
 
+## Streamlit app (recommended, free on Streamlit Community Cloud, no card)
+`ui/streamlit_app.py` is a Streamlit version of the chat ("Grove"): green theme with an animated tree, streaming answers,
+chat history, starter questions generated from your PDFs, and NLP scores for every answer:
+
+- **Per source passage:** semantic similarity (MiniLM cosine), BM25, TF-IDF cosine, keyword Jaccard overlap, query-term coverage,
+  RRF fusion score, cross-encoder rerank score, rank among all passages, and the matched words. A sortable table compares them.
+- **Per answer:** groundedness (answer vs sources, embedding cosine), answer relevance (answer vs question), lexical support
+  (share of answer words found in the sources), TF-IDF answer-context overlap, valid citations, Flesch reading ease,
+  lexical diversity and top TF-IDF keywords.
+
+Run locally:
+```bash
+pip install -r ui/requirements.txt
+streamlit run ui/streamlit_app.py
+```
+
+Deploy:
+1. Sign in at share.streamlit.io with GitHub → **Create app** → **Deploy a public app from GitHub**.
+2. Repository `Tanishq2908/ragGeneral`, branch `main`, main file path `ui/streamlit_app.py`.
+3. **Advanced settings**: Python 3.11, and in **Secrets** paste `GROQ_API_KEY = "your-key"`
+   (optionally `DATABASE_URL = "postgresql://..."` from a free neon.tech database to keep chat history across restarts).
+4. **Deploy**. The first start installs torch and indexes the PDFs, so give it several minutes.
+
 ## Deploy free on Hugging Face Spaces (no credit card)
 A free Hugging Face Docker Space (2 vCPU, 16 GB RAM) runs the same `Dockerfile`. The GitHub Action
 `.github/workflows/deploy-hf-space.yml` uploads the app to the Space on every push to `main`.

@@ -26,6 +26,12 @@ load_dotenv(ROOT / ".env")
 DATA_DIR = Path(os.getenv("RAG_DATA_DIR", ROOT / "data"))
 ABSTAIN = "I don't know based on the provided PDFs."
 MODES = ["none", "rewrite", "multi_query", "hyde"]
+STOPWORDS = frozenset("""a about above after again against all am an and any are as at be because been before being below
+between both but by can could did do does doing down during each few for from further had has have having he her here
+hers him his how i if in into is it its itself just me more most my no nor not now of off on once only or other our out
+over own same she should so some such than that the their them then there these they this those through to too under
+until up very was we were what when where which while who whom why will with would you your shall may such any also see
+s t don per within upon thereof therein""".split())
 EMBED_MODEL = "all-MiniLM-L6-v2"
 CHUNK_SIZE, CHUNK_OVERLAP = 1000, 200
 # Chunks + embeddings are saved here so a restart doesn't re-read and re-embed every PDF.
@@ -105,32 +111,119 @@ class RagEngine:
             print(f"Could not write index cache: {e}", flush=True)
 
     # ---------- retrieval ----------
-    def _dense(self, text, k):
+    def _dense_scores(self, text):
         q = self.embedder.encode([text], normalize_embeddings=True, show_progress_bar=False)[0]
-        return list(np.argsort(-(self.emb @ q))[:k])
+        return self.emb @ q                                   # cosine similarity (embeddings are normalised)
 
-    def _bm25(self, text, k, k1=1.5, b=0.75):
+    def _bm25_scores(self, text, k1=1.5, b=0.75):
         n, terms = len(self.chunks), re.findall(r"\b\w+\b", text.lower())
-        scores = np.array([
+        return np.array([
             sum(math.log(1 + (n - self.df[t] + 0.5) / (self.df[t] + 0.5))
                 * cnt[t] * (k1 + 1) / (cnt[t] + k1 * (1 - b + b * len(tok) / self.avglen))
                 for t in terms if t in cnt)
             for tok, cnt in zip(self.tokens, self.counts)])
+
+    def _dense(self, text, k):
+        return list(np.argsort(-self._dense_scores(text))[:k])
+
+    def _bm25(self, text, k):
+        scores = self._bm25_scores(text)
         return [i for i in np.argsort(-scores)[:k] if scores[i] > 0]
 
+    # ---------- lexical NLP measures ----------
+    def _idf(self, term):
+        return math.log((len(self.chunks) + 1) / (self.df.get(term, 0) + 1)) + 1
+
+    def _tfidf(self, tokens):
+        counts = Counter(t for t in tokens if t not in STOPWORDS)
+        total = sum(counts.values()) or 1
+        return {t: c / total * self._idf(t) for t, c in counts.items()}
+
+    @staticmethod
+    def _cosine(a, b):
+        dot = sum(v * b.get(t, 0.0) for t, v in a.items())
+        na, nb = math.sqrt(sum(v * v for v in a.values())), math.sqrt(sum(v * v for v in b.values()))
+        return dot / (na * nb) if na and nb else 0.0
+
+    @staticmethod
+    def _content_words(text):
+        return [t for t in re.findall(r"\b\w+\b", text.lower()) if t not in STOPWORDS and not t.isdigit()]
+
     def retrieve(self, question, search_queries, candidate_k=12, final_k=5):
+        """Hybrid retrieval. Each returned chunk carries `score` (the ranking score) and `scores`, a breakdown
+        of NLP measures between the question and the chunk."""
         fused = Counter()
         for q in search_queries:
             for ranked in (self._dense(q, candidate_k), self._bm25(q, candidate_k)):
                 for rank, idx in enumerate(ranked, 1):
                     fused[idx] += 1 / (60 + rank)
         candidates = [i for i, _ in fused.most_common(24)]
+        rerank = {}
         if self.reranker is None:
-            return [dict(self.chunks[i], score=round(s, 4)) for i, s in fused.most_common(final_k)]
-        scores = self.reranker.predict([(question, self.chunks[i]["content"]) for i in candidates],
-                                       show_progress_bar=False)
-        ranked = sorted(zip(candidates, scores), key=lambda x: float(x[1]), reverse=True)[:final_k]
-        return [dict(self.chunks[i], score=round(float(s), 3)) for i, s in ranked]
+            ranked = [(i, s) for i, s in fused.most_common(final_k)]
+        else:
+            preds = self.reranker.predict([(question, self.chunks[i]["content"]) for i in candidates],
+                                          show_progress_bar=False)
+            rerank = {i: float(p) for i, p in zip(candidates, preds)}
+            ranked = sorted(rerank.items(), key=lambda x: x[1], reverse=True)[:final_k]
+
+        dense, bm25 = self._dense_scores(question), self._bm25_scores(question)
+        dense_rank = np.empty(len(dense), int); dense_rank[np.argsort(-dense)] = np.arange(1, len(dense) + 1)
+        bm25_rank = np.empty(len(bm25), int); bm25_rank[np.argsort(-bm25)] = np.arange(1, len(bm25) + 1)
+        q_words = set(self._content_words(question))
+        q_vec = self._tfidf(re.findall(r"\b\w+\b", question.lower()))
+        out = []
+        for i, s in ranked:
+            c_words = set(self._content_words(self.chunks[i]["content"]))
+            scores = {
+                "dense_cosine": round(float(dense[i]), 4),
+                "bm25": round(float(bm25[i]), 3),
+                "tfidf_cosine": round(self._cosine(q_vec, self._tfidf(self.tokens[i])), 4),
+                "keyword_jaccard": round(len(q_words & c_words) / len(q_words | c_words), 4) if q_words | c_words else 0.0,
+                "query_term_coverage": round(len(q_words & c_words) / len(q_words), 3) if q_words else 0.0,
+                "rrf_fusion": round(fused[i], 4),
+                "dense_rank": int(dense_rank[i]),
+                "bm25_rank": int(bm25_rank[i]),
+                "matched_terms": sorted(q_words & c_words, key=lambda t: -self._idf(t))[:8],
+            }
+            if i in rerank:
+                scores["rerank"] = round(rerank[i], 3)
+            out.append(dict(self.chunks[i], score=round(float(s), 4 if self.reranker is None else 3), scores=scores))
+        return out
+
+    def analyze(self, question, answer, docs):
+        """NLP measures of an answer: semantic relevance/groundedness, lexical support, citations, readability."""
+        cited = sorted({int(n) for n in re.findall(r"Source\s*(\d+)", answer)})
+        answer = re.sub(r"\[?\(?Sources?\s*[\d,\s]+\]?\)?", " ", answer)        # drop citation markers for lexical stats
+        words = re.findall(r"[A-Za-z][A-Za-z'-]*", answer)
+        sentences = max(1, len(re.findall(r"[.!?]+(?:\s|$)", answer)))
+        syllables = sum(max(1, len(re.findall(r"[aeiouy]+", w.lower())) - (w.lower().endswith("e") and len(w) > 3))
+                        for w in words)
+        n_words = len(words) or 1
+        content = self._content_words(answer)
+        context = " ".join(d["content"] for d in docs)
+        ctx_words = set(self._content_words(context))
+        a_vec = self._tfidf(re.findall(r"\b\w+\b", answer.lower()))
+        result = {
+            "abstained": answer.strip().startswith(ABSTAIN[:20]),
+            "word_count": len(words),
+            "sentence_count": sentences,
+            "flesch_reading_ease": round(206.835 - 1.015 * (n_words / sentences) - 84.6 * (syllables / n_words), 1),
+            "lexical_diversity": round(len({w.lower() for w in words}) / n_words, 3),
+            "lexical_support": round(sum(t in ctx_words for t in content) / len(content), 3) if content else 0.0,
+            "tfidf_answer_context": round(self._cosine(a_vec, self._tfidf(re.findall(r"\b\w+\b", context.lower()))), 4),
+            "citations": cited,
+            "valid_citations": [c for c in cited if 1 <= c <= len(docs)],
+            "top_keywords": [t for t, _ in sorted(a_vec.items(), key=lambda x: -x[1]) if not t.isdigit() and len(t) > 2][:6],
+        }
+        texts = [question, answer] + [d["content"] for d in docs]
+        e = self.embedder.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+        result["answer_relevance"] = round(float(e[0] @ e[1]), 4)                      # answer vs question
+        if docs:
+            sims = e[2:] @ e[1]
+            result["groundedness_max"] = round(float(sims.max()), 4)                  # answer vs best source
+            result["groundedness_mean"] = round(float(sims.mean()), 4)
+        return result
 
     # ---------- starter questions, written by the LLM from the indexed PDFs ----------
     def suggestions(self, n=4):
@@ -181,16 +274,37 @@ class RagEngine:
         return [question]
 
     # ---------- full pipeline ----------
-    def answer(self, question, mode="none", history=()):
+    def prepare(self, question, mode="none", history=()):
+        """Query rewriting + retrieval. Returns the search queries, the retrieved chunks and the time taken."""
         t0 = time.perf_counter()
         queries = self.search_queries(question, mode, list(history))
         docs = self.retrieve(question, queries)
-        t1 = time.perf_counter()
+        return {"search_queries": queries, "docs": docs, "retrieval_ms": round((time.perf_counter() - t0) * 1000)}
+
+    @staticmethod
+    def _answer_prompt(question, docs):
         context = "\n\n---\n\n".join(f"Source {i + 1}: {d['content']}" for i, d in enumerate(docs))
-        answer = self._llm(f"Answer only from this context. If absent, say: {ABSTAIN} Cite [Source n].\n\n"
-                           f"{context}\n\nQuestion: {question}\nAnswer:") if docs else ABSTAIN
-        t2 = time.perf_counter()
-        return {"answer": answer, "search_queries": queries,
-                "sources": [{"source": d["source"], "page": d["page"], "score": d["score"],
-                             "preview": d["content"][:200]} for d in docs],
-                "retrieval_ms": round((t1 - t0) * 1000), "generation_ms": round((t2 - t1) * 1000)}
+        return (f"Answer only from this context. If absent, say: {ABSTAIN} Cite [Source n].\n\n"
+                f"{context}\n\nQuestion: {question}\nAnswer:")
+
+    @staticmethod
+    def sources(docs):
+        return [{"source": d["source"], "page": d["page"], "score": d["score"], "preview": d["content"][:200],
+                 "scores": d.get("scores", {})} for d in docs]
+
+    def stream_answer(self, question, docs):
+        """Yields the answer text piece by piece as the LLM writes it."""
+        if not docs:
+            yield ABSTAIN
+            return
+        for chunk in self.llm.stream(self._answer_prompt(question, docs)):
+            if chunk.content:
+                yield chunk.content
+
+    def answer(self, question, mode="none", history=()):
+        prep = self.prepare(question, mode, history)
+        docs = prep["docs"]
+        t1 = time.perf_counter()
+        answer = self._llm(self._answer_prompt(question, docs)) if docs else ABSTAIN
+        return {"answer": answer, "search_queries": prep["search_queries"], "sources": self.sources(docs), "_docs": docs,
+                "retrieval_ms": prep["retrieval_ms"], "generation_ms": round((time.perf_counter() - t1) * 1000)}
