@@ -261,11 +261,6 @@ def meter(label, value, tip, lo=0.0, hi=1.0, fmt="{:.2f}", good=None):
             f'<div class="grove-tile-note">{esc(good or "")}</div></div>')
 
 
-def reading_label(f):
-    return ("Very easy" if f >= 80 else "Easy" if f >= 70 else "Standard" if f >= 60 else
-            "Fairly hard" if f >= 50 else "Hard" if f >= 30 else "Very hard (legal style)")
-
-
 def show_analysis(a, n_sources):
     if not a or a.get("abstained"):
         return
@@ -284,8 +279,6 @@ def show_analysis(a, n_sources):
                   good="answer vs sources"),
             meter("Citations", len(valid), "[Source n] references in the answer that point to a retrieved passage.",
                   hi=max(1, n_sources), fmt="{:d}", good=f"{len(valid)} valid of {len(cites)} cited"),
-            meter("Readability", a.get("flesch_reading_ease"), "Flesch Reading Ease, 0-100: higher is easier to read.",
-                  lo=0, hi=100, fmt="{:.0f}", good=reading_label(a.get("flesch_reading_ease", 0))),
             meter("Lexical diversity", a.get("lexical_diversity"), "Type-token ratio: unique words / total words.",
                   good=f'{a.get("word_count", 0)} words · {a.get("sentence_count", 0)} sentence{"s" if a.get("sentence_count") != 1 else ""}'),
             meter("Semantic mean", a.get("groundedness_mean"), "Average embedding cosine between the answer and all retrieved passages.",

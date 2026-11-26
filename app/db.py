@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS messages (
     mode        TEXT,
     sources     TEXT,               -- JSON list of retrieved chunks
     latency_ms  INTEGER,
-    analysis    TEXT,               -- JSON of NLP scores for an answer (groundedness, readability, ...)
+    analysis    TEXT,               -- JSON of NLP scores for an answer (groundedness, lexical support, ...)
     created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX IF NOT EXISTS idx_messages_chat ON messages(chat_id, id);

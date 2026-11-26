@@ -214,13 +214,11 @@ class RagEngine:
         return out
 
     def analyze(self, question, answer, docs):
-        """NLP measures of an answer: semantic relevance/groundedness, lexical support, citations, readability."""
+        """NLP measures of an answer: semantic relevance/groundedness, lexical support, citations, lexical diversity."""
         cited = sorted({int(n) for n in re.findall(r"Source\s*(\d+)", answer)})
         answer = re.sub(r"\[?\(?Sources?\s*[\d,\s]+\]?\)?", " ", answer)        # drop citation markers for lexical stats
         words = re.findall(r"[A-Za-z][A-Za-z'-]*", answer)
         sentences = max(1, len(re.findall(r"[.!?]+(?:\s|$)", answer)))
-        syllables = sum(max(1, len(re.findall(r"[aeiouy]+", w.lower())) - (w.lower().endswith("e") and len(w) > 3))
-                        for w in words)
         n_words = len(words) or 1
         content = self._content_words(answer)
         context = " ".join(d["content"] for d in docs)
@@ -230,7 +228,6 @@ class RagEngine:
             "abstained": is_abstain(answer),
             "word_count": len(words),
             "sentence_count": sentences,
-            "flesch_reading_ease": round(206.835 - 1.015 * (n_words / sentences) - 84.6 * (syllables / n_words), 1),
             "lexical_diversity": round(len({w.lower() for w in words}) / n_words, 3),
             "lexical_support": round(sum(t in ctx_words for t in content) / len(content), 3) if content else 0.0,
             "tfidf_answer_context": round(self._cosine(a_vec, self._tfidf(re.findall(r"\b\w+\b", context.lower()))), 4),

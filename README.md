@@ -32,7 +32,7 @@ chat history, starter questions generated from your PDFs, and NLP scores for eve
 - **Per source passage:** semantic similarity (MiniLM cosine), BM25, TF-IDF cosine, keyword Jaccard overlap, query-term coverage,
   RRF fusion score, cross-encoder rerank score, rank among all passages, and the matched words. A sortable table compares them.
 - **Per answer:** groundedness (answer vs sources, embedding cosine), answer relevance (answer vs question), lexical support
-  (share of answer words found in the sources), TF-IDF answer-context overlap, valid citations, Flesch reading ease,
+  (share of answer words found in the sources), TF-IDF answer-context overlap, valid citations,
   lexical diversity and top TF-IDF keywords.
 
 Run locally:
