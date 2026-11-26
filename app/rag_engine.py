@@ -3,6 +3,8 @@
 PDFs in data/ -> chunks -> MiniLM embeddings + BM25 -> reciprocal rank fusion
 -> cross-encoder rerank -> Groq LLM answer. Optional query rewriting.
 """
+import hashlib
+import json
 import math
 import os
 import random
@@ -24,11 +26,16 @@ load_dotenv(ROOT / ".env")
 DATA_DIR = Path(os.getenv("RAG_DATA_DIR", ROOT / "data"))
 ABSTAIN = "I don't know based on the provided PDFs."
 MODES = ["none", "rewrite", "multi_query", "hyde"]
+EMBED_MODEL = "all-MiniLM-L6-v2"
+CHUNK_SIZE, CHUNK_OVERLAP = 1000, 200
+# Chunks + embeddings are saved here so a restart doesn't re-read and re-embed every PDF.
+# The Docker image builds it at build time; it is rebuilt automatically when the PDFs change.
+INDEX_CACHE = Path(os.getenv("RAG_INDEX_CACHE", DATA_DIR / ".index_cache.npz"))
 
 
 class RagEngine:
     def __init__(self):
-        self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
+        self.embedder = SentenceTransformer(EMBED_MODEL)
         # USE_RERANKER=false saves ~100 MB RAM (useful on 512 MB hosting plans) at some accuracy cost
         self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2") \
             if os.getenv("USE_RERANKER", "true").lower() != "false" else None
@@ -39,15 +46,31 @@ class RagEngine:
         self._build_index()
 
     # ---------- indexing ----------
+    def _corpus_key(self, pdfs):
+        sig = [EMBED_MODEL, CHUNK_SIZE, CHUNK_OVERLAP] + [[str(p.relative_to(DATA_DIR)), p.stat().st_size] for p in pdfs]
+        return hashlib.sha256(json.dumps(sig).encode()).hexdigest()
+
     def _build_index(self):
+        pdfs = sorted(DATA_DIR.glob("**/*.pdf"))
+        key = self._corpus_key(pdfs)
+        if not self._load_cache(key):
+            self._index_pdfs(pdfs)
+            self._save_cache(key)
+        texts = [c["content"] for c in self.chunks]
+        self.tokens = [re.findall(r"\b\w+\b", t.lower()) for t in texts]
+        self.counts = [Counter(t) for t in self.tokens]
+        self.df = Counter(term for t in self.tokens for term in set(t))
+        self.avglen = sum(map(len, self.tokens)) / len(self.tokens)
+
+    def _index_pdfs(self, pdfs):
         pages, self.documents = [], []
-        for pdf in sorted(DATA_DIR.glob("**/*.pdf")):
+        for pdf in pdfs:
             loaded = PyMuPDFLoader(str(pdf)).load()
             for doc in loaded:
                 doc.metadata["source_file"] = pdf.name
                 pages.append(doc)
             self.documents.append({"name": pdf.name, "pages": len(loaded)})
-        splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200,
+        splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP,
                                                   separators=["\n\n", "\n", " ", ""])
         self.chunks = [{"content": c.page_content, "source": c.metadata["source_file"],
                         "page": c.metadata.get("page", 0)} for c in splitter.split_documents(pages)]
@@ -56,12 +79,30 @@ class RagEngine:
         per_file = Counter(c["source"] for c in self.chunks)
         for d in self.documents:
             d["chunks"] = per_file[d["name"]]
-        texts = [c["content"] for c in self.chunks]
-        self.emb = self.embedder.encode(texts, normalize_embeddings=True, show_progress_bar=False)
-        self.tokens = [re.findall(r"\b\w+\b", t.lower()) for t in texts]
-        self.counts = [Counter(t) for t in self.tokens]
-        self.df = Counter(term for t in self.tokens for term in set(t))
-        self.avglen = sum(map(len, self.tokens)) / len(self.tokens)
+        self.emb = self.embedder.encode([c["content"] for c in self.chunks], batch_size=64,
+                                        normalize_embeddings=True, show_progress_bar=False).astype(np.float32)
+
+    def _load_cache(self, key):
+        try:
+            with np.load(INDEX_CACHE, allow_pickle=False) as z:
+                meta = json.loads(str(z["meta"]))
+                if meta["key"] != key:
+                    return False
+                self.chunks, self.documents, self.emb = meta["chunks"], meta["documents"], z["emb"]
+            print(f"Loaded index cache: {len(self.chunks)} chunks from {INDEX_CACHE}", flush=True)
+            return True
+        except (OSError, KeyError, ValueError):
+            return False
+
+    def _save_cache(self, key):
+        try:
+            INDEX_CACHE.parent.mkdir(parents=True, exist_ok=True)
+            meta = json.dumps({"key": key, "chunks": self.chunks, "documents": self.documents})
+            tmp = INDEX_CACHE.with_name(INDEX_CACHE.stem + ".tmp.npz")
+            np.savez(tmp, emb=self.emb, meta=np.array(meta))
+            tmp.replace(INDEX_CACHE)
+        except OSError as e:                     # read-only disk etc.: just run without a cache
+            print(f"Could not write index cache: {e}", flush=True)
 
     # ---------- retrieval ----------
     def _dense(self, text, k):

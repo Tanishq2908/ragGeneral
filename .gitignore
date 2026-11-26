@@ -3,3 +3,4 @@ __pycache__/
 .env
 .venv/
 data/chat_history.db
+data/.index_cache*.npz
