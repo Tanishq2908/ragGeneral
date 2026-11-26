@@ -113,6 +113,8 @@ header[data-testid="stHeader"] { background: transparent; }
 .grove-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .grove-chip { font-size: 11.5px; padding: 2px 9px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-strong); }
 .grove-src { margin: 8px 0 0; padding: 9px 12px; border-radius: 10px; border-left: 3px solid var(--brand); background: var(--brand-soft); font-size: 13px; color: var(--ink-soft); }
+.grove-notfound { padding: 12px 14px; border-radius: 12px; background: #fff7e6; border: 1px solid #f3dca6; color: #6b4e00; font-size: 14.5px; line-height: 1.5; }
+.grove-notfound b { color: #5a3f00; }
 .grove-src { margin-bottom: 10px; }
 .grove-src .grove-meta { margin: 6px 0 4px; }
 .grove-chip b { font-weight: 600; }
@@ -206,10 +208,19 @@ def score_chips(sc):
     return '<div class="grove-meta">' + "".join(out) + "</div>"
 
 
-def show_sources(sources):
+def show_not_found():
+    st.html('<div class="grove-notfound"><b>No answer found in your documents.</b><br>'
+            'None of the passages that were searched answer this. Try naming the Act or Rules, using different '
+            'words, or asking something more specific.</div>')
+
+
+def show_sources(sources, not_found=False):
     if not sources:
         return
-    with st.expander(f"📄 {len(sources)} source{'s' if len(sources) > 1 else ''} · retrieval scores"):
+    n = len(sources)
+    title = (f"🔎 {'Closest passage' if n == 1 else f'{n} closest passages'} searched (none answered it)" if not_found
+             else f"📄 {len(sources)} source{'s' if len(sources) > 1 else ''} · retrieval scores")
+    with st.expander(title):
         tab_cards, tab_table = st.tabs(["Passages", "Compare scores"])
         with tab_cards:
             cards = []
@@ -256,7 +267,7 @@ def reading_label(f):
 
 
 def show_analysis(a, n_sources):
-    if not a:
+    if not a or a.get("abstained"):
         return
     with st.expander("📊 Answer analysis · NLP scores"):
         if a.get("abstained"):
@@ -293,10 +304,14 @@ def show_message(m):
     # keyed container -> CSS class st-key-umsg_N / st-key-amsg_N, used to style user vs assistant bubbles
     box = st.container(key=f"{'umsg' if m['role'] == 'user' else 'amsg'}_{_msg_counter[0]}")
     with box, st.chat_message(m["role"], avatar="🧑" if m["role"] == "user" else "🌳"):
-        st.markdown(m["content"])
+        not_found = m["role"] == "assistant" and is_abstain(m["content"])
+        if not_found:
+            show_not_found()
+        else:
+            st.markdown(m["content"])
         if m["role"] == "assistant":
             st.html(meta_html(m.get("mode"), m.get("latency_ms")))
-            show_sources(m.get("sources"))
+            show_sources(m.get("sources"), not_found)
             show_analysis(m.get("analysis"), len(m.get("sources") or []))
 
 
@@ -327,7 +342,7 @@ if "engine_ready" not in state:
     st.rerun()
 
 engine = get_engine()
-from app.rag_engine import MODES  # noqa: E402
+from app.rag_engine import MODES, clean_answer, fallback_modes, is_abstain  # noqa: E402
 
 # ---------- sidebar ----------
 with st.sidebar:
@@ -407,28 +422,65 @@ if question:
 
     with st.container(key="amsg_live"), st.chat_message("assistant", avatar="🌳"):
         t0 = time.perf_counter()
+        note = st.empty()
+        used = {"mode": state.mode, "prep": None}
+
+        def answer_stream():
+            """Streams the answer. If the chosen search finds nothing, silently retries with a broader one."""
+            modes = fallback_modes(state.mode)
+            for n, mode in enumerate(modes):
+                if not n:
+                    note.caption("🔎 Searching your documents…")
+                else:
+                    note.caption(f"🔁 Not found with {MODE_HELP[modes[n - 1]][0]} search. "
+                                 f"Trying {MODE_HELP[mode][0]} search…")
+                prep = engine.prepare(question, mode, messages)
+                used.update(mode=mode, prep=prep)
+                pieces = engine.stream_answer(question, prep["docs"])
+                head = ""
+                for piece in pieces:                       # look ahead: is the model abstaining?
+                    head += piece
+                    if len(head) >= 24:
+                        break
+                if is_abstain(head) and n < len(modes) - 1:
+                    for _ in pieces:
+                        pass
+                    continue
+                note.empty()
+                if is_abstain(head):
+                    for _ in pieces:
+                        pass
+                    note.empty()
+                    return                                 # shown as a "not found" card below
+                yield head
+                yield from pieces
+                return
+
         try:
-            with st.spinner("Searching your documents…"):
-                prep = engine.prepare(question, state.mode, messages)
-            answer = st.write_stream(engine.stream_answer(question, prep["docs"]))
-            if not isinstance(answer, str):
-                answer = "".join(map(str, answer))
+            streamed = st.write_stream(answer_stream())
+            answer = streamed if isinstance(streamed, str) else "".join(map(str, streamed or []))
+            answer = clean_answer(answer)
         except Exception as e:
             answer = None
             msg = str(e)
             if "api_key" in msg.lower() or "401" in msg:
                 msg = "The Groq API key is missing or invalid. Add GROQ_API_KEY in the app's secrets."
+            elif "rate" in msg.lower() and "limit" in msg.lower():
+                msg = "Groq's free rate limit was reached. Wait a minute and ask again."
             st.error(f"Something went wrong: {msg}")
         if answer is not None:
             latency = round((time.perf_counter() - t0) * 1000)
-            sources = engine.sources(prep["docs"])
+            prep, mode = used["prep"], used["mode"]
+            sources = engine.sources(prep["docs"]) if prep else []
             try:
-                analysis = engine.analyze(question, answer, prep["docs"])
+                analysis = engine.analyze(question, answer, prep["docs"] if prep else [])
             except Exception:
                 analysis = None
-            st.html(meta_html(state.mode, latency))
-            show_sources(sources)
+            if is_abstain(answer):
+                show_not_found()
+            st.html(meta_html(mode, latency))
+            show_sources(sources, is_abstain(answer))
             show_analysis(analysis, len(sources))
-            db.add_message(state.chat_id, "assistant", answer, mode=state.mode, sources=sources, latency_ms=latency,
+            db.add_message(state.chat_id, "assistant", answer, mode=mode, sources=sources, latency_ms=latency,
                            analysis=analysis)
             st.rerun()   # refresh the sidebar (new chat title) with the saved conversation

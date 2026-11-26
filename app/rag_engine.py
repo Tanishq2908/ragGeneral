@@ -9,6 +9,7 @@ import math
 import os
 import random
 import threading
+from concurrent.futures import ThreadPoolExecutor
 import re
 import time
 from collections import Counter
@@ -32,6 +33,27 @@ hers him his how i if in into is it its itself just me more most my no nor not n
 over own same she should so some such than that the their them then there these they this those through to too under
 until up very was we were what when where which while who whom why will with would you your shall may such any also see
 s t don per within upon thereof therein""".split())
+
+
+def is_abstain(text):
+    """True when the model said it couldn't find the answer (also catches variants like "I do not know")."""
+    t = re.sub(r"\s+", " ", (text or "").strip().lower()).replace("’", "'")
+    return t.startswith(("i don't know", "i do not know", "i dont know")) or t == ""
+
+
+def clean_answer(text):
+    """An abstention is normalised to the exact ABSTAIN sentence (drops stray '[Source 1]' etc.)."""
+    return ABSTAIN if is_abstain(text) else text.strip()
+
+
+def fallback_modes(mode):
+    """Modes to try in order: the chosen one, then a broader search if it found nothing."""
+    order = [mode]
+    for m in ("multi_query", "hyde"):
+        if m not in order:
+            order.append(m)
+            break
+    return order
 EMBED_MODEL = "all-MiniLM-L6-v2"
 CHUNK_SIZE, CHUNK_OVERLAP = 1000, 200
 # Chunks + embeddings are saved here so a restart doesn't re-read and re-embed every PDF.
@@ -149,7 +171,7 @@ class RagEngine:
     def _content_words(text):
         return [t for t in re.findall(r"\b\w+\b", text.lower()) if t not in STOPWORDS and not t.isdigit()]
 
-    def retrieve(self, question, search_queries, candidate_k=12, final_k=5):
+    def retrieve(self, question, search_queries, candidate_k=20, final_k=5):
         """Hybrid retrieval. Each returned chunk carries `score` (the ranking score) and `scores`, a breakdown
         of NLP measures between the question and the chunk."""
         fused = Counter()
@@ -205,7 +227,7 @@ class RagEngine:
         ctx_words = set(self._content_words(context))
         a_vec = self._tfidf(re.findall(r"\b\w+\b", answer.lower()))
         result = {
-            "abstained": answer.strip().startswith(ABSTAIN[:20]),
+            "abstained": is_abstain(answer),
             "word_count": len(words),
             "sentence_count": sentences,
             "flesch_reading_ease": round(206.835 - 1.015 * (n_words / sentences) - 84.6 * (syllables / n_words), 1),
@@ -226,28 +248,63 @@ class RagEngine:
         return result
 
     # ---------- starter questions, written by the LLM from the indexed PDFs ----------
+    @staticmethod
+    def _is_prose(text):
+        """True for running text; False for fee tables, form lists, indexes and other number-heavy chunks."""
+        letters = sum(ch.isalpha() for ch in text)
+        digits = sum(ch.isdigit() for ch in text)
+        words = re.findall(r"[A-Za-z]{3,}", text)
+        return len(text) >= 500 and letters / max(1, len(text)) > 0.68 and digits / max(1, len(text)) < 0.04 \
+            and len(words) >= 60
+
+    def _candidate_questions(self, rng, n):
+        files = [d["name"] for d in self.documents if d["chunks"]]
+        picked = rng.sample(files, min(n, len(files)))
+        while len(picked) < n and files:
+            picked.append(rng.choice(files))
+        passages = []
+        for name in picked:
+            idx = [i for i, c in enumerate(self.chunks) if c["source"] == name and self._is_prose(c["content"])]
+            if not idx:
+                continue
+            passages.append((name, self.chunks[rng.choice(idx)]["content"][:900]))
+        if not passages:
+            return []
+        out = self._llm(
+            "You write example questions for a search app over Indian laws and regulations.\n"
+            "For each passage below, write ONE question that:\n"
+            "- is answered clearly and completely by that passage alone;\n"
+            "- is self-contained: name the Act, Rules or Regulations it is about (use the document title), and never "
+            "refer to a bare section/rule/form number without saying which law it belongs to;\n"
+            "- is short (under 15 words) and natural, like something a student or lawyer would ask;\n"
+            "- does not mention 'the passage' or 'the text'.\n"
+            "Return only the questions, one per line, no numbering.\n\n"
+            + "\n\n".join(f"Passage {i + 1} (from {Path(n_).stem}):\n{p}" for i, (n_, p) in enumerate(passages)))
+        qs = [re.sub(r"^\s*(?:\d+[.)]|[-*•]|Passage \d+[:.)]?)\s*", "", l).strip() for l in out.splitlines()]
+        return [q for q in qs if q.endswith("?") and 4 <= len(q.split()) <= 25]
+
+    def answerable(self, question):
+        """Run the full pipeline once and report whether it produces a real (non-abstaining) answer."""
+        try:
+            docs = self.prepare(question, "none")["docs"]
+            return bool(docs) and not is_abstain(self._llm(self._answer_prompt(question, docs)))
+        except Exception:
+            return False
+
     def suggestions(self, n=4):
-        """n example questions, each answerable from a passage of a different PDF. Cached after first success."""
+        """n example questions from different PDFs, each checked by actually answering it. Cached after first success."""
         with self._suggest_lock:
             if self._suggestions is None:
-                rng = random.Random()
-                files = [d["name"] for d in self.documents if d["chunks"]]
-                picked = rng.sample(files, min(n, len(files)))
-                while len(picked) < n and files:            # fewer PDFs than n: reuse some
-                    picked.append(rng.choice(files))
-                passages = []
-                for name in picked:
-                    idx = [i for i, c in enumerate(self.chunks) if c["source"] == name]
-                    middle = idx[len(idx) // 5: max(len(idx) // 5 + 1, 4 * len(idx) // 5)]   # skip cover pages/indexes
-                    passages.append(self.chunks[rng.choice(middle)]["content"][:900])
-                out = self._llm("For each passage below, write one short, natural question a reader might ask that "
-                                "the passage answers. Don't mention 'the passage'. One question per line, "
-                                "no numbering, nothing else.\n\n"
-                                + "\n\n".join(f"Passage {i + 1}:\n{p}" for i, p in enumerate(passages)))
-                qs = [re.sub(r"^\s*(?:\d+[.)]|[-*•]|Passage \d+:)\s*", "", l).strip() for l in out.splitlines()]
-                qs = [q for q in qs if q.endswith("?")][:n]
-                if qs:
-                    self._suggestions = qs
+                rng, verified = random.Random(), []
+                for _ in range(2):                                   # at most two rounds of candidates
+                    candidates = [q for q in self._candidate_questions(rng, 2 * n) if q not in verified]
+                    with ThreadPoolExecutor(max_workers=4) as pool:
+                        ok = list(pool.map(self.answerable, candidates))
+                    verified += [q for q, good in zip(candidates, ok) if good]
+                    if len(verified) >= n:
+                        break
+                if verified:
+                    self._suggestions = verified[:n]
             return self._suggestions or []
 
     # ---------- query rewriting ----------
@@ -283,8 +340,14 @@ class RagEngine:
 
     @staticmethod
     def _answer_prompt(question, docs):
-        context = "\n\n---\n\n".join(f"Source {i + 1}: {d['content']}" for i, d in enumerate(docs))
-        return (f"Answer only from this context. If absent, say: {ABSTAIN} Cite [Source n].\n\n"
+        context = "\n\n---\n\n".join(f"[Source {i + 1}] {Path(d['source']).stem}, page {d['page'] + 1}:\n{d['content']}"
+                                       for i, d in enumerate(docs))
+        return ("You answer questions about Indian laws, rules and regulations using ONLY the numbered sources below.\n"
+                "- If the sources contain the answer (even partly), answer clearly in plain language, name the Act/Rules "
+                "and section/rule where relevant, and cite the sources you used like [Source 2].\n"
+                "- If a source is a table (fees, forms), read the row that matches the question.\n"
+                f"- Only if the sources do not contain the answer at all, reply exactly: {ABSTAIN}\n"
+                "  and nothing else (no citations).\n\n"
                 f"{context}\n\nQuestion: {question}\nAnswer:")
 
     @staticmethod
@@ -302,9 +365,13 @@ class RagEngine:
                 yield chunk.content
 
     def answer(self, question, mode="none", history=()):
-        prep = self.prepare(question, mode, history)
-        docs = prep["docs"]
-        t1 = time.perf_counter()
-        answer = self._llm(self._answer_prompt(question, docs)) if docs else ABSTAIN
+        for attempt in fallback_modes(mode):
+            prep = self.prepare(question, attempt, history)
+            docs = prep["docs"]
+            t1 = time.perf_counter()
+            answer = self._llm(self._answer_prompt(question, docs)) if docs else ABSTAIN
+            if not is_abstain(answer):
+                break
+        answer = clean_answer(answer)
         return {"answer": answer, "search_queries": prep["search_queries"], "sources": self.sources(docs), "_docs": docs,
                 "retrieval_ms": prep["retrieval_ms"], "generation_ms": round((time.perf_counter() - t1) * 1000)}
