@@ -68,7 +68,7 @@ class RagEngine:
         self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2") \
             if os.getenv("USE_RERANKER", "true").lower() != "false" else None
         self.llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"), model_name="openai/gpt-oss-20b",
-                            temperature=0.1, max_tokens=1024)
+                            temperature=0.1, max_tokens=2048)
         self._suggestions = None
         self._suggest_lock = threading.Lock()
         self._build_index()
@@ -171,12 +171,55 @@ class RagEngine:
     def _content_words(text):
         return [t for t in re.findall(r"\b\w+\b", text.lower()) if t not in STOPWORDS and not t.isdigit()]
 
-    def retrieve(self, question, search_queries, candidate_k=20, final_k=5):
+    # ---------- document awareness ----------
+    _GENERIC = frozenset("act acts rules rule regulations regulation the of and as amended official text gazette india "
+                         "e amendment 2023 en pdf".split())
+
+    def _doc_terms(self, name):
+        words = re.findall(r"[a-z]+", Path(name).stem.lower().replace("_", " "))
+        terms = {w.rstrip("s") for w in words if w not in self._GENERIC and len(w) > 2}
+        kind = "rules" if re.search(r"\brules?\b", name.lower()) else \
+               "regulations" if "regulation" in name.lower() else \
+               "amendment" if "amendment" in name.lower() else "act"
+        return terms, kind
+
+    def docs_mentioned(self, text):
+        """Documents a question names, e.g. 'Patents Act' -> patents-act-1970.pdf (not the Patent Rules)."""
+        t = text.lower()
+        words = {w.rstrip("s") for w in re.findall(r"[a-z]+", t)}
+        says = {"rules": bool(re.search(r"\brules?\b", t)), "regulations": "regulation" in t,
+                "amendment": "amendment" in t, "act": bool(re.search(r"\bacts?\b", t))}
+        hits = set()
+        for d in self.documents:
+            terms, kind = self._doc_terms(d["name"])
+            if not terms:
+                continue
+            found = len(terms & words)
+            enough = found == len(terms) or (found >= 2 and found / len(terms) >= 0.6)
+            if enough and (says[kind] or not any(says.values())):
+                hits.add(d["name"])
+        years = set(re.findall(r"\b(?:19|20)\d{2}\b", t))
+        with_year = {h for h in hits if any(y in h for y in years)}
+        return with_year or hits          # "Patent Rules 2024" -> only the 2024 Rules
+
+    def _allowed_mask(self, sources):
+        if not sources:
+            return None
+        return np.array([c["source"] in sources for c in self.chunks])
+
+    def retrieve(self, question, search_queries, candidate_k=20, final_k=5, sources=None):
         """Hybrid retrieval. Each returned chunk carries `score` (the ranking score) and `scores`, a breakdown
-        of NLP measures between the question and the chunk."""
+        of NLP measures between the question and the chunk. `sources` limits the search to those PDFs."""
+        mask = self._allowed_mask(sources)
         fused = Counter()
         for q in search_queries:
-            for ranked in (self._dense(q, candidate_k), self._bm25(q, candidate_k)):
+            dense, bm25 = self._dense_scores(q), self._bm25_scores(q)
+            if mask is not None:
+                dense = np.where(mask, dense, -np.inf)
+                bm25 = np.where(mask, bm25, 0.0)
+            dense_ranked = list(np.argsort(-dense)[:candidate_k])
+            bm25_ranked = [i for i in np.argsort(-bm25)[:candidate_k] if bm25[i] > 0]
+            for ranked in (dense_ranked, bm25_ranked):
                 for rank, idx in enumerate(ranked, 1):
                     fused[idx] += 1 / (60 + rank)
         candidates = [i for i, _ in fused.most_common(24)]
@@ -328,36 +371,102 @@ class RagEngine:
         return [question]
 
     # ---------- full pipeline ----------
-    def prepare(self, question, mode="none", history=()):
-        """Query rewriting + retrieval. Returns the search queries, the retrieved chunks and the time taken."""
-        t0 = time.perf_counter()
-        queries = self.search_queries(question, mode, list(history))
-        docs = self.retrieve(question, queries)
-        return {"search_queries": queries, "docs": docs, "retrieval_ms": round((time.perf_counter() - t0) * 1000)}
+    def is_complex(self, question):
+        """Multi-part questions: long, several provisions/sections, or several laws named."""
+        sections = re.findall(r"\b\d+[A-Z]?\s*\([a-z0-9]{1,4}\)|\b(?:section|sec\.|rule)\s+\d+", question, re.I)
+        return (len(question.split()) >= 22 or len(sections) >= 2 or len(self.docs_mentioned(question)) >= 2
+                or question.count("?") >= 2)
+
+    def decompose(self, question, history=()):
+        """Split a complex question into 2-4 focused, self-contained search questions (one LLM call)."""
+        if not self.is_complex(question):
+            return []
+        titles = "; ".join(Path(d["name"]).stem for d in self.documents)
+        convo = "\n".join(f"{m['role']}: {m['content'][:300]}" for m in list(history)[-4:])
+        out = self._llm(
+            (f"Conversation so far:\n{convo}\n\n" if convo else "")
+            + "Split the user's question into 2 to 4 short search questions for a library of Indian laws "
+            f"({titles}). Each search question must cover ONE law or provision, name that Act/Rules/Regulations "
+            "explicitly, keep section and clause numbers exactly as written (e.g. Section 3(d)), and add the key "
+            "legal terms someone would find in that provision. Return only the questions, one per line.\n\n"
+            f"Question: {question}")
+        qs = [re.sub(r"^\s*(?:\d+[.)]|[-*•])\s*", "", l).strip() for l in out.splitlines()]
+        return [q for q in qs if len(q.split()) >= 3][:4]
 
     @staticmethod
-    def _answer_prompt(question, docs):
+    def _merge(lists, k):
+        """Round-robin merge of ranked chunk lists, dropping duplicates, so every part of a question is covered."""
+        seen, out = set(), []
+        for rank in range(max((len(l) for l in lists), default=0)):
+            for l in lists:
+                if rank < len(l):
+                    key = (l[rank]["source"], l[rank]["page"], l[rank]["content"][:80])
+                    if key not in seen:
+                        seen.add(key)
+                        out.append(l[rank])
+        return out[:k]
+
+    def prepare(self, question, mode="none", history=()):
+        """Plan + retrieve. Complex questions are decomposed and each part is searched (within the PDFs it names);
+        the results are merged. Returns search queries, sub-questions, retrieved chunks and the time taken."""
+        t0 = time.perf_counter()
+        queries = self.search_queries(question, mode, list(history))
+        parts = self.decompose(question, history)
+        main = self.retrieve(question, queries, final_k=5 if not parts else 4, sources=None)
+        named = self.docs_mentioned(question)
+        lists = [main]
+        if parts:
+            for part in parts:
+                lists.append(self.retrieve(part, [part], final_k=3, sources=self.docs_mentioned(part) or None))
+            docs = self._merge(lists, 8)
+        elif named and not any(d["source"] in named for d in main):
+            # the question names a law but the open search missed it: add the best passages from that law
+            docs = self._merge([main, self.retrieve(question, queries, final_k=2, sources=named)], 6)
+        else:
+            docs = main
+        return {"search_queries": queries, "sub_questions": parts, "docs": docs,
+                "retrieval_ms": round((time.perf_counter() - t0) * 1000)}
+
+    @staticmethod
+    def _answer_prompt(question, docs, parts=()):
         context = "\n\n---\n\n".join(f"[Source {i + 1}] {Path(d['source']).stem}, page {d['page'] + 1}:\n{d['content']}"
                                        for i, d in enumerate(docs))
-        return ("You answer questions about Indian laws, rules and regulations using ONLY the numbered sources below.\n"
-                "- If the sources contain the answer (even partly), answer clearly in plain language, name the Act/Rules "
-                "and section/rule where relevant, and cite the sources you used like [Source 2].\n"
-                "- If a source is a table (fees, forms), read the row that matches the question.\n"
-                f"- Only if the sources do not contain the answer at all, reply exactly: {ABSTAIN}\n"
-                "  and nothing else (no citations).\n\n"
-                f"{context}\n\nQuestion: {question}\nAnswer:")
+        plan = ("\nThe question has these parts; answer each one, in this order:\n"
+                + "\n".join(f"{i}. {p}" for i, p in enumerate(parts, 1)) + "\n") if parts else ""
+        return (
+            "You are a careful legal research assistant for Indian law. Use ONLY the numbered sources below, which "
+            "are extracts from Indian Acts, Rules and Regulations.\n\n"
+            "Format your reply in Markdown like this:\n"
+            "**Answer:** a direct answer in 1-3 sentences.\n\n"
+            "**Explanation**\n"
+            "- Short bullet points (or numbered steps for a procedure or a step-by-step analysis). For a question with "
+            "several parts, give each part its own short heading (### Part name) in the order asked.\n"
+            "- For every legal point, name the Act/Rules and the section, rule or clause, and cite the source right "
+            "after the statement, like [Source 2].\n"
+            "- When exact wording matters, quote the key phrase from the law in quotation marks.\n\n"
+            "**Key provisions:** one line listing the provisions used, e.g. Patents Act 1970, s.3(d) [Source 1].\n\n"
+            "Rules:\n"
+            "- For scenario or \"how would you determine\" questions, apply the provisions in the sources to the facts "
+            "step by step. You may reason from the sources, but do not add legal rules that are not in them.\n"
+            "- If a source is a table (fees, forms, schedules), read the row that matches the question.\n"
+            "- If the sources cover only some parts, answer those parts and finish with **Not covered by the "
+            "documents:** listing what is missing. Never refuse the whole question because one part is missing.\n"
+            "- Plain, precise language; usually under 350 words.\n"
+            f"- Only if NONE of the sources is relevant to any part of the question, reply exactly: {ABSTAIN}\n"
+            f"{plan}\n"
+            f"{context}\n\nQuestion: {question}\nReply:")
 
     @staticmethod
     def sources(docs):
         return [{"source": d["source"], "page": d["page"], "score": d["score"], "preview": d["content"][:200],
                  "scores": d.get("scores", {})} for d in docs]
 
-    def stream_answer(self, question, docs):
+    def stream_answer(self, question, docs, parts=()):
         """Yields the answer text piece by piece as the LLM writes it."""
         if not docs:
             yield ABSTAIN
             return
-        for chunk in self.llm.stream(self._answer_prompt(question, docs)):
+        for chunk in self.llm.stream(self._answer_prompt(question, docs, parts)):
             if chunk.content:
                 yield chunk.content
 
@@ -366,9 +475,10 @@ class RagEngine:
             prep = self.prepare(question, attempt, history)
             docs = prep["docs"]
             t1 = time.perf_counter()
-            answer = self._llm(self._answer_prompt(question, docs)) if docs else ABSTAIN
+            answer = self._llm(self._answer_prompt(question, docs, prep["sub_questions"])) if docs else ABSTAIN
             if not is_abstain(answer):
                 break
         answer = clean_answer(answer)
-        return {"answer": answer, "search_queries": prep["search_queries"], "sources": self.sources(docs), "_docs": docs,
+        return {"answer": answer, "search_queries": prep["search_queries"], "sub_questions": prep["sub_questions"],
+                "sources": self.sources(docs), "_docs": docs,
                 "retrieval_ms": prep["retrieval_ms"], "generation_ms": round((time.perf_counter() - t1) * 1000)}

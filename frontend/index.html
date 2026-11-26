@@ -121,6 +121,9 @@
     white-space: pre-wrap; overflow-wrap: anywhere; animation: rise .35s ease both;
   }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .assistant { white-space: normal; }
+  .assistant h4 { margin: .8em 0 .3em; font-size: 15px; color: var(--brand-strong); }
+  .assistant p { margin: 0 0 .5em; } .assistant ul, .assistant ol { margin: .2em 0 .6em; padding-left: 1.3em; } .assistant li { margin: .2em 0; }
   .user {
     width: fit-content; max-width: min(620px, 88%); margin-right: max(0px, calc((100% - 780px) / 2));
     margin-left: auto; color: #fff; border-bottom-right-radius: 6px;
@@ -334,6 +337,22 @@
 /* ---------- chat ---------- */
 let chatId = null;
 const $ = id => document.getElementById(id);
+// Minimal Markdown for answers (bold, ### headings, bullet and numbered lists); input is escaped first.
+function md(text) {
+  const inline = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  const out = []; let list = null;
+  const close = () => { if (list) { out.push(`</${list}>`); list = null; } };
+  for (const line of String(text).split('\n')) {
+    let mm;
+    if ((mm = line.match(/^\s*#{1,4}\s+(.*)/))) { close(); out.push(`<h4>${inline(mm[1])}</h4>`); }
+    else if ((mm = line.match(/^\s*[-*•]\s+(.*)/))) { if (list !== 'ul') { close(); out.push('<ul>'); list = 'ul'; } out.push(`<li>${inline(mm[1])}</li>`); }
+    else if ((mm = line.match(/^\s*\d+[.)]\s+(.*)/))) { if (list !== 'ol') { close(); out.push('<ol>'); list = 'ol'; } out.push(`<li>${inline(mm[1])}</li>`); }
+    else if (!line.trim()) { close(); }
+    else { close(); out.push(`<p>${inline(line)}</p>`); }
+  }
+  close();
+  return out.join('');
+}
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 // Everything below about the corpus comes from the API: /api/library (PDFs + modes) and /api/suggestions.
 const modeLabel = m => !m || m === 'none' ? 'Fast' : m.replace(/_/g, '-').replace(/^./, c => c.toUpperCase());
@@ -404,7 +423,7 @@ function renderStarter() {
 function render(m) {
   const div = document.createElement('div');
   div.className = 'msg ' + m.role;
-  div.textContent = m.content;
+  if (m.role === 'assistant') div.innerHTML = md(m.content); else div.textContent = m.content;
   if (m.role === 'assistant') {
     const meta = document.createElement('div');
     meta.className = 'meta';

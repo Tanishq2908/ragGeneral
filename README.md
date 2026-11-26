@@ -27,7 +27,16 @@ API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/library` (indexed PD
 
 ## Streamlit app (recommended, free on Streamlit Community Cloud, no card)
 `ui/streamlit_app.py` is a Streamlit version of the chat ("Grove"): green theme with an animated tree, streaming answers,
-chat history, starter questions generated from your PDFs, and NLP scores for every answer:
+chat history, starter questions generated from your PDFs, and NLP scores for every answer.
+
+- **Multi-part questions** (long, several sections, or several laws named) are split by the LLM into 2-4 sub-questions.
+  Each is searched separately (inside the PDF it names, e.g. "Patents Act" or "Patent Rules 2024") and the results are merged.
+- **Structured answers:** Answer, Explanation (one heading per part), Key provisions, and Not covered by the documents,
+  with [Source n] citations. Scenario questions are answered by applying the provisions step by step.
+- **Answer insights panel:** on laptops a sticky panel beside the chat shows the selected answer's Sources, Quality and
+  Plan (how the question was split and searched); on phones the same details fold out under each answer.
+
+Scores shown:
 
 - **Per source passage:** semantic similarity (MiniLM cosine), BM25, TF-IDF cosine, keyword Jaccard overlap, query-term coverage,
   RRF fusion score, cross-encoder rerank score, rank among all passages, and the matched words. A sortable table compares them.
