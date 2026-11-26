@@ -1,0 +1,12 @@
+# Dependencies for the Streamlit app (Streamlit Community Cloud reads this file because it sits next to ui/streamlit_app.py).
+# CPU-only torch keeps the install small.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+sentence-transformers
+langchain-community
+langchain-groq
+langchain-text-splitters
+pymupdf
+python-dotenv
+psycopg[binary]
+streamlit>=1.45

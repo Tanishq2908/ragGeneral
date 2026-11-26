@@ -92,5 +92,10 @@ def chat(req: ChatRequest):
     except Exception as e:
         raise HTTPException(502, f"RAG pipeline failed: {e}")
     latency = result["retrieval_ms"] + result["generation_ms"]
-    db.add_message(chat_id, "assistant", result["answer"], mode=req.mode, sources=result["sources"], latency_ms=latency)
+    try:
+        result["analysis"] = engine.analyze(req.question, result["answer"], result.pop("_docs"))
+    except Exception:
+        result["analysis"] = None
+    db.add_message(chat_id, "assistant", result["answer"], mode=req.mode, sources=result["sources"], latency_ms=latency,
+                   analysis=result["analysis"])
     return {"chat_id": chat_id, **result, "latency_ms": latency}

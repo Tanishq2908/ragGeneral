@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS messages (
     mode        TEXT,
     sources     TEXT,               -- JSON list of retrieved chunks
     latency_ms  INTEGER,
+    analysis    TEXT,               -- JSON of NLP scores for an answer (groundedness, readability, ...)
     created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX IF NOT EXISTS idx_messages_chat ON messages(chat_id, id);
@@ -78,6 +79,12 @@ def init_db():
     with connect() as c:
         for stmt in filter(str.strip, SCHEMA.split(";")):
             c.execute(stmt)
+    # databases created before the analysis column existed
+    try:
+        with connect() as c:
+            c.execute("ALTER TABLE messages ADD COLUMN analysis TEXT")
+    except Exception:
+        pass                    # column already there
 
 
 def create_chat(title):
@@ -100,15 +107,17 @@ def delete_chat(chat_id):
         c.execute("DELETE FROM chats WHERE id = ?", (chat_id,))
 
 
-def add_message(chat_id, role, content, mode=None, sources=None, latency_ms=None):
+def add_message(chat_id, role, content, mode=None, sources=None, latency_ms=None, analysis=None):
     with connect() as c:
         c.execute(
-            "INSERT INTO messages (chat_id, role, content, mode, sources, latency_ms) VALUES (?, ?, ?, ?, ?, ?)",
-            (chat_id, role, content, mode, json.dumps(sources) if sources is not None else None, latency_ms))
+            "INSERT INTO messages (chat_id, role, content, mode, sources, latency_ms, analysis) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (chat_id, role, content, mode, json.dumps(sources) if sources is not None else None, latency_ms,
+             json.dumps(analysis) if analysis is not None else None))
 
 
 def get_messages(chat_id):
     with connect() as c:
-        rows = c.execute("SELECT role, content, mode, sources, latency_ms, created_at FROM messages "
+        rows = c.execute("SELECT role, content, mode, sources, latency_ms, analysis, created_at FROM messages "
                          "WHERE chat_id = ? ORDER BY id", (chat_id,)).fetchall()
-        return [dict(_row(r), sources=json.loads(r["sources"]) if r["sources"] else []) for r in rows]
+        return [dict(_row(r), sources=json.loads(r["sources"]) if r["sources"] else [],
+                     analysis=json.loads(r["analysis"]) if r["analysis"] else None) for r in rows]
