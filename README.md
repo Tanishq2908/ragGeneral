@@ -25,6 +25,21 @@ To store them somewhere else, set `CHAT_DB_PATH`. To index a different folder of
 
 API: `POST /api/chat {question, chat_id?, mode}`, `GET /api/library` (indexed PDFs + modes), `GET /api/suggestions` (starter questions the LLM writes from your PDFs, cached), `GET /api/chats`, `GET /api/chats/{id}/messages`, `DELETE /api/chats/{id}`.
 
+## Deploy free on Hugging Face Spaces (no credit card)
+A free Hugging Face Docker Space (2 vCPU, 16 GB RAM) runs the same `Dockerfile`. The GitHub Action
+`.github/workflows/deploy-hf-space.yml` uploads the app to the Space on every push to `main`.
+
+1. Sign up at huggingface.co (free, no card). Settings → Access Tokens → **Create new token** → type **Write** → copy it.
+2. In this GitHub repo: Settings → Secrets and variables → Actions:
+   - **Secrets** tab → New repository secret: `HF_TOKEN` = the Hugging Face token; `GROQ_API_KEY` = your Groq key.
+   - **Variables** tab → New repository variable: `HF_SPACE` = `your-hf-username/raggeneral`.
+3. Actions tab → **Deploy to Hugging Face Space** → **Run workflow** (or just push to `main`).
+4. Open `https://huggingface.co/spaces/your-hf-username/raggeneral`; the first build takes ~10-15 min. The app itself is at `https://your-hf-username-raggeneral.hf.space`.
+
+Notes: free Spaces sleep after 48 h without visitors (the next visit wakes them in a minute or two) and their disk is reset on restart,
+so chat history is lost then. To keep it, create a free Postgres database at neon.tech (no card) and add its connection string
+as a Space secret named `DATABASE_URL` (Space → Settings → Variables and secrets).
+
 ## Deploy on Google Cloud Run (recommended)
 Cloud Run runs the `Dockerfile`: the image already contains the models and the PDF index (built at build time), so it starts in seconds.
 Everything below runs in **Cloud Shell** (the `>_` button at the top of console.cloud.google.com), so you don't need to install anything.

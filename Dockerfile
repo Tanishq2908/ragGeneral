@@ -13,7 +13,9 @@ COPY data data
 
 # Download the embedding + reranker models and build the PDF index now, at build time,
 # so the container starts in seconds instead of re-embedding every PDF on each start.
-RUN GROQ_API_KEY=build-time-placeholder python -c "from app.rag_engine import RagEngine; RagEngine()"
+RUN GROQ_API_KEY=build-time-placeholder python -c "from app.rag_engine import RagEngine; RagEngine()" \
+ && chmod -R a+rwX /app/data /app/.hf
+# (chmod: Hugging Face Spaces run the container as a non-root user, which must be able to write the SQLite chat DB.)
 
 # Cloud Run sets $PORT (8080 by default).
 CMD exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}
