@@ -5,12 +5,16 @@ services:
     name: raggeneral-api
     runtime: python
     plan: free                     # 512 MB RAM; use "starter"/"standard" if it runs out of memory
-    buildCommand: pip install -r requirements-server.txt
+    # Build step also downloads the model and indexes the PDFs (saved to data/.index_cache.npz),
+    # so the server starts quickly and doesn't hit Render's startup time limit.
+    buildCommand: pip install -r requirements-server.txt && GROQ_API_KEY=build-time-placeholder python -c "from app.rag_engine import RagEngine; RagEngine()"
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: HF_HOME                 # keep the downloaded model inside the deployed build
+        value: /opt/render/project/src/.hf
       - key: GROQ_API_KEY
         sync: false
       - key: USE_RERANKER
