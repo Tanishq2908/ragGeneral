@@ -125,13 +125,13 @@ class RagEngine:
         ctx = f"Conversation so far:\n{convo}\n\n" if convo else ""
         if mode == "rewrite":
             q = self._llm(f"{ctx}Rewrite the user's latest question into one standalone search query for a collection of "
-                          f"documents (acts, rules, treaties, reports). Fix spelling, expand abbreviations, use the "
+                          f"documents (acts, rules, regulations, reports). Fix spelling, expand abbreviations, use the "
                           f"exact legal or technical terms. Return only the query.\n"
                           f"Question: {question}\nSearch query:").strip('"')
             return [q or question]
         if mode == "multi_query":
             out = self._llm(f"{ctx}Write 3 different search queries that would retrieve passages answering this "
-                            f"question from a collection of documents (acts, rules, treaties, reports). One per line, no numbering.\nQuestion: {question}")
+                            f"question from a collection of documents (acts, rules, regulations, reports). One per line, no numbering.\nQuestion: {question}")
             lines = [re.sub(r"^\s*(?:\d+[.)]|[-*•])\s*", "", l).strip() for l in out.splitlines()]
             return [question] + [l for l in lines if l][:3]
         if mode == "hyde":
